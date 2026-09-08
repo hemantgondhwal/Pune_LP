@@ -11,3 +11,6 @@ desktop.ini
 # Editor and IDE directories
 .vscode/
 .idea/
+
+# Archives
+*.zip
