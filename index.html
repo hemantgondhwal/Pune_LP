@@ -23,30 +23,35 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <style>
   :root {
+    --xl-navy: #1B2B6B;
+    --xl-navy-dark: #0F1A42;
+    --xl-navy-light: #253C8F;
     --xl-orange: #E8470A;
-    --xl-blue: #1A3A6B;
-    --xl-gold: #F5A623;
-    --xl-light: #FFF7F4;
-    --xl-dark: #0D1B35;
+    --xl-orange-warm: #F7941D;
+    --xl-ink: #0F172A;
+    --xl-muted: #64748B;
+    --xl-line: #E2E8F0;
+    --xl-bg-soft: #F8FAFC;
+    --xl-card: #FFFFFF;
   }
   * { font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
-  body { background: #fff; overflow-x: hidden; }
+  body { background: #fff; color: var(--xl-ink); overflow-x: hidden; }
 
   /* Navbar */
-  .navbar { background: rgba(255,255,255,0.97); backdrop-filter: blur(12px); border-bottom: 2px solid var(--xl-orange); }
+  .navbar { background: rgba(255,255,255,0.98); backdrop-filter: blur(12px); border-bottom: 1px solid var(--xl-line); }
 
   /* Hero */
   .hero-bg {
-    background: linear-gradient(135deg, var(--xl-dark) 0%, #12285a 50%, #1a3a6b 100%);
+    background: linear-gradient(135deg, #0A1628 0%, #0F203C 55%, #1B2B6B 100%);
     position: relative; overflow: hidden;
   }
   .hero-bg::before {
     content: ''; position: absolute; inset: 0;
-    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.025'%3E%3Ccircle cx='30' cy='30' r='1.5'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
   }
-  .hero-orb { position: absolute; border-radius: 50%; filter: blur(80px); pointer-events: none; animation: orbFloat 6s ease-in-out infinite; }
+  .hero-orb { position: absolute; border-radius: 50%; filter: blur(90px); pointer-events: none; }
 
-  @keyframes orbFloat { 0%,100%{transform:translateY(0) scale(1)} 50%{transform:translateY(-30px) scale(1.05)} }
+  @keyframes orbFloat { 0%,100%{transform:translateY(0) scale(1)} 50%{transform:translateY(-25px) scale(1.04)} }
   @keyframes fadeUp { from{opacity:0;transform:translateY(40px)} to{opacity:1;transform:translateY(0)} }
   @keyframes slideLeft { from{opacity:0;transform:translateX(60px)} to{opacity:1;transform:translateX(0)} }
   @keyframes pulse-ring { 0%{transform:scale(1);opacity:0.8} 100%{transform:scale(1.5);opacity:0} }
@@ -62,90 +67,86 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .animate-delay-3 { animation-delay: 0.6s; opacity: 0; }
 
   .shimmer-text {
-    background: linear-gradient(90deg, #fff 20%, var(--xl-gold) 50%, #fff 80%);
+    background: linear-gradient(90deg, #FFFFFF 20%, #93C5FD 50%, #FFFFFF 80%);
     background-size: 200% auto;
     -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
-    animation: shimmer 3s linear infinite;
+    animation: shimmer 4s linear infinite;
   }
 
   .btn-primary {
-    background: linear-gradient(135deg, var(--xl-orange), #ff6b35);
+    background: linear-gradient(135deg, var(--xl-orange), var(--xl-orange-warm));
     color: white; border: none; position: relative; overflow: hidden;
-    transition: all 0.3s ease; box-shadow: 0 8px 25px rgba(232,71,10,0.4);
+    transition: all 0.3s ease; box-shadow: 0 8px 20px rgba(232,71,10,0.3);
   }
   .btn-primary::before {
     content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
     transition: left 0.5s ease;
   }
   .btn-primary:hover::before { left: 100%; }
-  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 35px rgba(232,71,10,0.5); }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(232,71,10,0.42); }
 
   .btn-outline {
-    border: 2px solid white; color: white; background: transparent;
+    border: 1.5px solid rgba(255,255,255,0.6); color: white; background: rgba(255,255,255,0.06);
     transition: all 0.3s ease; position: relative; overflow: hidden;
   }
-  .btn-outline:hover { background: white; color: var(--xl-blue); transform: translateY(-2px); }
+  .btn-outline:hover { background: white; color: var(--xl-navy); border-color: white; transform: translateY(-2px); }
 
   /* Cards */
   .course-card {
     background: white; border-radius: 20px; overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    border: 1px solid rgba(232,71,10,0.1);
+    box-shadow: 0 4px 20px rgba(15,26,66,0.05);
+    transition: all 0.35s ease;
+    border: 1px solid var(--xl-line);
     position: relative;
   }
-  .course-card::before {
-    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
-    background: linear-gradient(90deg, var(--xl-orange), var(--xl-gold));
-  }
-  .course-card:hover { transform: translateY(-10px); box-shadow: 0 25px 50px rgba(0,0,0,0.15); }
+  .course-card:hover { transform: translateY(-6px); box-shadow: 0 18px 40px rgba(15,26,66,0.1); border-color: #CBD5E1; }
 
   .skill-pill {
-    transition: all 0.3s ease;
+    transition: all 0.25s ease;
     cursor: default;
   }
-  .skill-pill:hover { transform: translateY(-4px) scale(1.05); box-shadow: 0 8px 20px rgba(232,71,10,0.3); }
+  .skill-pill:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(15,26,66,0.08); border-color: #94A3B8; }
 
   /* Section reveal on scroll */
-  .reveal { opacity: 0; transform: translateY(50px); transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+  .reveal { opacity: 0; transform: translateY(35px); transition: all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
   .reveal.visible { opacity: 1; transform: translateY(0); }
 
   /* Marquee */
-  .marquee-track { display: flex; width: max-content; animation: marquee 20s linear infinite; }
+  .marquee-track { display: flex; width: max-content; animation: marquee 22s linear infinite; }
   .marquee-track:hover { animation-play-state: paused; }
 
   /* Stats */
   .stat-card {
-    background: linear-gradient(135deg, var(--xl-blue), #1a4a8a);
-    border-radius: 20px; color: white; position: relative; overflow: hidden;
-  }
-  .stat-card::after {
-    content: ''; position: absolute; top: -30px; right: -30px;
-    width: 100px; height: 100px; border-radius: 50%;
     background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px; color: white; position: relative; overflow: hidden;
+    backdrop-filter: blur(8px);
+    transition: all 0.3s ease;
   }
+  .stat-card:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); }
 
   /* Popup */
   .popup-overlay {
-    position: fixed; inset: 0; background: rgba(13,27,53,0.85);
+    position: fixed; inset: 0; background: rgba(10,22,40,0.85);
     z-index: 9999; display: flex; align-items: center; justify-content: center;
-    backdrop-filter: blur(6px);
-    animation: fadeUp 0.4s ease;
+    backdrop-filter: blur(8px);
+    animation: fadeUp 0.35s ease;
   }
   .popup-card {
     background: white; border-radius: 24px; max-width: 520px; width: 92%;
     position: relative; overflow: hidden;
-    box-shadow: 0 40px 80px rgba(0,0,0,0.3);
-    animation: slideLeft 0.4s ease;
+    box-shadow: 0 30px 70px rgba(10,22,40,0.35);
+    border: 1px solid var(--xl-line);
+    animation: slideLeft 0.35s ease;
   }
   .popup-card::before {
-    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 6px;
-    background: linear-gradient(90deg, var(--xl-orange), var(--xl-gold), var(--xl-blue));
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+    background: linear-gradient(90deg, var(--xl-navy), var(--xl-orange));
   }
 
   /* CTA Section */
-  .cta-section { background: linear-gradient(135deg, var(--xl-dark), var(--xl-blue)); }
+  .cta-section { background: linear-gradient(135deg, #0A1628 0%, #0F203C 55%, #1B2B6B 100%); }
 
   /* Floating sticky call */
   .floating-call {
@@ -153,90 +154,91 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     animation: fadeUp 1s ease 2s both;
   }
   .floating-call a {
-    width: 58px; height: 58px; border-radius: 50%;
+    width: 54px; height: 54px; border-radius: 50%;
     background: #25d366; display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 8px 25px rgba(37,211,102,0.5);
+    box-shadow: 0 6px 20px rgba(37,211,102,0.4);
     transition: all 0.3s ease; position: relative;
   }
   .floating-call a::before {
-    content: ''; position: absolute; inset: -6px; border-radius: 50%;
-    background: rgba(37,211,102,0.3); animation: pulse-ring 1.5s ease infinite;
+    content: ''; position: absolute; inset: -5px; border-radius: 50%;
+    background: rgba(37,211,102,0.25); animation: pulse-ring 1.5s ease infinite;
   }
-  .floating-call a:hover { transform: scale(1.15); }
+  .floating-call a:hover { transform: scale(1.1); }
 
   .floating-phone {
-    position: fixed; bottom: 20px; right: 20px; z-index: 9000;
+    position: fixed; bottom: 24px; right: 20px; z-index: 9000;
     animation: fadeUp 1s ease 2.2s both;
   }
   .floating-phone a {
-    width: 58px; height: 58px; border-radius: 50%;
-    background: var(--xl-orange); display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 8px 25px rgba(232,71,10,0.5);
+    width: 54px; height: 54px; border-radius: 50%;
+    background: var(--xl-navy); display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 6px 20px rgba(27,43,107,0.4);
+    border: 2px solid white;
     transition: all 0.3s ease; position: relative;
   }
   .floating-phone a::before {
-    content: ''; position: absolute; inset: -6px; border-radius: 50%;
-    background: rgba(232,71,10,0.3); animation: pulse-ring 1.5s ease 0.5s infinite;
+    content: ''; position: absolute; inset: -5px; border-radius: 50%;
+    background: rgba(27,43,107,0.25); animation: pulse-ring 1.5s ease 0.5s infinite;
   }
-  .floating-phone a:hover { transform: scale(1.15); }
+  .floating-phone a:hover { transform: scale(1.1); }
 
   /* Form inputs */
   .form-input {
-    width: 100%; padding: 14px 18px; border: 2px solid #e5e7eb; border-radius: 12px;
-    font-family: 'Poppins', sans-serif; font-size: 14px; transition: all 0.3s ease;
-    outline: none; background: #f9fafb;
+    width: 100%; padding: 13px 16px; border: 1.5px solid var(--xl-line); border-radius: 12px;
+    font-family: 'Poppins', sans-serif; font-size: 14px; transition: all 0.25s ease;
+    outline: none; background: #F8FAFC; color: var(--xl-ink);
   }
-  .form-input:focus { border-color: var(--xl-orange); background: white; box-shadow: 0 0 0 4px rgba(232,71,10,0.1); }
+  .form-input:focus { border-color: var(--xl-navy); background: white; box-shadow: 0 0 0 3px rgba(27,43,107,0.12); }
 
   /* Section heading decorator */
   .section-badge {
-    display: inline-block; background: linear-gradient(135deg, rgba(232,71,10,0.1), rgba(245,166,35,0.1));
-    color: var(--xl-orange); border: 1px solid rgba(232,71,10,0.3);
-    border-radius: 100px; padding: 6px 18px; font-size: 13px; font-weight: 600;
-    letter-spacing: 0.5px;
+    display: inline-flex; align-items: center; gap: 6px;
+    background: #EEF2FF; color: var(--xl-navy);
+    border: 1px solid #C7D2FE;
+    border-radius: 100px; padding: 5px 16px; font-size: 12px; font-weight: 700;
+    letter-spacing: 0.8px; text-transform: uppercase;
   }
 
   .gradient-heading {
-    background: linear-gradient(135deg, var(--xl-blue), var(--xl-orange));
-    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+    color: var(--xl-navy-dark);
   }
 
   /* Testimonial */
   .testimonial-card {
     background: white; border-radius: 20px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-    border: 1px solid rgba(26,58,107,0.1);
+    box-shadow: 0 4px 20px rgba(15,26,66,0.04);
+    border: 1px solid var(--xl-line);
     transition: all 0.3s ease;
   }
-  .testimonial-card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,0,0,0.12); }
+  .testimonial-card:hover { transform: translateY(-4px); box-shadow: 0 16px 32px rgba(15,26,66,0.08); border-color: #CBD5E1; }
 
   /* Steps */
   .step-line { position: relative; }
   .step-line::before {
     content: ''; position: absolute; left: 30px; top: 60px; bottom: -30px; width: 2px;
-    background: linear-gradient(to bottom, var(--xl-orange), transparent);
+    background: #CBD5E1;
   }
   .step-line:last-child::before { display: none; }
 
   /* FAQ */
-  .faq-item { border: 1px solid #e5e7eb; border-radius: 16px; overflow: hidden; transition: all 0.3s ease; }
-  .faq-item:hover { border-color: var(--xl-orange); }
+  .faq-item { border: 1px solid var(--xl-line); border-radius: 16px; overflow: hidden; transition: all 0.3s ease; background: white; }
+  .faq-item:hover { border-color: #94A3B8; }
   .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s ease; }
   .faq-answer.open { max-height: 200px; }
 
   /* Notification bar */
   .notif-bar {
-    background: linear-gradient(90deg, var(--xl-orange), var(--xl-gold), var(--xl-orange));
-    background-size: 200% auto; animation: shimmer 3s linear infinite;
+    background: #0A1628; border-bottom: 1px solid rgba(255,255,255,0.1);
   }
 
   /* Gallery / image section */
   .gallery-img {
     border-radius: 16px; overflow: hidden;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    box-shadow: 0 6px 20px rgba(15,26,66,0.08);
+    border: 1px solid var(--xl-line);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
   }
-  .gallery-img:hover { transform: scale(1.03); box-shadow: 0 16px 50px rgba(0,0,0,0.25); }
+  .gallery-img:hover { transform: scale(1.02); box-shadow: 0 14px 36px rgba(15,26,66,0.14); }
   .gallery-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
   /* Background image section */
@@ -247,7 +249,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   }
   .bg-image-section::before {
     content: ''; position: absolute; inset: 0;
-    background: linear-gradient(135deg, rgba(13,27,53,0.88) 0%, rgba(26,58,107,0.82) 100%);
+    background: linear-gradient(135deg, rgba(10,22,40,0.92) 0%, rgba(15,26,66,0.90) 100%);
   }
 
   @media (max-width: 768px) {
@@ -319,14 +321,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 
 <!-- Notification Bar -->
-<div class="notif-bar text-white text-center py-2 px-3 text-[11px] sm:text-xs md:text-sm font-bold tracking-wide flex flex-wrap items-center justify-center gap-1.5 sm:gap-2">
-  <span class="bg-red-600 text-white text-[10px] sm:text-xs uppercase px-2 py-0.5 rounded font-black animate-pulse">🔥 URGENT</span>
-  <span>Next Pune Offline &amp; Online Data Science Batch Starts This Week! Only <strong class="text-yellow-300 underline font-black">4 Seats Remaining</strong></span>
-  <a href="javascript:void(0)" onclick="openEnquiryPopup()" class="bg-white text-orange-600 hover:bg-yellow-300 px-3 py-0.5 rounded-full text-[11px] sm:text-xs font-black transition-all ml-1 shadow-sm whitespace-nowrap">Claim Seat Now →</a>
+<div class="notif-bar text-white text-center py-2 px-3 text-[11px] sm:text-xs md:text-sm font-medium tracking-wide flex flex-wrap items-center justify-center gap-2">
+  <span class="bg-orange-600 text-white text-[10px] sm:text-xs font-bold uppercase px-2.5 py-0.5 rounded-full tracking-wider">⚡ Pune Batch</span>
+  <span class="text-slate-200">Upcoming Pune Offline &amp; Online Data Science Batch &middot; Only <strong class="text-white font-bold underline decoration-orange-400">4 Seats Remaining</strong></span>
+  <a href="javascript:void(0)" onclick="openEnquiryPopup()" class="bg-white/15 hover:bg-white/25 text-white border border-white/25 px-3 py-0.5 rounded-full text-[11px] sm:text-xs font-bold transition-all ml-1 whitespace-nowrap">Claim Seat Now →</a>
 </div>
 
 <!-- NAVBAR -->
-<nav class="navbar sticky top-0 z-50 py-2.5 sm:py-3 px-3 sm:px-6 md:px-8 shadow-sm">
+<nav class="navbar sticky top-0 z-50 py-3 px-4 sm:px-6 md:px-8">
   <div class="max-w-6xl mx-auto flex items-center justify-between">
     <div class="flex items-center gap-2">
       <a href="index.html" class="flex items-center">
@@ -335,24 +337,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     
     <!-- Desktop Nav Links -->
-    <div class="hidden md:flex items-center gap-6 text-sm font-semibold text-gray-700">
-      <a href="#courses" class="hover:text-orange-600 transition-colors">Courses</a>
-      <a href="#why" class="hover:text-orange-600 transition-colors">Why Us</a>
-      <a href="#placements" class="hover:text-orange-600 transition-colors">Placements</a>
-      <a href="#branches" class="hover:text-orange-600 transition-colors">Pune Campus</a>
-      <a href="#faq" class="hover:text-orange-600 transition-colors">FAQ</a>
+    <div class="hidden md:flex items-center gap-7 text-sm font-semibold text-slate-700">
+      <a href="#courses" class="hover:text-blue-900 transition-colors">Courses</a>
+      <a href="#why" class="hover:text-blue-900 transition-colors">Why Us</a>
+      <a href="#placements" class="hover:text-blue-900 transition-colors">Placements</a>
+      <a href="#branches" class="hover:text-blue-900 transition-colors">Pune Campus</a>
+      <a href="#faq" class="hover:text-blue-900 transition-colors">FAQ</a>
     </div>
 
     <!-- Actions: Call & CTA & Mobile Hamburger -->
-    <div class="flex items-center gap-2 sm:gap-3">
-      <a href="tel:+917428703467" class="hidden lg:flex items-center gap-1.5 text-sm font-bold text-blue-900 hover:text-orange-600 transition-colors">
-        <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+    <div class="flex items-center gap-2 sm:gap-4">
+      <a href="tel:+917428703467" class="hidden lg:flex items-center gap-2 text-sm font-bold text-slate-800 hover:text-blue-900 transition-colors">
+        <svg width="15" height="15" fill="currentColor" class="text-blue-900" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
         +91 74287 03467
       </a>
-      <a href="javascript:void(0)" onclick="openEnquiryPopup()" class="btn-primary px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-bold whitespace-nowrap shadow-sm">Free Demo</a>
+      <a href="javascript:void(0)" onclick="openEnquiryPopup()" class="btn-primary px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-bold whitespace-nowrap shadow-sm">Free Demo</a>
 
       <!-- Mobile Hamburger Button -->
-      <button id="mobileNavToggle" onclick="toggleMobileNav()" aria-label="Toggle Navigation Menu" class="md:hidden w-9 h-9 flex items-center justify-center rounded-xl bg-orange-50 hover:bg-orange-100 text-orange-600 transition-colors">
+      <button id="mobileNavToggle" onclick="toggleMobileNav()" aria-label="Toggle Navigation Menu" class="md:hidden w-9 h-9 flex items-center justify-center rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors">
         <svg id="hamburgerIcon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
         <svg id="closeNavIcon" class="hidden" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12"/></svg>
       </button>
@@ -360,29 +362,29 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 
   <!-- Mobile Dropdown Menu -->
-  <div id="mobileNavDrawer" class="hidden md:hidden border-t border-gray-100 bg-white/95 backdrop-blur-lg px-4 py-4 mt-2 rounded-2xl shadow-xl">
-    <div class="flex flex-col gap-2.5 text-sm font-semibold text-gray-700">
-      <a href="#courses" onclick="toggleMobileNav()" class="px-3 py-2 rounded-xl hover:bg-orange-50 hover:text-orange-600 transition-colors flex items-center gap-2">
+  <div id="mobileNavDrawer" class="hidden md:hidden border-t border-slate-100 bg-white/98 backdrop-blur-lg px-4 py-4 mt-2 rounded-2xl shadow-xl">
+    <div class="flex flex-col gap-2.5 text-sm font-semibold text-slate-700">
+      <a href="#courses" onclick="toggleMobileNav()" class="px-3 py-2 rounded-xl hover:bg-slate-50 hover:text-blue-900 transition-colors flex items-center gap-2">
         <span>📚</span> Courses &amp; Programs
       </a>
-      <a href="#why" onclick="toggleMobileNav()" class="px-3 py-2 rounded-xl hover:bg-orange-50 hover:text-orange-600 transition-colors flex items-center gap-2">
+      <a href="#why" onclick="toggleMobileNav()" class="px-3 py-2 rounded-xl hover:bg-slate-50 hover:text-blue-900 transition-colors flex items-center gap-2">
         <span>⭐</span> Why XL Academy
       </a>
-      <a href="#placements" onclick="toggleMobileNav()" class="px-3 py-2 rounded-xl hover:bg-orange-50 hover:text-orange-600 transition-colors flex items-center gap-2">
+      <a href="#placements" onclick="toggleMobileNav()" class="px-3 py-2 rounded-xl hover:bg-slate-50 hover:text-blue-900 transition-colors flex items-center gap-2">
         <span>💼</span> 100% Placement Support
       </a>
-      <a href="#branches" onclick="toggleMobileNav()" class="px-3 py-2 rounded-xl hover:bg-orange-50 hover:text-orange-600 transition-colors flex items-center gap-2">
+      <a href="#branches" onclick="toggleMobileNav()" class="px-3 py-2 rounded-xl hover:bg-slate-50 hover:text-blue-900 transition-colors flex items-center gap-2">
         <span>📍</span> Pune Campus &amp; Centers
       </a>
-      <a href="#faq" onclick="toggleMobileNav()" class="px-3 py-2 rounded-xl hover:bg-orange-50 hover:text-orange-600 transition-colors flex items-center gap-2">
+      <a href="#faq" onclick="toggleMobileNav()" class="px-3 py-2 rounded-xl hover:bg-slate-50 hover:text-blue-900 transition-colors flex items-center gap-2">
         <span>❓</span> Frequently Asked Questions
       </a>
-      <div class="pt-2 border-t border-gray-100 flex gap-2">
-        <a href="tel:+917428703467" class="flex-1 py-2.5 px-3 bg-blue-900 text-white rounded-xl text-center text-xs font-bold flex items-center justify-center gap-1.5 shadow-sm">
+      <div class="pt-2 border-t border-slate-100 flex gap-2">
+        <a href="tel:+917428703467" class="flex-1 py-2.5 px-3 bg-slate-900 text-white rounded-xl text-center text-xs font-bold flex items-center justify-center gap-1.5 shadow-sm">
           <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
           Call Us
         </a>
-        <a href="https://wa.me/917428703467?text=Hi%2C%20I%20want%20to%20know%20more%20about%20your%20Data%20Analytics%20%26%20Data%20Science%20courses%20at%20the%20Pune%20branch." target="_blank" class="flex-1 py-2.5 px-3 bg-green-500 text-white rounded-xl text-center text-xs font-bold flex items-center justify-center gap-1.5 shadow-sm">
+        <a href="https://wa.me/917428703467?text=Hi%2C%20I%20want%20to%20know%20more%20about%20your%20Data%20Analytics%20%26%20Data%20Science%20courses%20at%20the%20Pune%20branch." target="_blank" class="flex-1 py-2.5 px-3 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl text-center text-xs font-bold flex items-center justify-center gap-1.5 shadow-sm">
           <svg width="13" height="13" fill="white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
           WhatsApp
         </a>
@@ -392,15 +394,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </nav>
 
 <!-- HERO SECTION -->
-<section class="hero-bg py-12 sm:py-16 md:py-24 px-4 relative">
-  <div class="hero-orb w-72 sm:w-96 h-72 sm:h-96 top-[-60px] right-[-60px] opacity-20" style="background: var(--xl-orange);"></div>
-  <div class="hero-orb w-52 sm:w-64 h-52 sm:h-64 bottom-[-30px] left-[-30px] opacity-15" style="background: var(--xl-gold); animation-delay: 3s;"></div>
+<section class="hero-bg py-14 sm:py-18 md:py-24 px-4 relative">
+  <div class="hero-orb w-80 sm:w-96 h-80 sm:h-96 top-[-40px] right-[-40px] opacity-10" style="background: #2563EB;"></div>
+  <div class="hero-orb w-64 h-64 bottom-[-20px] left-[-20px] opacity-05" style="background: #1D4ED8;"></div>
 
   <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 md:gap-12 items-center relative z-10">
     <div>
-      <div class="inline-flex items-center gap-2 bg-orange-500/20 text-orange-200 px-3.5 sm:px-4 py-2 rounded-full text-xs md:text-sm font-bold mb-4 border border-orange-400/40 animate-fade-up">
-        <span class="w-2.5 h-2.5 rounded-full bg-red-500 animate-ping"></span>
-        🔥 #1 Data Science &amp; Analytics Training Institute in Pune
+      <div class="inline-flex items-center gap-2 bg-white/10 text-white px-4 py-2 rounded-full text-xs md:text-sm font-semibold mb-4 border border-white/15 backdrop-blur-md animate-fade-up">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        #1 Data Science &amp; Analytics Training Institute in Pune
       </div>
 
       <h1 class="hero-title text-3xl sm:text-4xl md:text-5xl font-black text-white leading-tight mb-4 animate-fade-up animate-delay-1">
@@ -408,21 +410,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </h1>
 
       <!-- Urgency Countdown Timer Widget -->
-      <div class="bg-white/10 backdrop-blur-md border border-amber-400/40 rounded-xl p-3 sm:p-3.5 mb-6 animate-fade-up animate-delay-2 flex flex-col sm:flex-row items-center justify-between gap-3">
-        <div class="flex items-center gap-2 text-amber-300 text-xs md:text-sm font-bold">
-          <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm1 10.59l3.3 3.3-1.42 1.42L11 13V7h2v5.59z"/></svg>
-          <span>⚡ Special Discount &amp; Seats Closing In:</span>
+      <div class="bg-white/10 backdrop-blur-md border border-white/15 rounded-xl p-3 sm:p-3.5 mb-6 animate-fade-up animate-delay-2 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div class="flex items-center gap-2 text-slate-200 text-xs md:text-sm font-semibold">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" class="text-amber-400" viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm1 10.59l3.3 3.3-1.42 1.42L11 13V7h2v5.59z"/></svg>
+          <span>Batch Starting Soon &middot; Seats Closing In:</span>
         </div>
-        <div class="flex items-center gap-1.5 text-white font-black text-xs sm:text-sm" id="heroCountdown">
-          <span class="bg-orange-600 px-2 sm:px-2.5 py-1 rounded-lg border border-orange-400 shadow-sm" id="cdDays">01d</span> :
-          <span class="bg-orange-600 px-2 sm:px-2.5 py-1 rounded-lg border border-orange-400 shadow-sm" id="cdHours">14h</span> :
-          <span class="bg-orange-600 px-2 sm:px-2.5 py-1 rounded-lg border border-orange-400 shadow-sm" id="cdMins">32m</span> :
-          <span class="bg-orange-600 px-2 sm:px-2.5 py-1 rounded-lg border border-orange-400 shadow-sm" id="cdSecs">45s</span>
+        <div class="flex items-center gap-1.5 text-white font-mono font-bold text-xs sm:text-sm" id="heroCountdown">
+          <span class="bg-white/15 px-2.5 py-1 rounded-lg border border-white/20 shadow-sm" id="cdDays">01d</span> :
+          <span class="bg-white/15 px-2.5 py-1 rounded-lg border border-white/20 shadow-sm" id="cdHours">14h</span> :
+          <span class="bg-white/15 px-2.5 py-1 rounded-lg border border-white/20 shadow-sm" id="cdMins">32m</span> :
+          <span class="bg-white/15 px-2.5 py-1 rounded-lg border border-white/20 shadow-sm" id="cdSecs">45s</span>
         </div>
       </div>
 
-      <p class="text-blue-200 text-sm sm:text-base md:text-lg mb-6 leading-relaxed animate-fade-up animate-delay-2">
-        Industry-experienced trainers · Real-world projects · 100% placement assistance in Pune IT Hubs (Hinjewadi, Kharadi, Baner &amp; Magarpatta)
+      <p class="text-slate-300 text-sm sm:text-base md:text-lg mb-6 leading-relaxed animate-fade-up animate-delay-2">
+        Industry-experienced trainers &middot; Real-world projects &middot; 100% placement assistance in Pune IT Hubs (Hinjewadi, Kharadi, Baner &amp; Magarpatta)
       </p>
 
       <div class="flex flex-col sm:flex-row flex-wrap gap-3 mb-8 animate-fade-up animate-delay-3">
@@ -434,29 +436,29 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
           Call Now
         </a>
-        <a href="https://wa.me/917428703467?text=Hi%2C%20I%20am%20interested%20in%20Data%20Analytics%20%26%20Data%20Science%20course%20at%20the%20Pune%20branch.%20Please%20send%20details." target="_blank" class="bg-green-500 hover:bg-green-600 text-white px-6 py-3.5 rounded-full text-sm md:text-base font-bold inline-flex items-center justify-center gap-2 transition-all shadow-md w-full sm:w-auto text-center">
+        <a href="https://wa.me/917428703467?text=Hi%2C%20I%20am%20interested%20in%20Data%20Analytics%20%26%20Data%20Science%20course%20at%20the%20Pune%20branch.%20Please%20send%20details." target="_blank" class="bg-emerald-600 hover:bg-emerald-500 text-white px-6 py-3.5 rounded-full text-sm md:text-base font-bold inline-flex items-center justify-center gap-2 transition-all shadow-md w-full sm:w-auto text-center">
           <svg width="18" height="18" fill="white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          WhatsApp Us
+          WhatsApp
         </a>
       </div>
       <!-- Hero trust signals -->
-      <div class="flex flex-wrap gap-2.5 sm:gap-4 text-white/85 text-[11px] sm:text-xs md:text-sm animate-fade-up animate-delay-3">
-        <span class="flex items-center gap-1.5"><svg width="15" height="15" fill="#22c55e" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> No Coding Needed</span>
-        <span class="flex items-center gap-1.5"><svg width="15" height="15" fill="#22c55e" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> Easy EMI Available</span>
-        <span class="flex items-center gap-1.5"><svg width="15" height="15" fill="#22c55e" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> IBM + Microsoft Cert</span>
+      <div class="flex flex-wrap gap-3 sm:gap-5 text-slate-300 text-[11px] sm:text-xs md:text-sm animate-fade-up animate-delay-3">
+        <span class="flex items-center gap-1.5"><svg width="15" height="15" fill="#10B981" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> No Coding Needed</span>
+        <span class="flex items-center gap-1.5"><svg width="15" height="15" fill="#10B981" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> Easy EMI Available</span>
+        <span class="flex items-center gap-1.5"><svg width="15" height="15" fill="#10B981" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> IBM + Microsoft Cert</span>
       </div>
     </div>
 
     <!-- Hero Enquiry Form -->
-    <div class="animate-slide-left animate-delay-2 bg-white rounded-2xl p-5 sm:p-7 md:p-8 shadow-2xl relative overflow-hidden">
-      <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-orange-500 via-yellow-400 to-blue-900"></div>
+    <div class="animate-slide-left animate-delay-2 bg-white rounded-2xl p-5 sm:p-7 md:p-8 shadow-2xl relative overflow-hidden border border-slate-200">
+      <div class="absolute top-0 left-0 right-0 h-1.5 bg-[#1B2B6B]"></div>
       <div class="text-center mb-5">
-        <div class="inline-flex items-center gap-2 bg-red-100 text-red-600 text-xs font-bold px-3 py-1.5 rounded-full mb-3">
+        <div class="inline-flex items-center gap-2 bg-slate-100 text-slate-800 text-xs font-semibold px-3 py-1 rounded-full mb-3 border border-slate-200">
           <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
-          ⚡ Only 4 Seats Remaining for Pune Batch!
+          Only 4 Seats Remaining for Pune Batch
         </div>
-        <h3 class="text-xl font-black text-blue-900 mb-1">Enquire Now — Pune Batch</h3>
-        <p class="text-gray-500 text-xs md:text-sm">Our Pune career counsellor will call you within 2 hours</p>
+        <h3 class="text-xl font-black text-slate-900 mb-1">Enquire Now — Pune Batch</h3>
+        <p class="text-slate-500 text-xs md:text-sm">Our Pune career counsellor will call you within 2 hours</p>
       </div>
       <form id="heroEnquiryForm">
         <input type="hidden" name="page_url" id="heroFormUrl" />
@@ -483,69 +485,69 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div>
             <input type="text" name="city" required value="Pune" placeholder="City / Area * (e.g. Pune, Wakad, Hinjewadi, Kharadi)" class="form-input" />
           </div>
-          <button type="submit" id="heroSubmitBtn" class="btn-primary w-full py-4 rounded-xl font-bold text-base flex items-center justify-center gap-2 shadow-lg">
+          <button type="submit" id="heroSubmitBtn" class="btn-primary w-full py-3.5 rounded-xl font-bold text-base flex items-center justify-center gap-2 shadow-lg">
             <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             Book Free Demo Class
           </button>
         </div>
-        <p class="text-xs text-gray-400 text-center mt-3 flex items-center justify-center gap-1">
+        <p class="text-xs text-slate-400 text-center mt-3 flex items-center justify-center gap-1">
           <svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>
           Your information is 100% safe &amp; will not be shared.
         </p>
       </form>
       <!-- Hero Form Success State -->
       <div id="heroFormSuccess" class="hidden text-center py-6">
-        <div class="w-16 h-16 mx-auto mb-4 bg-green-100 rounded-full flex items-center justify-center">
-          <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        <div class="w-16 h-16 mx-auto mb-4 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
         </div>
-        <h3 class="text-xl font-black text-green-700 mb-2">Thank You!</h3>
-        <p class="text-gray-500 text-sm">Our Pune counsellor will call you within 2 hours.<br>You can also call us directly at <a href="tel:+917428703467" class="text-orange-600 font-bold">+91 74287 03467</a></p>
+        <h3 class="text-xl font-black text-slate-900 mb-2">Thank You!</h3>
+        <p class="text-slate-600 text-sm">Our Pune counsellor will call you within 2 hours.<br>You can also call us directly at <a href="tel:+917428703467" class="text-blue-900 font-bold">+91 74287 03467</a></p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- STATS / NUMBERS SECTION (Below Hero) -->
-<section class="py-10 px-4" style="background: linear-gradient(135deg, var(--xl-dark) 0%, #12285a 100%);">
+<section class="py-10 px-4" style="background: #0B1528; border-bottom: 1px solid rgba(255,255,255,0.06);">
   <div class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-5 gap-4">
     <div class="stat-card p-6 text-center">
-      <div class="text-4xl font-black text-orange-400 mb-1">14+</div>
-      <div class="text-sm text-blue-200 font-medium">Years of Excellence</div>
+      <div class="text-4xl font-black text-white mb-1">14+</div>
+      <div class="text-xs text-slate-300 font-medium">Years of Excellence</div>
     </div>
     <div class="stat-card p-6 text-center">
-      <div class="text-4xl font-black text-yellow-400 mb-1">10K+</div>
-      <div class="text-sm text-blue-200 font-medium">Students Trained</div>
+      <div class="text-4xl font-black text-white mb-1">10K+</div>
+      <div class="text-xs text-slate-300 font-medium">Students Trained</div>
     </div>
     <div class="stat-card p-6 text-center">
-      <div class="text-4xl font-black text-green-400 mb-1">90%+</div>
-      <div class="text-sm text-blue-200 font-medium">Career Transformed</div>
+      <div class="text-4xl font-black text-white mb-1">90%+</div>
+      <div class="text-xs text-slate-300 font-medium">Career Transformed</div>
     </div>
     <div class="stat-card p-6 text-center">
-      <div class="text-4xl font-black text-pink-400 mb-1">8</div>
-      <div class="text-sm text-blue-200 font-medium">Cities · Branches</div>
+      <div class="text-4xl font-black text-white mb-1">8</div>
+      <div class="text-xs text-slate-300 font-medium">Cities &middot; Branches</div>
     </div>
     <div class="stat-card p-6 text-center col-span-2 md:col-span-1">
-      <div class="text-2xl font-black text-white mb-1">4–20 LPA</div>
-      <div class="text-sm text-blue-200 font-medium">Avg Alumni Salary</div>
+      <div class="text-2xl font-black text-amber-400 mb-1">4–20 LPA</div>
+      <div class="text-xs text-slate-300 font-medium">Avg Alumni Salary</div>
     </div>
   </div>
 </section>
 
 
 <!-- TOOLS / SKILLS MARQUEE -->
-<section style="background:#f9fafb; padding:40px 0; overflow:hidden; border-top:1px solid #f3f4f6; border-bottom:1px solid #f3f4f6;">
-  <p style="text-align:center; font-size:12px; font-weight:700; color:#6b7280; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:24px;">Tools &amp; Technologies You'll Master</p>
+<section style="background:#F8FAFC; padding:36px 0; overflow:hidden; border-top:1px solid #E2E8F0; border-bottom:1px solid #E2E8F0;">
+  <p style="text-align:center; font-size:12px; font-weight:700; color:#64748B; text-transform:uppercase; letter-spacing:0.12em; margin-bottom:20px;">Tools &amp; Technologies You'll Master</p>
   <div style="overflow:hidden;">
     <div class="marquee-track" style="gap:12px; padding:0 16px;">
 
       <!-- PYTHON -->
-      <div style="display:inline-flex;align-items:center;gap:8px;padding:10px 20px;background:white;border-radius:12px;border:1px solid #fed7aa;font-size:14px;font-weight:600;color:#1e3a8a;white-space:nowrap;box-shadow:0 1px 3px rgba(0,0,0,0.08);margin:0 6px;">
+      <div style="display:inline-flex;align-items:center;gap:8px;padding:9px 18px;background:white;border-radius:12px;border:1px solid #E2E8F0;font-size:13.5px;font-weight:600;color:#0F172A;white-space:nowrap;box-shadow:0 1px 2px rgba(15,23,42,0.04);margin:0 6px;">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M11.95 2C9.1 2 6.8 3.35 6.8 5.1v2.15h5.15V8H4.6C2.6 8 1 9.8 1 12s1.6 4 3.6 4H6.8v-2.6c0-2 1.6-3.65 3.55-3.65H15c1.85 0 3.2-1.4 3.2-3.1V5.1C18.2 3.35 15.85 2 11.95 2zm-2.4 2.15c.6 0 1.05.45 1.05 1.05s-.45 1.05-1.05 1.05-1.1-.45-1.1-1.05.5-1.05 1.1-1.05z" fill="#306998"/><path d="M12.05 22c2.85 0 5.15-1.35 5.15-3.1v-2.15h-5.15V16h7.35c2 0 3.6-1.8 3.6-4s-1.6-4-3.6-4H17.2v2.6c0 2-1.6 3.65-3.55 3.65H9c-1.85 0-3.2 1.4-3.2 3.1v2.55C5.8 21.65 8.15 22 12.05 22zm2.4-2.15c-.6 0-1.05-.45-1.05-1.05s.45-1.05 1.05-1.05 1.05.45 1.05 1.05-.45 1.05-1.05 1.05z" fill="#FFD43B"/></svg>
         Python
       </div>
 
       <!-- POWER BI -->
-      <div style="display:inline-flex;align-items:center;gap:8px;padding:10px 20px;background:white;border-radius:12px;border:1px solid #fed7aa;font-size:14px;font-weight:600;color:#1e3a8a;white-space:nowrap;box-shadow:0 1px 3px rgba(0,0,0,0.08);margin:0 6px;">
+      <div style="display:inline-flex;align-items:center;gap:8px;padding:9px 18px;background:white;border-radius:12px;border:1px solid #E2E8F0;font-size:13.5px;font-weight:600;color:#0F172A;white-space:nowrap;box-shadow:0 1px 2px rgba(15,23,42,0.04);margin:0 6px;">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
           <rect x="1" y="13" width="4" height="9" rx="1" fill="#F2C811"/>
           <rect x="7" y="9" width="4" height="13" rx="1" fill="#F2C811"/>
@@ -557,7 +559,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
 
       <!-- TABLEAU -->
-      <div style="display:inline-flex;align-items:center;gap:8px;padding:10px 20px;background:white;border-radius:12px;border:1px solid #fed7aa;font-size:14px;font-weight:600;color:#1e3a8a;white-space:nowrap;box-shadow:0 1px 3px rgba(0,0,0,0.08);margin:0 6px;">
+      <div style="display:inline-flex;align-items:center;gap:8px;padding:9px 18px;background:white;border-radius:12px;border:1px solid #E2E8F0;font-size:13.5px;font-weight:600;color:#0F172A;white-space:nowrap;box-shadow:0 1px 2px rgba(15,23,42,0.04);margin:0 6px;">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
           <rect x="10.5" y="1" width="3" height="8" rx="1" fill="#E97627"/>
           <rect x="10.5" y="15" width="3" height="8" rx="1" fill="#E97627"/>
@@ -569,7 +571,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
 
       <!-- SQL SERVER -->
-      <div style="display:inline-flex;align-items:center;gap:8px;padding:10px 20px;background:white;border-radius:12px;border:1px solid #fed7aa;font-size:14px;font-weight:600;color:#1e3a8a;white-space:nowrap;box-shadow:0 1px 3px rgba(0,0,0,0.08);margin:0 6px;">
+      <div style="display:inline-flex;align-items:center;gap:8px;padding:9px 18px;background:white;border-radius:12px;border:1px solid #E2E8F0;font-size:13.5px;font-weight:600;color:#0F172A;white-space:nowrap;box-shadow:0 1px 2px rgba(15,23,42,0.04);margin:0 6px;">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
           <ellipse cx="12" cy="6" rx="9" ry="3" fill="#CC2927"/>
           <path d="M3 6v4c0 1.66 4.03 3 9 3s9-1.34 9-3V6c0 1.66-4.03 3-9 3S3 7.66 3 6z" fill="#CC2927"/>
@@ -580,7 +582,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
 
       <!-- EXCEL -->
-      <div style="display:inline-flex;align-items:center;gap:8px;padding:10px 20px;background:white;border-radius:12px;border:1px solid #fed7aa;font-size:14px;font-weight:600;color:#1e3a8a;white-space:nowrap;box-shadow:0 1px 3px rgba(0,0,0,0.08);margin:0 6px;">
+      <div style="display:inline-flex;align-items:center;gap:8px;padding:9px 18px;background:white;border-radius:12px;border:1px solid #E2E8F0;font-size:13.5px;font-weight:600;color:#0F172A;white-space:nowrap;box-shadow:0 1px 2px rgba(15,23,42,0.04);margin:0 6px;">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
           <rect width="24" height="24" rx="3" fill="#1D6F42"/>
           <path d="M7 7l2.5 4L7 15h2l1.5-2.5L12 15h2l-2.5-4L14 7h-2l-1.5 2.5L9 7H7z" fill="white"/>
@@ -591,7 +593,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
 
       <!-- MACHINE LEARNING -->
-      <div style="display:inline-flex;align-items:center;gap:8px;padding:10px 20px;background:white;border-radius:12px;border:1px solid #fed7aa;font-size:14px;font-weight:600;color:#1e3a8a;white-space:nowrap;box-shadow:0 1px 3px rgba(0,0,0,0.08);margin:0 6px;">
+      <div style="display:inline-flex;align-items:center;gap:8px;padding:9px 18px;background:white;border-radius:12px;border:1px solid #E2E8F0;font-size:13.5px;font-weight:600;color:#0F172A;white-space:nowrap;box-shadow:0 1px 2px rgba(15,23,42,0.04);margin:0 6px;">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
           <circle cx="12" cy="12" r="2.5" fill="#E8470A"/>
           <circle cx="4" cy="8" r="2" fill="#E8470A"/>
@@ -611,7 +613,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
 
       <!-- STATISTICS -->
-      <div style="display:inline-flex;align-items:center;gap:8px;padding:10px 20px;background:white;border-radius:12px;border:1px solid #fed7aa;font-size:14px;font-weight:600;color:#1e3a8a;white-space:nowrap;box-shadow:0 1px 3px rgba(0,0,0,0.08);margin:0 6px;">
+      <div style="display:inline-flex;align-items:center;gap:8px;padding:9px 18px;background:white;border-radius:12px;border:1px solid #E2E8F0;font-size:13.5px;font-weight:600;color:#0F172A;white-space:nowrap;box-shadow:0 1px 2px rgba(15,23,42,0.04);margin:0 6px;">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
           <rect x="2" y="16" width="3" height="6" rx="1" fill="#1A3A6B"/>
           <rect x="7" y="11" width="3" height="11" rx="1" fill="#1A3A6B"/>
@@ -623,7 +625,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
 
       <!-- BIG DATA HADOOP -->
-      <div style="display:inline-flex;align-items:center;gap:8px;padding:10px 20px;background:white;border-radius:12px;border:1px solid #fed7aa;font-size:14px;font-weight:600;color:#1e3a8a;white-space:nowrap;box-shadow:0 1px 3px rgba(0,0,0,0.08);margin:0 6px;">
+      <div style="display:inline-flex;align-items:center;gap:8px;padding:9px 18px;background:white;border-radius:12px;border:1px solid #E2E8F0;font-size:13.5px;font-weight:600;color:#0F172A;white-space:nowrap;box-shadow:0 1px 2px rgba(15,23,42,0.04);margin:0 6px;">
         <svg width="20" height="20" viewBox="0 0 100 100" fill="none">
           <!-- Hadoop elephant simplified -->
           <path d="M30 70 L30 45 Q30 20 55 20 Q72 20 78 35 Q85 28 88 35 Q92 42 85 48 L85 65 Q85 72 78 72 L76 80 L70 72 L55 72 Q48 72 48 65 L45 78 L38 78 L30 70z" fill="#FBBF24"/>
@@ -634,7 +636,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
 
       <!-- VBA MACROS -->
-      <div style="display:inline-flex;align-items:center;gap:8px;padding:10px 20px;background:white;border-radius:12px;border:1px solid #fed7aa;font-size:14px;font-weight:600;color:#1e3a8a;white-space:nowrap;box-shadow:0 1px 3px rgba(0,0,0,0.08);margin:0 6px;">
+      <div style="display:inline-flex;align-items:center;gap:8px;padding:9px 18px;background:white;border-radius:12px;border:1px solid #E2E8F0;font-size:13.5px;font-weight:600;color:#0F172A;white-space:nowrap;box-shadow:0 1px 2px rgba(15,23,42,0.04);margin:0 6px;">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
           <rect width="24" height="24" rx="4" fill="#7B68EE"/>
           <path d="M7 8L3 12L7 16" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -645,7 +647,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
 
       <!-- AI / DEEP LEARNING -->
-      <div style="display:inline-flex;align-items:center;gap:8px;padding:10px 20px;background:white;border-radius:12px;border:1px solid #fed7aa;font-size:14px;font-weight:600;color:#1e3a8a;white-space:nowrap;box-shadow:0 1px 3px rgba(0,0,0,0.08);margin:0 6px;">
+      <div style="display:inline-flex;align-items:center;gap:8px;padding:9px 18px;background:white;border-radius:12px;border:1px solid #E2E8F0;font-size:13.5px;font-weight:600;color:#0F172A;white-space:nowrap;box-shadow:0 1px 2px rgba(15,23,42,0.04);margin:0 6px;">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
           <circle cx="3" cy="7" r="2" fill="#00BFFF"/>
           <circle cx="3" cy="12" r="2" fill="#00BFFF"/>
@@ -675,43 +677,43 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
 
       <!-- DUPLICATE SET FOR SEAMLESS LOOP -->
-      <div style="display:inline-flex;align-items:center;gap:8px;padding:10px 20px;background:white;border-radius:12px;border:1px solid #fed7aa;font-size:14px;font-weight:600;color:#1e3a8a;white-space:nowrap;box-shadow:0 1px 3px rgba(0,0,0,0.08);margin:0 6px;">
+      <div style="display:inline-flex;align-items:center;gap:8px;padding:9px 18px;background:white;border-radius:12px;border:1px solid #E2E8F0;font-size:13.5px;font-weight:600;color:#0F172A;white-space:nowrap;box-shadow:0 1px 2px rgba(15,23,42,0.04);margin:0 6px;">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M11.95 2C9.1 2 6.8 3.35 6.8 5.1v2.15h5.15V8H4.6C2.6 8 1 9.8 1 12s1.6 4 3.6 4H6.8v-2.6c0-2 1.6-3.65 3.55-3.65H15c1.85 0 3.2-1.4 3.2-3.1V5.1C18.2 3.35 15.85 2 11.95 2zm-2.4 2.15c.6 0 1.05.45 1.05 1.05s-.45 1.05-1.05 1.05-1.1-.45-1.1-1.05.5-1.05 1.1-1.05z" fill="#306998"/><path d="M12.05 22c2.85 0 5.15-1.35 5.15-3.1v-2.15h-5.15V16h7.35c2 0 3.6-1.8 3.6-4s-1.6-4-3.6-4H17.2v2.6c0 2-1.6 3.65-3.55 3.65H9c-1.85 0-3.2 1.4-3.2 3.1v2.55C5.8 21.65 8.15 22 12.05 22zm2.4-2.15c-.6 0-1.05-.45-1.05-1.05s.45-1.05 1.05-1.05 1.05.45 1.05 1.05-.45 1.05-1.05 1.05z" fill="#FFD43B"/></svg>
         Python
       </div>
-      <div style="display:inline-flex;align-items:center;gap:8px;padding:10px 20px;background:white;border-radius:12px;border:1px solid #fed7aa;font-size:14px;font-weight:600;color:#1e3a8a;white-space:nowrap;box-shadow:0 1px 3px rgba(0,0,0,0.08);margin:0 6px;">
+      <div style="display:inline-flex;align-items:center;gap:8px;padding:9px 18px;background:white;border-radius:12px;border:1px solid #E2E8F0;font-size:13.5px;font-weight:600;color:#0F172A;white-space:nowrap;box-shadow:0 1px 2px rgba(15,23,42,0.04);margin:0 6px;">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="1" y="13" width="4" height="9" rx="1" fill="#F2C811"/><rect x="7" y="9" width="4" height="13" rx="1" fill="#F2C811"/><rect x="13" y="4" width="4" height="18" rx="1" fill="#F2C811"/><rect x="19" y="1" width="4" height="21" rx="1" fill="#F2C811"/></svg>
         Power BI
       </div>
-      <div style="display:inline-flex;align-items:center;gap:8px;padding:10px 20px;background:white;border-radius:12px;border:1px solid #fed7aa;font-size:14px;font-weight:600;color:#1e3a8a;white-space:nowrap;box-shadow:0 1px 3px rgba(0,0,0,0.08);margin:0 6px;">
+      <div style="display:inline-flex;align-items:center;gap:8px;padding:9px 18px;background:white;border-radius:12px;border:1px solid #E2E8F0;font-size:13.5px;font-weight:600;color:#0F172A;white-space:nowrap;box-shadow:0 1px 2px rgba(15,23,42,0.04);margin:0 6px;">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="10.5" y="1" width="3" height="8" rx="1" fill="#E97627"/><rect x="10.5" y="15" width="3" height="8" rx="1" fill="#E97627"/><rect x="1" y="10.5" width="8" height="3" rx="1" fill="#E97627"/><rect x="15" y="10.5" width="8" height="3" rx="1" fill="#E97627"/><rect x="10" y="10" width="4" height="4" rx="0.5" fill="#5B9BD5"/></svg>
         Tableau
       </div>
-      <div style="display:inline-flex;align-items:center;gap:8px;padding:10px 20px;background:white;border-radius:12px;border:1px solid #fed7aa;font-size:14px;font-weight:600;color:#1e3a8a;white-space:nowrap;box-shadow:0 1px 3px rgba(0,0,0,0.08);margin:0 6px;">
+      <div style="display:inline-flex;align-items:center;gap:8px;padding:9px 18px;background:white;border-radius:12px;border:1px solid #E2E8F0;font-size:13.5px;font-weight:600;color:#0F172A;white-space:nowrap;box-shadow:0 1px 2px rgba(15,23,42,0.04);margin:0 6px;">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><ellipse cx="12" cy="6" rx="9" ry="3" fill="#CC2927"/><path d="M3 6v4c0 1.66 4.03 3 9 3s9-1.34 9-3V6c0 1.66-4.03 3-9 3S3 7.66 3 6z" fill="#CC2927"/><path d="M3 10v4c0 1.66 4.03 3 9 3s9-1.34 9-3v-4c0 1.66-4.03 3-9 3s-9-1.34-9-3z" fill="#A01F1D"/><path d="M3 14v4c0 1.66 4.03 3 9 3s9-1.34 9-3v-4c0 1.66-4.03 3-9 3s-9-1.34-9-3z" fill="#CC2927"/></svg>
         SQL Server
       </div>
-      <div style="display:inline-flex;align-items:center;gap:8px;padding:10px 20px;background:white;border-radius:12px;border:1px solid #fed7aa;font-size:14px;font-weight:600;color:#1e3a8a;white-space:nowrap;box-shadow:0 1px 3px rgba(0,0,0,0.08);margin:0 6px;">
+      <div style="display:inline-flex;align-items:center;gap:8px;padding:9px 18px;background:white;border-radius:12px;border:1px solid #E2E8F0;font-size:13.5px;font-weight:600;color:#0F172A;white-space:nowrap;box-shadow:0 1px 2px rgba(15,23,42,0.04);margin:0 6px;">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="3" fill="#1D6F42"/><path d="M7 7l2.5 4L7 15h2l1.5-2.5L12 15h2l-2.5-4L14 7h-2l-1.5 2.5L9 7H7z" fill="white"/><rect x="14" y="7" width="4" height="8" rx="0.5" fill="none" stroke="white" stroke-width="1"/><line x1="14" y1="11" x2="18" y2="11" stroke="white" stroke-width="1"/></svg>
         Advanced Excel
       </div>
-      <div style="display:inline-flex;align-items:center;gap:8px;padding:10px 20px;background:white;border-radius:12px;border:1px solid #fed7aa;font-size:14px;font-weight:600;color:#1e3a8a;white-space:nowrap;box-shadow:0 1px 3px rgba(0,0,0,0.08);margin:0 6px;">
+      <div style="display:inline-flex;align-items:center;gap:8px;padding:9px 18px;background:white;border-radius:12px;border:1px solid #E2E8F0;font-size:13.5px;font-weight:600;color:#0F172A;white-space:nowrap;box-shadow:0 1px 2px rgba(15,23,42,0.04);margin:0 6px;">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="2.5" fill="#E8470A"/><circle cx="4" cy="8" r="2" fill="#E8470A"/><circle cx="20" cy="8" r="2" fill="#E8470A"/><circle cx="4" cy="16" r="2" fill="#E8470A"/><circle cx="20" cy="16" r="2" fill="#E8470A"/><circle cx="12" cy="3" r="1.5" fill="#E8470A"/><circle cx="12" cy="21" r="1.5" fill="#E8470A"/><line x1="12" y1="9.5" x2="12" y2="4.5" stroke="#E8470A" stroke-width="1.2"/><line x1="12" y1="14.5" x2="12" y2="19.5" stroke="#E8470A" stroke-width="1.2"/><line x1="9.8" y1="10.8" x2="5.8" y2="9.2" stroke="#E8470A" stroke-width="1.2"/><line x1="14.2" y1="10.8" x2="18.2" y2="9.2" stroke="#E8470A" stroke-width="1.2"/><line x1="9.8" y1="13.2" x2="5.8" y2="14.8" stroke="#E8470A" stroke-width="1.2"/><line x1="14.2" y1="13.2" x2="18.2" y2="14.8" stroke="#E8470A" stroke-width="1.2"/></svg>
         Machine Learning
       </div>
-      <div style="display:inline-flex;align-items:center;gap:8px;padding:10px 20px;background:white;border-radius:12px;border:1px solid #fed7aa;font-size:14px;font-weight:600;color:#1e3a8a;white-space:nowrap;box-shadow:0 1px 3px rgba(0,0,0,0.08);margin:0 6px;">
+      <div style="display:inline-flex;align-items:center;gap:8px;padding:9px 18px;background:white;border-radius:12px;border:1px solid #E2E8F0;font-size:13.5px;font-weight:600;color:#0F172A;white-space:nowrap;box-shadow:0 1px 2px rgba(15,23,42,0.04);margin:0 6px;">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="2" y="16" width="3" height="6" rx="1" fill="#1A3A6B"/><rect x="7" y="11" width="3" height="11" rx="1" fill="#1A3A6B"/><rect x="12" y="7" width="3" height="15" rx="1" fill="#1A3A6B"/><rect x="17" y="13" width="3" height="9" rx="1" fill="#1A3A6B"/><path d="M2 15 Q7 3 12 6 Q17 9 22 12" stroke="#FF6B35" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
         Statistics
       </div>
-      <div style="display:inline-flex;align-items:center;gap:8px;padding:10px 20px;background:white;border-radius:12px;border:1px solid #fed7aa;font-size:14px;font-weight:600;color:#1e3a8a;white-space:nowrap;box-shadow:0 1px 3px rgba(0,0,0,0.08);margin:0 6px;">
+      <div style="display:inline-flex;align-items:center;gap:8px;padding:9px 18px;background:white;border-radius:12px;border:1px solid #E2E8F0;font-size:13.5px;font-weight:600;color:#0F172A;white-space:nowrap;box-shadow:0 1px 2px rgba(15,23,42,0.04);margin:0 6px;">
         <svg width="20" height="20" viewBox="0 0 100 100" fill="none"><path d="M30 70 L30 45 Q30 20 55 20 Q72 20 78 35 Q85 28 88 35 Q92 42 85 48 L85 65 Q85 72 78 72 L76 80 L70 72 L55 72 Q48 72 48 65 L45 78 L38 78 L30 70z" fill="#FBBF24"/><circle cx="70" cy="36" r="4" fill="#1F2937"/><path d="M30 52 Q18 55 15 65 Q18 75 30 70" fill="#F59E0B"/></svg>
         Big Data Hadoop
       </div>
-      <div style="display:inline-flex;align-items:center;gap:8px;padding:10px 20px;background:white;border-radius:12px;border:1px solid #fed7aa;font-size:14px;font-weight:600;color:#1e3a8a;white-space:nowrap;box-shadow:0 1px 3px rgba(0,0,0,0.08);margin:0 6px;">
+      <div style="display:inline-flex;align-items:center;gap:8px;padding:9px 18px;background:white;border-radius:12px;border:1px solid #E2E8F0;font-size:13.5px;font-weight:600;color:#0F172A;white-space:nowrap;box-shadow:0 1px 2px rgba(15,23,42,0.04);margin:0 6px;">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="4" fill="#7B68EE"/><path d="M7 8L3 12L7 16" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M17 8L21 12L17 16" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 6L10 18" stroke="white" stroke-width="2.2" stroke-linecap="round"/></svg>
         VBA Macros
       </div>
-      <div style="display:inline-flex;align-items:center;gap:8px;padding:10px 20px;background:white;border-radius:12px;border:1px solid #fed7aa;font-size:14px;font-weight:600;color:#1e3a8a;white-space:nowrap;box-shadow:0 1px 3px rgba(0,0,0,0.08);margin:0 6px;">
+      <div style="display:inline-flex;align-items:center;gap:8px;padding:9px 18px;background:white;border-radius:12px;border:1px solid #E2E8F0;font-size:13.5px;font-weight:600;color:#0F172A;white-space:nowrap;box-shadow:0 1px 2px rgba(15,23,42,0.04);margin:0 6px;">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="3" cy="7" r="2" fill="#00BFFF"/><circle cx="3" cy="12" r="2" fill="#00BFFF"/><circle cx="3" cy="17" r="2" fill="#00BFFF"/><circle cx="12" cy="5" r="2" fill="#0099CC"/><circle cx="12" cy="12" r="2" fill="#0099CC"/><circle cx="12" cy="19" r="2" fill="#0099CC"/><circle cx="21" cy="9" r="2" fill="#006B99"/><circle cx="21" cy="15" r="2" fill="#006B99"/><line x1="5" y1="7" x2="10" y2="5" stroke="#00BFFF" stroke-width="0.8" opacity="0.6"/><line x1="5" y1="7" x2="10" y2="12" stroke="#00BFFF" stroke-width="0.8" opacity="0.6"/><line x1="5" y1="12" x2="10" y2="12" stroke="#00BFFF" stroke-width="0.8" opacity="0.6"/><line x1="5" y1="17" x2="10" y2="19" stroke="#00BFFF" stroke-width="0.8" opacity="0.6"/><line x1="14" y1="5" x2="19" y2="9" stroke="#0099CC" stroke-width="0.8" opacity="0.6"/><line x1="14" y1="12" x2="19" y2="9" stroke="#0099CC" stroke-width="0.8" opacity="0.6"/><line x1="14" y1="12" x2="19" y2="15" stroke="#0099CC" stroke-width="0.8" opacity="0.6"/><line x1="14" y1="19" x2="19" y2="15" stroke="#0099CC" stroke-width="0.8" opacity="0.6"/></svg>
         AI / Deep Learning
       </div>
@@ -734,152 +736,152 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="course-card p-5 sm:p-7 md:p-8 group flex flex-col justify-between">
         <div>
           <!-- Course Banner Image -->
-          <div class="relative rounded-2xl overflow-hidden mb-5 aspect-[16/9] bg-gray-100 shadow-sm border border-orange-100/60">
+          <div class="relative rounded-2xl overflow-hidden mb-5 aspect-[16/9] bg-gray-100 shadow-sm border border-slate-200/80">
             <img src="images/course_python.jpg" alt="Data Analytics with Python Course in Pune" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
-            <div class="absolute top-3 left-3 bg-white/95 backdrop-blur-md text-orange-700 text-xs font-bold px-3 py-1 rounded-full shadow-md flex items-center gap-1">
+            <div class="absolute top-3 left-3 bg-[#1B2B6B] text-white text-xs font-bold px-3 py-1 rounded-full shadow-md flex items-center gap-1.5">
               <svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
               Most Popular
             </div>
-            <div class="absolute top-3 right-3 bg-white/95 backdrop-blur-md text-yellow-500 font-extrabold text-xs px-2.5 py-1 rounded-full shadow-md flex items-center gap-1">
-              ★ 4.8
+            <div class="absolute top-3 right-3 bg-white/95 backdrop-blur-md text-slate-800 font-extrabold text-xs px-2.5 py-1 rounded-full shadow-md flex items-center gap-1">
+              <span class="text-amber-500">★</span> 4.8
             </div>
           </div>
 
-          <h3 class="text-xl font-black text-blue-900 mb-2 group-hover:text-orange-600 transition-colors">Data Analytics with Python</h3>
-          <p class="text-gray-500 text-sm mb-4">Advanced Excel · SQL · Power BI · Tableau · Python</p>
+          <h3 class="text-xl font-black text-[#0F1A42] mb-2 group-hover:text-[#1B2B6B] transition-colors">Data Analytics with Python</h3>
+          <p class="text-slate-500 text-sm mb-4 font-medium">Advanced Excel · SQL · Power BI · Tableau · Python</p>
           <div class="flex flex-wrap gap-2 mb-5">
-            <span class="bg-blue-50 text-blue-700 text-xs px-3 py-1 rounded-full font-medium flex items-center gap-1">
+            <span class="bg-slate-100 text-slate-700 text-xs px-3 py-1 rounded-full font-medium flex items-center gap-1">
               <svg width="11" height="11" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>
               6 Months
             </span>
-            <span class="bg-green-50 text-green-700 text-xs px-3 py-1 rounded-full font-medium flex items-center gap-1">
+            <span class="bg-blue-50 text-[#1B2B6B] border border-blue-100/60 text-xs px-3 py-1 rounded-full font-medium flex items-center gap-1">
               <svg width="11" height="11" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
               Online &amp; Offline
             </span>
-            <span class="bg-purple-50 text-purple-700 text-xs px-3 py-1 rounded-full font-medium flex items-center gap-1">
+            <span class="bg-slate-100 text-slate-700 text-xs px-3 py-1 rounded-full font-medium flex items-center gap-1">
               <svg width="11" height="11" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
               Freshers to Professionals
             </span>
           </div>
-          <div class="bg-orange-50 rounded-xl p-4 mb-6 text-sm text-gray-700 leading-relaxed">
-            <strong>Career Outcomes:</strong> Data Analyst · Marketing Analyst · Product Data Analyst · Reporting Analyst
+          <div class="bg-slate-50 border border-slate-200/80 rounded-xl p-4 mb-6 text-sm text-slate-700 leading-relaxed">
+            <strong class="text-slate-900">Career Outcomes:</strong> Data Analyst · Marketing Analyst · Product Data Analyst · Reporting Analyst
           </div>
         </div>
-        <a href="javascript:void(0)" onclick="openEnquiryPopup()" class="btn-primary w-full py-3.5 rounded-xl font-bold text-center block text-sm shadow-md hover:shadow-lg">Enroll Now →</a>
+        <a href="javascript:void(0)" onclick="openEnquiryPopup()" class="btn-primary w-full py-3.5 rounded-xl font-bold text-center block text-sm shadow-sm hover:shadow-md transition-all">Enroll Now →</a>
       </div>
 
       <!-- Course 2 -->
       <div class="course-card p-5 sm:p-7 md:p-8 group flex flex-col justify-between">
         <div>
           <!-- Course Banner Image -->
-          <div class="relative rounded-2xl overflow-hidden mb-5 aspect-[16/9] bg-gray-100 shadow-sm border border-blue-100/60">
+          <div class="relative rounded-2xl overflow-hidden mb-5 aspect-[16/9] bg-gray-100 shadow-sm border border-slate-200/80">
             <img src="images/course_datascience.jpg" alt="Data Science with Machine Learning Course in Pune" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
-            <div class="absolute top-3 left-3 bg-white/95 backdrop-blur-md text-blue-700 text-xs font-bold px-3 py-1 rounded-full shadow-md flex items-center gap-1">
+            <div class="absolute top-3 left-3 bg-[#1B2B6B] text-white text-xs font-bold px-3 py-1 rounded-full shadow-md flex items-center gap-1.5">
               <svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71z"/></svg>
               Advanced
             </div>
-            <div class="absolute top-3 right-3 bg-white/95 backdrop-blur-md text-yellow-500 font-extrabold text-xs px-2.5 py-1 rounded-full shadow-md flex items-center gap-1">
-              ★ 4.8
+            <div class="absolute top-3 right-3 bg-white/95 backdrop-blur-md text-slate-800 font-extrabold text-xs px-2.5 py-1 rounded-full shadow-md flex items-center gap-1">
+              <span class="text-amber-500">★</span> 4.8
             </div>
           </div>
 
-          <h3 class="text-xl font-black text-blue-900 mb-2 group-hover:text-orange-600 transition-colors">Data Science with Machine Learning</h3>
-          <p class="text-gray-500 text-sm mb-4">Python · Statistics · ML · Excel · Tableau · Power BI · SQL</p>
+          <h3 class="text-xl font-black text-[#0F1A42] mb-2 group-hover:text-[#1B2B6B] transition-colors">Data Science with Machine Learning</h3>
+          <p class="text-slate-500 text-sm mb-4 font-medium">Python · Statistics · ML · Excel · Tableau · Power BI · SQL</p>
           <div class="flex flex-wrap gap-2 mb-5">
-            <span class="bg-blue-50 text-blue-700 text-xs px-3 py-1 rounded-full font-medium flex items-center gap-1">
+            <span class="bg-slate-100 text-slate-700 text-xs px-3 py-1 rounded-full font-medium flex items-center gap-1">
               <svg width="11" height="11" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>
               8 Months
             </span>
-            <span class="bg-green-50 text-green-700 text-xs px-3 py-1 rounded-full font-medium flex items-center gap-1">
+            <span class="bg-blue-50 text-[#1B2B6B] border border-blue-100/60 text-xs px-3 py-1 rounded-full font-medium flex items-center gap-1">
               <svg width="11" height="11" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
               Online &amp; Offline
             </span>
-            <span class="bg-purple-50 text-purple-700 text-xs px-3 py-1 rounded-full font-medium flex items-center gap-1">
+            <span class="bg-slate-100 text-slate-700 text-xs px-3 py-1 rounded-full font-medium flex items-center gap-1">
               <svg width="11" height="11" fill="currentColor" viewBox="0 0 24 24"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/></svg>
               Freshers to Professionals
             </span>
           </div>
-          <div class="bg-blue-50 rounded-xl p-4 mb-6 text-sm text-gray-700 leading-relaxed">
-            <strong>Career Outcomes:</strong> Data Scientist · ML Engineer · Project Head · AI/ML Developer
+          <div class="bg-slate-50 border border-slate-200/80 rounded-xl p-4 mb-6 text-sm text-slate-700 leading-relaxed">
+            <strong class="text-slate-900">Career Outcomes:</strong> Data Scientist · ML Engineer · Project Head · AI/ML Developer
           </div>
         </div>
-        <a href="javascript:void(0)" onclick="openEnquiryPopup()" class="btn-primary w-full py-3.5 rounded-xl font-bold text-center block text-sm shadow-md hover:shadow-lg">Enroll Now →</a>
+        <a href="javascript:void(0)" onclick="openEnquiryPopup()" class="btn-primary w-full py-3.5 rounded-xl font-bold text-center block text-sm shadow-sm hover:shadow-md transition-all">Enroll Now →</a>
       </div>
 
       <!-- Course 3 -->
       <div class="course-card p-5 sm:p-7 md:p-8 group flex flex-col justify-between">
         <div>
           <!-- Course Banner Image -->
-          <div class="relative rounded-2xl overflow-hidden mb-5 aspect-[16/9] bg-gray-100 shadow-sm border border-green-100/60">
+          <div class="relative rounded-2xl overflow-hidden mb-5 aspect-[16/9] bg-gray-100 shadow-sm border border-slate-200/80">
             <img src="images/course_analytics.jpg" alt="Data Analytics Course in Pune" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
-            <div class="absolute top-3 left-3 bg-white/95 backdrop-blur-md text-green-700 text-xs font-bold px-3 py-1 rounded-full shadow-md flex items-center gap-1">
+            <div class="absolute top-3 left-3 bg-slate-800 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md flex items-center gap-1.5">
               <svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
               Beginner Friendly
             </div>
-            <div class="absolute top-3 right-3 bg-white/95 backdrop-blur-md text-yellow-500 font-extrabold text-xs px-2.5 py-1 rounded-full shadow-md flex items-center gap-1">
-              ★ 4.9
+            <div class="absolute top-3 right-3 bg-white/95 backdrop-blur-md text-slate-800 font-extrabold text-xs px-2.5 py-1 rounded-full shadow-md flex items-center gap-1">
+              <span class="text-amber-500">★</span> 4.9
             </div>
           </div>
 
-          <h3 class="text-xl font-black text-blue-900 mb-2 group-hover:text-orange-600 transition-colors">Data Analytics</h3>
-          <p class="text-gray-500 text-sm mb-4">Advanced Excel · SQL · Power BI · Tableau</p>
+          <h3 class="text-xl font-black text-[#0F1A42] mb-2 group-hover:text-[#1B2B6B] transition-colors">Data Analytics</h3>
+          <p class="text-slate-500 text-sm mb-4 font-medium">Advanced Excel · SQL · Power BI · Tableau</p>
           <div class="flex flex-wrap gap-2 mb-5">
-            <span class="bg-blue-50 text-blue-700 text-xs px-3 py-1 rounded-full font-medium flex items-center gap-1">
+            <span class="bg-slate-100 text-slate-700 text-xs px-3 py-1 rounded-full font-medium flex items-center gap-1">
               <svg width="11" height="11" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>
               4 Months
             </span>
-            <span class="bg-green-50 text-green-700 text-xs px-3 py-1 rounded-full font-medium flex items-center gap-1">
+            <span class="bg-blue-50 text-[#1B2B6B] border border-blue-100/60 text-xs px-3 py-1 rounded-full font-medium flex items-center gap-1">
               <svg width="11" height="11" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
               Online &amp; Offline
             </span>
-            <span class="bg-orange-50 text-orange-700 text-xs px-3 py-1 rounded-full font-medium flex items-center gap-1">
+            <span class="bg-slate-100 text-slate-700 text-xs px-3 py-1 rounded-full font-medium flex items-center gap-1">
               <svg width="11" height="11" fill="currentColor" viewBox="0 0 24 24"><path d="M12 7V3H2v18h20V7H12zm-2 12H4v-2h6v2zm0-4H4v-2h6v2zm0-4H4V9h6v2zm0-4H4V5h6v2zm10 12h-8v-2h8v2zm0-4h-8v-2h8v2zm0-4h-8V9h8v2z"/></svg>
               Freshers to Professionals
             </span>
           </div>
-          <div class="bg-green-50 rounded-xl p-4 mb-6 text-sm text-gray-700 leading-relaxed">
-            <strong>Career Outcomes:</strong> Business Analyst · Operation Analyst · Marketing Analyst · Data Insights Analyst
+          <div class="bg-slate-50 border border-slate-200/80 rounded-xl p-4 mb-6 text-sm text-slate-700 leading-relaxed">
+            <strong class="text-slate-900">Career Outcomes:</strong> Business Analyst · Operation Analyst · Marketing Analyst · Data Insights Analyst
           </div>
         </div>
-        <a href="javascript:void(0)" onclick="openEnquiryPopup()" class="btn-primary w-full py-3.5 rounded-xl font-bold text-center block text-sm shadow-md hover:shadow-lg">Enroll Now →</a>
+        <a href="javascript:void(0)" onclick="openEnquiryPopup()" class="btn-primary w-full py-3.5 rounded-xl font-bold text-center block text-sm shadow-sm hover:shadow-md transition-all">Enroll Now →</a>
       </div>
 
       <!-- Course 4 -->
       <div class="course-card p-5 sm:p-7 md:p-8 group flex flex-col justify-between">
         <div>
           <!-- Course Banner Image -->
-          <div class="relative rounded-2xl overflow-hidden mb-5 aspect-[16/9] bg-gray-100 shadow-sm border border-yellow-100/60">
+          <div class="relative rounded-2xl overflow-hidden mb-5 aspect-[16/9] bg-gray-100 shadow-sm border border-slate-200/80">
             <img src="images/course_mis.jpg" alt="MIS and Reporting Course in Pune" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
-            <div class="absolute top-3 left-3 bg-white/95 backdrop-blur-md text-yellow-800 text-xs font-bold px-3 py-1 rounded-full shadow-md flex items-center gap-1">
+            <div class="absolute top-3 left-3 bg-slate-800 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md flex items-center gap-1.5">
               <svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6zm4 18H6V4h7v5h5v11z"/></svg>
               Office Professionals
             </div>
-            <div class="absolute top-3 right-3 bg-white/95 backdrop-blur-md text-yellow-500 font-extrabold text-xs px-2.5 py-1 rounded-full shadow-md flex items-center gap-1">
-              ★ 4.5
+            <div class="absolute top-3 right-3 bg-white/95 backdrop-blur-md text-slate-800 font-extrabold text-xs px-2.5 py-1 rounded-full shadow-md flex items-center gap-1">
+              <span class="text-amber-500">★</span> 4.5
             </div>
           </div>
 
-          <h3 class="text-xl font-black text-blue-900 mb-2 group-hover:text-orange-600 transition-colors">MIS &amp; Reporting</h3>
-          <p class="text-gray-500 text-sm mb-4">Advanced Excel · SQL · MIS Dashboards</p>
+          <h3 class="text-xl font-black text-[#0F1A42] mb-2 group-hover:text-[#1B2B6B] transition-colors">MIS &amp; Reporting</h3>
+          <p class="text-slate-500 text-sm mb-4 font-medium">Advanced Excel · SQL · MIS Dashboards</p>
           <div class="flex flex-wrap gap-2 mb-5">
-            <span class="bg-blue-50 text-blue-700 text-xs px-3 py-1 rounded-full font-medium flex items-center gap-1">
+            <span class="bg-slate-100 text-slate-700 text-xs px-3 py-1 rounded-full font-medium flex items-center gap-1">
               <svg width="11" height="11" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>
               4 Months
             </span>
-            <span class="bg-green-50 text-green-700 text-xs px-3 py-1 rounded-full font-medium flex items-center gap-1">
+            <span class="bg-blue-50 text-[#1B2B6B] border border-blue-100/60 text-xs px-3 py-1 rounded-full font-medium flex items-center gap-1">
               <svg width="11" height="11" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
               Online &amp; Offline
             </span>
-            <span class="bg-yellow-50 text-yellow-700 text-xs px-3 py-1 rounded-full font-medium flex items-center gap-1">
+            <span class="bg-slate-100 text-slate-700 text-xs px-3 py-1 rounded-full font-medium flex items-center gap-1">
               <svg width="11" height="11" fill="currentColor" viewBox="0 0 24 24"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/></svg>
               Freshers to Professionals
             </span>
           </div>
-          <div class="bg-yellow-50 rounded-xl p-4 mb-6 text-sm text-gray-700 leading-relaxed">
-            <strong>Career Outcomes:</strong> MIS Executive · MIS Analyst · Data Reporting Specialist
+          <div class="bg-slate-50 border border-slate-200/80 rounded-xl p-4 mb-6 text-sm text-slate-700 leading-relaxed">
+            <strong class="text-slate-900">Career Outcomes:</strong> MIS Executive · MIS Analyst · Data Reporting Specialist
           </div>
         </div>
-        <a href="javascript:void(0)" onclick="openEnquiryPopup()" class="btn-primary w-full py-3.5 rounded-xl font-bold text-center block text-sm shadow-md hover:shadow-lg">Enroll Now →</a>
+        <a href="javascript:void(0)" onclick="openEnquiryPopup()" class="btn-primary w-full py-3.5 rounded-xl font-bold text-center block text-sm shadow-sm hover:shadow-md transition-all">Enroll Now →</a>
       </div>
     </div>
 
@@ -888,54 +890,54 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </section>
 
 <!-- WHY US SECTION -->
-<section id="why" class="py-20 px-4" style="background: linear-gradient(135deg, #f8faff 0%, #fff7f4 100%);">
+<section id="why" class="py-20 px-4 bg-slate-50 border-t border-b border-slate-200/70">
   <div class="max-w-6xl mx-auto">
     <div class="text-center mb-14 reveal">
       <span class="section-badge">Why The XL Academy</span>
       <h2 class="text-3xl md:text-4xl font-black mt-4 mb-4 gradient-heading">What Makes Us India's Best?</h2>
     </div>
     <div class="grid md:grid-cols-3 gap-6 reveal">
-      <div class="bg-white rounded-2xl p-7 shadow-sm border border-orange-100 hover:shadow-lg hover:-translate-y-2 transition-all duration-300 group">
-        <div class="w-14 h-14 bg-orange-100 rounded-2xl flex items-center justify-center mb-5 group-hover:bg-orange-500 transition-colors">
-          <svg class="w-7 h-7 text-orange-500 group-hover:text-white transition-colors" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 14l9-5-9-5-9 5 9 5z"/><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg>
+      <div class="bg-white rounded-2xl p-7 shadow-sm border border-slate-200/80 hover:shadow-md hover:border-slate-300 hover:-translate-y-1 transition-all duration-300 group">
+        <div class="w-12 h-12 bg-blue-50 text-[#1B2B6B] rounded-xl flex items-center justify-center mb-5 group-hover:bg-[#1B2B6B] group-hover:text-white transition-all duration-200">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 14l9-5-9-5-9 5 9 5z"/><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg>
         </div>
-        <h3 class="text-lg font-black text-blue-900 mb-2">Industry-Experienced Trainers</h3>
-        <p class="text-gray-500 text-sm leading-relaxed">Learn from professionals who've worked at top MNCs &amp; startups with real domain expertise.</p>
+        <h3 class="text-lg font-bold text-slate-900 mb-2">Industry-Experienced Trainers</h3>
+        <p class="text-slate-500 text-sm leading-relaxed">Learn from professionals who've worked at top MNCs &amp; startups with real domain expertise.</p>
       </div>
-      <div class="bg-white rounded-2xl p-7 shadow-sm border border-orange-100 hover:shadow-lg hover:-translate-y-2 transition-all duration-300 group">
-        <div class="w-14 h-14 bg-orange-100 rounded-2xl flex items-center justify-center mb-5 group-hover:bg-orange-500 transition-colors">
-          <svg class="w-7 h-7 text-orange-500 group-hover:text-white transition-colors" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg>
+      <div class="bg-white rounded-2xl p-7 shadow-sm border border-slate-200/80 hover:shadow-md hover:border-slate-300 hover:-translate-y-1 transition-all duration-300 group">
+        <div class="w-12 h-12 bg-blue-50 text-[#1B2B6B] rounded-xl flex items-center justify-center mb-5 group-hover:bg-[#1B2B6B] group-hover:text-white transition-all duration-200">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg>
         </div>
-        <h3 class="text-lg font-black text-blue-900 mb-2">100% Practical Lab Training</h3>
-        <p class="text-gray-500 text-sm leading-relaxed">Hands-on projects, live datasets, and real-world case studies from day one.</p>
+        <h3 class="text-lg font-bold text-slate-900 mb-2">100% Practical Lab Training</h3>
+        <p class="text-slate-500 text-sm leading-relaxed">Hands-on projects, live datasets, and real-world case studies from day one.</p>
       </div>
-      <div class="bg-white rounded-2xl p-7 shadow-sm border border-orange-100 hover:shadow-lg hover:-translate-y-2 transition-all duration-300 group">
-        <div class="w-14 h-14 bg-orange-100 rounded-2xl flex items-center justify-center mb-5 group-hover:bg-orange-500 transition-colors">
-          <svg class="w-7 h-7 text-orange-500 group-hover:text-white transition-colors" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+      <div class="bg-white rounded-2xl p-7 shadow-sm border border-slate-200/80 hover:shadow-md hover:border-slate-300 hover:-translate-y-1 transition-all duration-300 group">
+        <div class="w-12 h-12 bg-blue-50 text-[#1B2B6B] rounded-xl flex items-center justify-center mb-5 group-hover:bg-[#1B2B6B] group-hover:text-white transition-all duration-200">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
         </div>
-        <h3 class="text-lg font-black text-blue-900 mb-2">100% Placement Assistance</h3>
-        <p class="text-gray-500 text-sm leading-relaxed">Resume building, mock interviews, LinkedIn optimization &amp; referrals to MNCs &amp; startups.</p>
+        <h3 class="text-lg font-bold text-slate-900 mb-2">100% Placement Assistance</h3>
+        <p class="text-slate-500 text-sm leading-relaxed">Resume building, mock interviews, LinkedIn optimization &amp; referrals to MNCs &amp; startups.</p>
       </div>
-      <div class="bg-white rounded-2xl p-7 shadow-sm border border-orange-100 hover:shadow-lg hover:-translate-y-2 transition-all duration-300 group">
-        <div class="w-14 h-14 bg-orange-100 rounded-2xl flex items-center justify-center mb-5 group-hover:bg-orange-500 transition-colors">
-          <svg class="w-7 h-7 text-orange-500 group-hover:text-white transition-colors" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+      <div class="bg-white rounded-2xl p-7 shadow-sm border border-slate-200/80 hover:shadow-md hover:border-slate-300 hover:-translate-y-1 transition-all duration-300 group">
+        <div class="w-12 h-12 bg-blue-50 text-[#1B2B6B] rounded-xl flex items-center justify-center mb-5 group-hover:bg-[#1B2B6B] group-hover:text-white transition-all duration-200">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
         </div>
-        <h3 class="text-lg font-black text-blue-900 mb-2">Small Batch Size</h3>
-        <p class="text-gray-500 text-sm leading-relaxed">Personal attention for every student with small, focused batches for better learning outcomes.</p>
+        <h3 class="text-lg font-bold text-slate-900 mb-2">Small Batch Size</h3>
+        <p class="text-slate-500 text-sm leading-relaxed">Personal attention for every student with small, focused batches for better learning outcomes.</p>
       </div>
-      <div class="bg-white rounded-2xl p-7 shadow-sm border border-orange-100 hover:shadow-lg hover:-translate-y-2 transition-all duration-300 group">
-        <div class="w-14 h-14 bg-orange-100 rounded-2xl flex items-center justify-center mb-5 group-hover:bg-orange-500 transition-colors">
-          <svg class="w-7 h-7 text-orange-500 group-hover:text-white transition-colors" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 10l4.553-2.069A1 1 0 0121 8.87v6.26a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+      <div class="bg-white rounded-2xl p-7 shadow-sm border border-slate-200/80 hover:shadow-md hover:border-slate-300 hover:-translate-y-1 transition-all duration-300 group">
+        <div class="w-12 h-12 bg-blue-50 text-[#1B2B6B] rounded-xl flex items-center justify-center mb-5 group-hover:bg-[#1B2B6B] group-hover:text-white transition-all duration-200">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 10l4.553-2.069A1 1 0 0121 8.87v6.26a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
         </div>
-        <h3 class="text-lg font-black text-blue-900 mb-2">Online &amp; Offline Modes</h3>
-        <p class="text-gray-500 text-sm leading-relaxed">Study from anywhere or attend our centres across 8 major Indian cities at your convenience.</p>
+        <h3 class="text-lg font-bold text-slate-900 mb-2">Online &amp; Offline Modes</h3>
+        <p class="text-slate-500 text-sm leading-relaxed">Study from anywhere or attend our centres across 8 major Indian cities at your convenience.</p>
       </div>
-      <div class="bg-white rounded-2xl p-7 shadow-sm border border-orange-100 hover:shadow-lg hover:-translate-y-2 transition-all duration-300 group">
-        <div class="w-14 h-14 bg-orange-100 rounded-2xl flex items-center justify-center mb-5 group-hover:bg-orange-500 transition-colors">
-          <svg class="w-7 h-7 text-orange-500 group-hover:text-white transition-colors" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+      <div class="bg-white rounded-2xl p-7 shadow-sm border border-slate-200/80 hover:shadow-md hover:border-slate-300 hover:-translate-y-1 transition-all duration-300 group">
+        <div class="w-12 h-12 bg-blue-50 text-[#1B2B6B] rounded-xl flex items-center justify-center mb-5 group-hover:bg-[#1B2B6B] group-hover:text-white transition-all duration-200">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
         </div>
-        <h3 class="text-lg font-black text-blue-900 mb-2">Recognized Certificate</h3>
-        <p class="text-gray-500 text-sm leading-relaxed">Receive industry-recognized certification upon completion that boosts your resume value.</p>
+        <h3 class="text-lg font-bold text-slate-900 mb-2">Recognized Certificate</h3>
+        <p class="text-slate-500 text-sm leading-relaxed">Receive industry-recognized certification upon completion that boosts your resume value.</p>
       </div>
     </div>
   </div>
@@ -944,26 +946,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- BACKGROUND IMAGE SECTION (Campus / Student Life) -->
 <section class="bg-image-section py-24 px-4">
   <div class="relative z-10 max-w-6xl mx-auto text-center">
-    <span class="section-badge" style="background: rgba(245,166,35,0.15); color: var(--xl-gold); border-color: rgba(245,166,35,0.3);">Our Campus Life</span>
+    <span class="section-badge" style="background: rgba(255,255,255,0.12); color: #FFFFFF; border-color: rgba(255,255,255,0.25);">Our Campus Life</span>
     <h2 class="text-3xl md:text-4xl font-black text-white mt-6 mb-4">Learn in a World-Class Environment</h2>
-    <p class="text-blue-200 max-w-2xl mx-auto mb-12 text-base leading-relaxed">State-of-the-art labs, expert-led classrooms, and a vibrant student community — designed to accelerate your data career.</p>
+    <p class="text-blue-100/90 max-w-2xl mx-auto mb-12 text-base leading-relaxed">State-of-the-art labs, expert-led classrooms, and a vibrant student community — designed to accelerate your data career.</p>
     <div class="grid md:grid-cols-3 gap-6 text-left">
       <div class="bg-white/10 border border-white/20 rounded-2xl p-6 backdrop-blur-sm hover:bg-white/15 transition-all">
-        <div class="w-12 h-12 bg-orange-500 rounded-xl flex items-center justify-center mb-4">
+        <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mb-4 text-white">
           <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17H3a2 2 0 01-2-2V5a2 2 0 012-2h14a2 2 0 012 2v10a2 2 0 01-2 2h-2"/></svg>
         </div>
         <h3 class="text-white font-black text-lg mb-2">Modern Computer Labs</h3>
         <p class="text-blue-200 text-sm leading-relaxed">High-performance systems with all tools pre-installed — Python, SQL, Power BI, Tableau ready on day one.</p>
       </div>
       <div class="bg-white/10 border border-white/20 rounded-2xl p-6 backdrop-blur-sm hover:bg-white/15 transition-all">
-        <div class="w-12 h-12 bg-yellow-500 rounded-xl flex items-center justify-center mb-4">
+        <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mb-4 text-white">
           <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
         </div>
         <h3 class="text-white font-black text-lg mb-2">Interactive Classroom</h3>
         <p class="text-blue-200 text-sm leading-relaxed">Small-batch interactive sessions with live project discussions, doubt clearing, and peer learning.</p>
       </div>
       <div class="bg-white/10 border border-white/20 rounded-2xl p-6 backdrop-blur-sm hover:bg-white/15 transition-all">
-        <div class="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center mb-4">
+        <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mb-4 text-white">
           <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
         </div>
         <h3 class="text-white font-black text-lg mb-2">Placement Dedicated Room</h3>
@@ -1012,7 +1014,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </section>
 
 <!-- HOW IT WORKS -->
-<section class="py-14 sm:py-20 px-4 bg-white" style="background: linear-gradient(135deg, #f8faff 0%, #fff7f4 100%);">
+<section class="py-14 sm:py-20 px-4 bg-white">
   <div class="max-w-4xl mx-auto">
     <div class="text-center mb-10 sm:mb-14 reveal">
       <span class="section-badge">Process</span>
@@ -1020,38 +1022,38 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <div class="space-y-2 reveal">
       <div class="step-line flex items-start gap-4 sm:gap-6 pb-8">
-        <div class="w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl flex items-center justify-center text-xl sm:text-2xl font-black text-white flex-shrink-0" style="background: linear-gradient(135deg, var(--xl-orange), #ff6b35);">1</div>
+        <div class="w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl flex items-center justify-center text-xl sm:text-2xl font-black text-white flex-shrink-0 shadow-md" style="background: linear-gradient(135deg, #1B2B6B, #0F1A42);">1</div>
         <div class="pt-1.5 sm:pt-3">
-          <h3 class="text-base sm:text-lg font-black text-blue-900 mb-1">Join Free Demo Class</h3>
-          <p class="text-gray-500 text-xs sm:text-sm">Attend a live demo session, meet the trainer, experience our teaching style — completely free.</p>
+          <h3 class="text-base sm:text-lg font-bold text-slate-900 mb-1">Join Free Demo Class</h3>
+          <p class="text-slate-500 text-xs sm:text-sm leading-relaxed">Attend a live demo session, meet the trainer, experience our teaching style — completely free.</p>
         </div>
       </div>
       <div class="step-line flex items-start gap-4 sm:gap-6 pb-8">
-        <div class="w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl flex items-center justify-center text-xl sm:text-2xl font-black text-white flex-shrink-0" style="background: linear-gradient(135deg, #1A3A6B, #2a5ab0);">2</div>
+        <div class="w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl flex items-center justify-center text-xl sm:text-2xl font-black text-white flex-shrink-0 shadow-md" style="background: linear-gradient(135deg, #1B2B6B, #0F1A42);">2</div>
         <div class="pt-1.5 sm:pt-3">
-          <h3 class="text-base sm:text-lg font-black text-blue-900 mb-1">Learn from Expert Trainers</h3>
-          <p class="text-gray-500 text-xs sm:text-sm">Structured curriculum delivered by industry professionals with hands-on practice every session.</p>
+          <h3 class="text-base sm:text-lg font-bold text-slate-900 mb-1">Learn from Expert Trainers</h3>
+          <p class="text-slate-500 text-xs sm:text-sm leading-relaxed">Structured curriculum delivered by industry professionals with hands-on practice every session.</p>
         </div>
       </div>
       <div class="step-line flex items-start gap-4 sm:gap-6 pb-8">
-        <div class="w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl flex items-center justify-center text-xl sm:text-2xl font-black text-white flex-shrink-0" style="background: linear-gradient(135deg, #F5A623, #e8470a);">3</div>
+        <div class="w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl flex items-center justify-center text-xl sm:text-2xl font-black text-white flex-shrink-0 shadow-md" style="background: linear-gradient(135deg, #1B2B6B, #0F1A42);">3</div>
         <div class="pt-1.5 sm:pt-3">
-          <h3 class="text-base sm:text-lg font-black text-blue-900 mb-1">Practice on Live Projects</h3>
-          <p class="text-gray-500 text-xs sm:text-sm">Work on real datasets and industry case studies to build a portfolio that impresses employers.</p>
+          <h3 class="text-base sm:text-lg font-bold text-slate-900 mb-1">Practice on Live Projects</h3>
+          <p class="text-slate-500 text-xs sm:text-sm leading-relaxed">Work on real datasets and industry case studies to build a portfolio that impresses employers.</p>
         </div>
       </div>
       <div class="step-line flex items-start gap-4 sm:gap-6 pb-8">
-        <div class="w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl flex items-center justify-center text-xl sm:text-2xl font-black text-white flex-shrink-0" style="background: linear-gradient(135deg, #6366f1, #8b5cf6);">4</div>
+        <div class="w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl flex items-center justify-center text-xl sm:text-2xl font-black text-white flex-shrink-0 shadow-md" style="background: linear-gradient(135deg, #1B2B6B, #0F1A42);">4</div>
         <div class="pt-1.5 sm:pt-3">
-          <h3 class="text-base sm:text-lg font-black text-blue-900 mb-1">Resume &amp; Interview Preparation</h3>
-          <p class="text-gray-500 text-xs sm:text-sm">Get your resume polished, LinkedIn optimized, and mock interviews done with real feedback.</p>
+          <h3 class="text-base sm:text-lg font-bold text-slate-900 mb-1">Resume &amp; Interview Preparation</h3>
+          <p class="text-slate-500 text-xs sm:text-sm leading-relaxed">Get your resume polished, LinkedIn optimized, and mock interviews done with real feedback.</p>
         </div>
       </div>
       <div class="step-line flex items-start gap-4 sm:gap-6">
-        <div class="w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl flex items-center justify-center text-xl sm:text-2xl font-black text-white flex-shrink-0" style="background: linear-gradient(135deg, #059669, #10b981);">5</div>
+        <div class="w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl flex items-center justify-center text-xl sm:text-2xl font-black text-white flex-shrink-0 shadow-md" style="background: linear-gradient(135deg, #1B2B6B, #0F1A42);">5</div>
         <div class="pt-1.5 sm:pt-3">
-          <h3 class="text-base sm:text-lg font-black text-blue-900 mb-1">Start Your Dream Career</h3>
-          <p class="text-gray-500 text-xs sm:text-sm">Get placement support, referrals, and job drives to land your first or next high-paying data role.</p>
+          <h3 class="text-base sm:text-lg font-bold text-slate-900 mb-1">Start Your Dream Career</h3>
+          <p class="text-slate-500 text-xs sm:text-sm leading-relaxed">Get placement support, referrals, and job drives to land your first or next high-paying data role.</p>
         </div>
       </div>
     </div>
@@ -1062,76 +1064,76 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section id="placements" class="py-20 px-4" style="background: var(--xl-dark);">
   <div class="max-w-6xl mx-auto">
     <div class="text-center mb-14 reveal">
-      <span class="section-badge" style="background: rgba(245,166,35,0.15); color: var(--xl-gold); border-color: rgba(245,166,35,0.3);">Career Outcomes</span>
+      <span class="section-badge" style="background: rgba(255,255,255,0.1); color: #FFFFFF; border-color: rgba(255,255,255,0.2);">Career Outcomes</span>
       <h2 class="text-3xl md:text-4xl font-black mt-4 mb-4 text-white">Our Students Are Working At</h2>
     </div>
     <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-16 reveal">
-      <div class="bg-white/5 border border-white/10 rounded-2xl p-5 text-center hover:bg-white/10 transition-all hover:-translate-y-1">
-        <div class="w-12 h-12 mx-auto mb-3 bg-blue-500/20 rounded-xl flex items-center justify-center">
-          <svg class="w-6 h-6 text-blue-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg>
+      <div class="bg-white/[0.04] border border-white/10 rounded-2xl p-5 text-center hover:bg-white/[0.08] hover:border-white/20 transition-all hover:-translate-y-1">
+        <div class="w-12 h-12 mx-auto mb-3 bg-white/10 rounded-xl flex items-center justify-center text-blue-300">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg>
         </div>
-        <div class="text-white font-bold">Sr. Data Analyst</div>
-        <div class="text-blue-300 text-sm mt-1">₹8–15 LPA</div>
+        <div class="text-white font-bold text-sm sm:text-base">Sr. Data Analyst</div>
+        <div class="text-emerald-400 font-semibold text-sm mt-1">₹8–15 LPA</div>
       </div>
-      <div class="bg-white/5 border border-white/10 rounded-2xl p-5 text-center hover:bg-white/10 transition-all hover:-translate-y-1">
-        <div class="w-12 h-12 mx-auto mb-3 bg-green-500/20 rounded-xl flex items-center justify-center">
-          <svg class="w-6 h-6 text-green-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+      <div class="bg-white/[0.04] border border-white/10 rounded-2xl p-5 text-center hover:bg-white/[0.08] hover:border-white/20 transition-all hover:-translate-y-1">
+        <div class="w-12 h-12 mx-auto mb-3 bg-white/10 rounded-xl flex items-center justify-center text-blue-300">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
         </div>
-        <div class="text-white font-bold">Sr. Business Analyst</div>
-        <div class="text-blue-300 text-sm mt-1">₹10–18 LPA</div>
+        <div class="text-white font-bold text-sm sm:text-base">Sr. Business Analyst</div>
+        <div class="text-emerald-400 font-semibold text-sm mt-1">₹10–18 LPA</div>
       </div>
-      <div class="bg-white/5 border border-white/10 rounded-2xl p-5 text-center hover:bg-white/10 transition-all hover:-translate-y-1">
-        <div class="w-12 h-12 mx-auto mb-3 bg-orange-500/20 rounded-xl flex items-center justify-center">
-          <svg class="w-6 h-6 text-orange-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"/><path d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"/></svg>
+      <div class="bg-white/[0.04] border border-white/10 rounded-2xl p-5 text-center hover:bg-white/[0.08] hover:border-white/20 transition-all hover:-translate-y-1">
+        <div class="w-12 h-12 mx-auto mb-3 bg-white/10 rounded-xl flex items-center justify-center text-blue-300">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"/><path d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"/></svg>
         </div>
-        <div class="text-white font-bold">Marketing Analyst</div>
-        <div class="text-blue-300 text-sm mt-1">₹6–12 LPA</div>
+        <div class="text-white font-bold text-sm sm:text-base">Marketing Analyst</div>
+        <div class="text-emerald-400 font-semibold text-sm mt-1">₹6–12 LPA</div>
       </div>
-      <div class="bg-white/5 border border-white/10 rounded-2xl p-5 text-center hover:bg-white/10 transition-all hover:-translate-y-1">
-        <div class="w-12 h-12 mx-auto mb-3 bg-purple-500/20 rounded-xl flex items-center justify-center">
-          <svg class="w-6 h-6 text-purple-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+      <div class="bg-white/[0.04] border border-white/10 rounded-2xl p-5 text-center hover:bg-white/[0.08] hover:border-white/20 transition-all hover:-translate-y-1">
+        <div class="w-12 h-12 mx-auto mb-3 bg-white/10 rounded-xl flex items-center justify-center text-blue-300">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
         </div>
-        <div class="text-white font-bold">Data Scientist</div>
-        <div class="text-blue-300 text-sm mt-1">₹12–25 LPA</div>
+        <div class="text-white font-bold text-sm sm:text-base">Data Scientist</div>
+        <div class="text-emerald-400 font-semibold text-sm mt-1">₹12–25 LPA</div>
       </div>
-      <div class="bg-white/5 border border-white/10 rounded-2xl p-5 text-center hover:bg-white/10 transition-all hover:-translate-y-1">
-        <div class="w-12 h-12 mx-auto mb-3 bg-cyan-500/20 rounded-xl flex items-center justify-center">
-          <svg class="w-6 h-6 text-cyan-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17H3a2 2 0 01-2-2V5a2 2 0 012-2h14a2 2 0 012 2v10a2 2 0 01-2 2h-2"/></svg>
+      <div class="bg-white/[0.04] border border-white/10 rounded-2xl p-5 text-center hover:bg-white/[0.08] hover:border-white/20 transition-all hover:-translate-y-1">
+        <div class="w-12 h-12 mx-auto mb-3 bg-white/10 rounded-xl flex items-center justify-center text-blue-300">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17H3a2 2 0 01-2-2V5a2 2 0 012-2h14a2 2 0 012 2v10a2 2 0 01-2 2h-2"/></svg>
         </div>
-        <div class="text-white font-bold">AI / ML Developer</div>
-        <div class="text-blue-300 text-sm mt-1">₹15–30 LPA</div>
+        <div class="text-white font-bold text-sm sm:text-base">AI / ML Developer</div>
+        <div class="text-emerald-400 font-semibold text-sm mt-1">₹15–30 LPA</div>
       </div>
-      <div class="bg-white/5 border border-white/10 rounded-2xl p-5 text-center hover:bg-white/10 transition-all hover:-translate-y-1">
-        <div class="w-12 h-12 mx-auto mb-3 bg-yellow-500/20 rounded-xl flex items-center justify-center">
-          <svg class="w-6 h-6 text-yellow-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+      <div class="bg-white/[0.04] border border-white/10 rounded-2xl p-5 text-center hover:bg-white/[0.08] hover:border-white/20 transition-all hover:-translate-y-1">
+        <div class="w-12 h-12 mx-auto mb-3 bg-white/10 rounded-xl flex items-center justify-center text-blue-300">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
         </div>
-        <div class="text-white font-bold">MIS Analyst</div>
-        <div class="text-blue-300 text-sm mt-1">₹4–8 LPA</div>
+        <div class="text-white font-bold text-sm sm:text-base">MIS Analyst</div>
+        <div class="text-emerald-400 font-semibold text-sm mt-1">₹4–8 LPA</div>
       </div>
     </div>
     <!-- Placement Support Features -->
     <div class="grid md:grid-cols-4 gap-4 reveal">
-      <div class="bg-orange-500/10 border border-orange-500/20 rounded-xl p-5 text-center">
-        <div class="w-10 h-10 mx-auto mb-3 bg-orange-500/20 rounded-lg flex items-center justify-center">
-          <svg class="w-5 h-5 text-orange-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+      <div class="bg-white/[0.04] border border-white/10 rounded-xl p-5 text-center hover:bg-white/[0.08] transition-all">
+        <div class="w-10 h-10 mx-auto mb-3 bg-white/10 rounded-lg flex items-center justify-center text-white">
+          <svg class="w-5 h-5 text-blue-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
         </div>
         <div class="text-white font-semibold text-sm">Resume Designing</div>
       </div>
-      <div class="bg-orange-500/10 border border-orange-500/20 rounded-xl p-5 text-center">
-        <div class="w-10 h-10 mx-auto mb-3 bg-orange-500/20 rounded-lg flex items-center justify-center">
-          <svg class="w-5 h-5 text-orange-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
+      <div class="bg-white/[0.04] border border-white/10 rounded-xl p-5 text-center hover:bg-white/[0.08] transition-all">
+        <div class="w-10 h-10 mx-auto mb-3 bg-white/10 rounded-lg flex items-center justify-center text-white">
+          <svg class="w-5 h-5 text-blue-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
         </div>
         <div class="text-white font-semibold text-sm">LinkedIn Optimization</div>
       </div>
-      <div class="bg-orange-500/10 border border-orange-500/20 rounded-xl p-5 text-center">
-        <div class="w-10 h-10 mx-auto mb-3 bg-orange-500/20 rounded-lg flex items-center justify-center">
-          <svg class="w-5 h-5 text-orange-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+      <div class="bg-white/[0.04] border border-white/10 rounded-xl p-5 text-center hover:bg-white/[0.08] transition-all">
+        <div class="w-10 h-10 mx-auto mb-3 bg-white/10 rounded-lg flex items-center justify-center text-white">
+          <svg class="w-5 h-5 text-blue-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
         </div>
         <div class="text-white font-semibold text-sm">Mock Interviews</div>
       </div>
-      <div class="bg-orange-500/10 border border-orange-500/20 rounded-xl p-5 text-center">
-        <div class="w-10 h-10 mx-auto mb-3 bg-orange-500/20 rounded-lg flex items-center justify-center">
-          <svg class="w-5 h-5 text-orange-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+      <div class="bg-white/[0.04] border border-white/10 rounded-xl p-5 text-center hover:bg-white/[0.08] transition-all">
+        <div class="w-10 h-10 mx-auto mb-3 bg-white/10 rounded-lg flex items-center justify-center text-white">
+          <svg class="w-5 h-5 text-blue-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
         </div>
         <div class="text-white font-semibold text-sm">Job Referrals &amp; Drives</div>
       </div>
@@ -1140,12 +1142,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </section>
 
 <!-- OUR STUDENTS WORK AT — Photo Slider -->
-<section class="py-20 px-4" style="background: linear-gradient(135deg, #f8faff 0%, #fff7f4 100%);">
+<section class="py-20 px-4 bg-slate-50 border-t border-b border-slate-200/70">
   <div class="max-w-6xl mx-auto">
     <div class="text-center mb-12 reveal">
       <span class="section-badge">Success Stories</span>
       <h2 class="text-3xl md:text-4xl font-black mt-4 mb-4 gradient-heading">Our Students Work At</h2>
-      <p class="text-gray-500 max-w-xl mx-auto text-base">Real students, real companies, real careers — see where our alumni are making their mark.</p>
+      <p class="text-slate-500 max-w-xl mx-auto text-base">Real students, real companies, real careers — see where our alumni are making their mark.</p>
     </div>
 
     <!-- Slider Wrapper -->
@@ -1161,7 +1163,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
           <!-- Slide 1: Amit Ranjan -->
           <div class="student-slide" data-student="0" style="min-width:25%;padding:0 8px;box-sizing:border-box;">
-            <div class="bg-white rounded-2xl p-2.5 shadow-md hover:shadow-xl border border-orange-100/70 transition-all duration-300 hover:scale-[1.03] group">
+            <div class="bg-white rounded-2xl p-2.5 shadow-md hover:shadow-xl border border-slate-200/80 transition-all duration-300 hover:scale-[1.03] group">
               <div class="overflow-hidden rounded-xl aspect-square bg-white flex items-center justify-center">
                 <img src="images/student_amit_ranjan.jpg" alt="Amit Ranjan - Selected as Data Analyst at Ernst & Young" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500" loading="lazy" />
               </div>
@@ -1170,7 +1172,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
           <!-- Slide 2: Anjan Bhagat -->
           <div class="student-slide" data-student="1" style="min-width:25%;padding:0 8px;box-sizing:border-box;">
-            <div class="bg-white rounded-2xl p-2.5 shadow-md hover:shadow-xl border border-orange-100/70 transition-all duration-300 hover:scale-[1.03] group">
+            <div class="bg-white rounded-2xl p-2.5 shadow-md hover:shadow-xl border border-slate-200/80 transition-all duration-300 hover:scale-[1.03] group">
               <div class="overflow-hidden rounded-xl aspect-square bg-white flex items-center justify-center">
                 <img src="images/student_anjan_bhagat.jpg" alt="Anjan Bhagat - Selected as Business Analyst at Accenture" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500" loading="lazy" />
               </div>
@@ -1179,7 +1181,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
           <!-- Slide 3: Ankita Shrivastav -->
           <div class="student-slide" data-student="2" style="min-width:25%;padding:0 8px;box-sizing:border-box;">
-            <div class="bg-white rounded-2xl p-2.5 shadow-md hover:shadow-xl border border-orange-100/70 transition-all duration-300 hover:scale-[1.03] group">
+            <div class="bg-white rounded-2xl p-2.5 shadow-md hover:shadow-xl border border-slate-200/80 transition-all duration-300 hover:scale-[1.03] group">
               <div class="overflow-hidden rounded-xl aspect-square bg-white flex items-center justify-center">
                 <img src="images/student_ankita_shrivastav.jpg" alt="Ankita Shrivastav - Selected as Business Analyst at Wipro" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500" loading="lazy" />
               </div>
@@ -1188,7 +1190,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
           <!-- Slide 4: Heron Deori -->
           <div class="student-slide" data-student="3" style="min-width:25%;padding:0 8px;box-sizing:border-box;">
-            <div class="bg-white rounded-2xl p-2.5 shadow-md hover:shadow-xl border border-orange-100/70 transition-all duration-300 hover:scale-[1.03] group">
+            <div class="bg-white rounded-2xl p-2.5 shadow-md hover:shadow-xl border border-slate-200/80 transition-all duration-300 hover:scale-[1.03] group">
               <div class="overflow-hidden rounded-xl aspect-square bg-white flex items-center justify-center">
                 <img src="images/student_heron_deori.jpg" alt="Heron Deori - Selected as Business Analyst at Ernst & Young" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500" loading="lazy" />
               </div>
@@ -1197,7 +1199,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
           <!-- Slide 5: Bittoo Kumar Jha -->
           <div class="student-slide" data-student="4" style="min-width:25%;padding:0 8px;box-sizing:border-box;">
-            <div class="bg-white rounded-2xl p-2.5 shadow-md hover:shadow-xl border border-orange-100/70 transition-all duration-300 hover:scale-[1.03] group">
+            <div class="bg-white rounded-2xl p-2.5 shadow-md hover:shadow-xl border border-slate-200/80 transition-all duration-300 hover:scale-[1.03] group">
               <div class="overflow-hidden rounded-xl aspect-square bg-white flex items-center justify-center">
                 <img src="images/student_bittoo_kumar_jha.jpg" alt="Bittoo Kumar Jha - Selected as Senior Business Analyst at WNS Global Services" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500" loading="lazy" />
               </div>
@@ -1206,7 +1208,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
           <!-- Slide 6 (Duplicate Loop): Amit Ranjan -->
           <div class="student-slide" data-student="0" style="min-width:25%;padding:0 8px;box-sizing:border-box;">
-            <div class="bg-white rounded-2xl p-2.5 shadow-md hover:shadow-xl border border-orange-100/70 transition-all duration-300 hover:scale-[1.03] group">
+            <div class="bg-white rounded-2xl p-2.5 shadow-md hover:shadow-xl border border-slate-200/80 transition-all duration-300 hover:scale-[1.03] group">
               <div class="overflow-hidden rounded-xl aspect-square bg-white flex items-center justify-center">
                 <img src="images/student_amit_ranjan.jpg" alt="Amit Ranjan - Selected as Data Analyst at Ernst & Young" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500" loading="lazy" />
               </div>
@@ -1215,7 +1217,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
           <!-- Slide 7 (Duplicate Loop): Anjan Bhagat -->
           <div class="student-slide" data-student="1" style="min-width:25%;padding:0 8px;box-sizing:border-box;">
-            <div class="bg-white rounded-2xl p-2.5 shadow-md hover:shadow-xl border border-orange-100/70 transition-all duration-300 hover:scale-[1.03] group">
+            <div class="bg-white rounded-2xl p-2.5 shadow-md hover:shadow-xl border border-slate-200/80 transition-all duration-300 hover:scale-[1.03] group">
               <div class="overflow-hidden rounded-xl aspect-square bg-white flex items-center justify-center">
                 <img src="images/student_anjan_bhagat.jpg" alt="Anjan Bhagat - Selected as Business Analyst at Accenture" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500" loading="lazy" />
               </div>
@@ -1224,7 +1226,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
           <!-- Slide 8 (Duplicate Loop): Ankita Shrivastav -->
           <div class="student-slide" data-student="2" style="min-width:25%;padding:0 8px;box-sizing:border-box;">
-            <div class="bg-white rounded-2xl p-2.5 shadow-md hover:shadow-xl border border-orange-100/70 transition-all duration-300 hover:scale-[1.03] group">
+            <div class="bg-white rounded-2xl p-2.5 shadow-md hover:shadow-xl border border-slate-200/80 transition-all duration-300 hover:scale-[1.03] group">
               <div class="overflow-hidden rounded-xl aspect-square bg-white flex items-center justify-center">
                 <img src="images/student_ankita_shrivastav.jpg" alt="Ankita Shrivastav - Selected as Business Analyst at Wipro" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500" loading="lazy" />
               </div>
@@ -1233,7 +1235,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
           <!-- Slide 9 (Duplicate Loop): Heron Deori -->
           <div class="student-slide" data-student="3" style="min-width:25%;padding:0 8px;box-sizing:border-box;">
-            <div class="bg-white rounded-2xl p-2.5 shadow-md hover:shadow-xl border border-orange-100/70 transition-all duration-300 hover:scale-[1.03] group">
+            <div class="bg-white rounded-2xl p-2.5 shadow-md hover:shadow-xl border border-slate-200/80 transition-all duration-300 hover:scale-[1.03] group">
               <div class="overflow-hidden rounded-xl aspect-square bg-white flex items-center justify-center">
                 <img src="images/student_heron_deori.jpg" alt="Heron Deori - Selected as Business Analyst at Ernst & Young" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500" loading="lazy" />
               </div>
@@ -1242,7 +1244,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
           <!-- Slide 10 (Duplicate Loop): Bittoo Kumar Jha -->
           <div class="student-slide" data-student="4" style="min-width:25%;padding:0 8px;box-sizing:border-box;">
-            <div class="bg-white rounded-2xl p-2.5 shadow-md hover:shadow-xl border border-orange-100/70 transition-all duration-300 hover:scale-[1.03] group">
+            <div class="bg-white rounded-2xl p-2.5 shadow-md hover:shadow-xl border border-slate-200/80 transition-all duration-300 hover:scale-[1.03] group">
               <div class="overflow-hidden rounded-xl aspect-square bg-white flex items-center justify-center">
                 <img src="images/student_bittoo_kumar_jha.jpg" alt="Bittoo Kumar Jha - Selected as Senior Business Analyst at WNS Global Services" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500" loading="lazy" />
               </div>
@@ -1452,43 +1454,43 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="grid md:grid-cols-3 gap-6 reveal">
       <div class="testimonial-card p-7">
         <div class="flex items-center gap-1 mb-4">
-          <span class="text-yellow-400 text-lg">★★★★★</span>
+          <span class="text-amber-400 text-base">★★★★★</span>
         </div>
-        <p class="text-gray-600 text-sm leading-relaxed mb-5">The XL Academy Pune completely changed my career trajectory. The Data Science course was practical, the trainers were excellent, and the placement support was exceptional. I got placed as a Data Analyst at an MNC in Hinjewadi IT Park within 2 months of completion!</p>
+        <p class="text-slate-600 text-sm leading-relaxed mb-5">The XL Academy Pune completely changed my career trajectory. The Data Science course was practical, the trainers were excellent, and the placement support was exceptional. I got placed as a Data Analyst at an MNC in Hinjewadi IT Park within 2 months of completion!</p>
         <div class="flex items-center gap-3">
-          <img src="images/t1.jpg" alt="Rahul Sharma" class="w-12 h-12 rounded-full object-cover border-2 border-orange-200" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-          <div class="w-12 h-12 rounded-full flex items-center justify-center font-bold text-white text-sm" style="background: linear-gradient(135deg, var(--xl-orange), var(--xl-gold)); display:none;">RS</div>
+          <img src="images/t1.jpg" alt="Rahul Sharma" class="w-12 h-12 rounded-full object-cover border-2 border-slate-200" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+          <div class="w-12 h-12 rounded-full flex items-center justify-center font-bold text-white text-sm" style="background: #1B2B6B; display:none;">RS</div>
           <div>
-            <div class="font-bold text-blue-900 text-sm">Rahul Sharma</div>
-            <div class="text-gray-400 text-xs">Data Analyst · Hinjewadi, Pune</div>
+            <div class="font-bold text-[#0F1A42] text-sm">Rahul Sharma</div>
+            <div class="text-slate-400 text-xs font-medium">Data Analyst · Hinjewadi, Pune</div>
           </div>
         </div>
       </div>
       <div class="testimonial-card p-7">
         <div class="flex items-center gap-1 mb-4">
-          <span class="text-yellow-400 text-lg">★★★★★</span>
+          <span class="text-amber-400 text-base">★★★★★</span>
         </div>
-        <p class="text-gray-600 text-sm leading-relaxed mb-5">I was from a non-IT background (Commerce graduate) and had zero coding knowledge. The XL Academy Pune's step-by-step approach took me from basics to advanced Python &amp; SQL. Got a 60% salary hike in Kharadi IT Hub!</p>
+        <p class="text-slate-600 text-sm leading-relaxed mb-5">I was from a non-IT background (Commerce graduate) and had zero coding knowledge. The XL Academy Pune's step-by-step approach took me from basics to advanced Python &amp; SQL. Got a 60% salary hike in Kharadi IT Hub!</p>
         <div class="flex items-center gap-3">
-          <img src="images/t2.jpg" alt="Priya Agarwal" class="w-12 h-12 rounded-full object-cover border-2 border-blue-200" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-          <div class="w-12 h-12 rounded-full flex items-center justify-center font-bold text-white text-sm" style="background: linear-gradient(135deg, var(--xl-blue), #2a5ab0); display:none;">PA</div>
+          <img src="images/t2.jpg" alt="Priya Agarwal" class="w-12 h-12 rounded-full object-cover border-2 border-slate-200" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+          <div class="w-12 h-12 rounded-full flex items-center justify-center font-bold text-white text-sm" style="background: #1B2B6B; display:none;">PA</div>
           <div>
-            <div class="font-bold text-blue-900 text-sm">Priya Agarwal</div>
-            <div class="text-gray-400 text-xs">Business Analyst · Kharadi, Pune</div>
+            <div class="font-bold text-[#0F1A42] text-sm">Priya Agarwal</div>
+            <div class="text-slate-400 text-xs font-medium">Business Analyst · Kharadi, Pune</div>
           </div>
         </div>
       </div>
       <div class="testimonial-card p-7">
         <div class="flex items-center gap-1 mb-4">
-          <span class="text-yellow-400 text-lg">★★★★★</span>
+          <span class="text-amber-400 text-base">★★★★★</span>
         </div>
-        <p class="text-gray-600 text-sm leading-relaxed mb-5">The MIS &amp; Reporting course at Pune campus was exactly what I needed. Power BI dashboard skills alone got me promoted within 3 months. The trainer's industry experience made all the difference!</p>
+        <p class="text-slate-600 text-sm leading-relaxed mb-5">The MIS &amp; Reporting course at Pune campus was exactly what I needed. Power BI dashboard skills alone got me promoted within 3 months. The trainer's industry experience made all the difference!</p>
         <div class="flex items-center gap-3">
-          <img src="images/t3.jpg" alt="Amit Mishra" class="w-12 h-12 rounded-full object-cover border-2 border-green-200" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-          <div class="w-12 h-12 rounded-full flex items-center justify-center font-bold text-white text-sm" style="background: linear-gradient(135deg, #059669, #10b981); display:none;">AM</div>
+          <img src="images/t3.jpg" alt="Amit Mishra" class="w-12 h-12 rounded-full object-cover border-2 border-slate-200" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+          <div class="w-12 h-12 rounded-full flex items-center justify-center font-bold text-white text-sm" style="background: #1B2B6B; display:none;">AM</div>
           <div>
-            <div class="font-bold text-blue-900 text-sm">Amit Mishra</div>
-            <div class="text-gray-400 text-xs">MIS Analyst · Baner, Pune</div>
+            <div class="font-bold text-[#0F1A42] text-sm">Amit Mishra</div>
+            <div class="text-slate-400 text-xs font-medium">MIS Analyst · Baner, Pune</div>
           </div>
         </div>
       </div>
@@ -1497,100 +1499,93 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </section>
 
 <!-- BRANCHES -->
-<section id="branches" class="py-20 px-4" style="background: linear-gradient(135deg, #f8faff, #fff7f4);">
+<section id="branches" class="py-20 px-4 bg-slate-50 border-t border-b border-slate-200/70">
   <div class="max-w-6xl mx-auto">
     <div class="text-center mb-14 reveal">
       <span class="section-badge">Training Centers</span>
       <h2 class="text-3xl md:text-4xl font-black mt-4 mb-4 gradient-heading">Our Pune Campus &amp; Pan-India Presence</h2>
-      <p class="text-gray-500 max-w-xl mx-auto">Visit our Pune training lab or choose online classes with live mentorship.</p>
+      <p class="text-slate-500 max-w-xl mx-auto">Visit our Pune training lab or choose online classes with live mentorship.</p>
     </div>
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 reveal">
       <!-- Pune Primary Featured Branch -->
-      <a href="https://maps.app.goo.gl/g58gozpDRuzkD23G8" target="_blank" class="bg-gradient-to-br from-orange-500 to-amber-600 text-white rounded-2xl p-6 text-center shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all cursor-pointer block border-2 border-yellow-300 relative overflow-hidden col-span-2 md:col-span-1">
-        <span class="absolute top-2 right-2 bg-yellow-300 text-blue-950 text-[10px] font-black px-2 py-0.5 rounded-full uppercase tracking-wider">Primary Campus</span>
-        <div class="w-12 h-12 mx-auto mb-3 bg-white/20 rounded-xl flex items-center justify-center">
+      <a href="https://maps.app.goo.gl/g58gozpDRuzkD23G8" target="_blank" class="rounded-2xl p-6 text-center shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all cursor-pointer block border border-blue-400/30 relative overflow-hidden col-span-2 md:col-span-1" style="background: linear-gradient(135deg, #0F1A42 0%, #1B2B6B 100%);">
+        <span class="absolute top-2.5 right-2.5 bg-amber-400 text-[#0F1A42] text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider shadow-sm">Flagship Campus</span>
+        <div class="w-12 h-12 mx-auto mb-3 bg-white/15 rounded-xl flex items-center justify-center text-white">
           <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
         </div>
         <div class="font-black text-xl text-white">Pune Campus</div>
-        <div class="text-xs opacity-90 mt-1">Maharashtra · Near IT Hubs</div>
-        <div class="text-xs text-yellow-300 font-extrabold mt-2 flex items-center justify-center gap-1 underline">
+        <div class="text-xs text-blue-100/80 mt-1">Maharashtra · Near IT Hubs</div>
+        <div class="text-xs text-amber-300 font-bold mt-2.5 flex items-center justify-center gap-1 hover:underline">
           <svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-          Get Location / Directions →
+          Get Directions →
         </div>
       </a>
-      <a href="https://maps.app.goo.gl/t2udTsSFnkpcQ6PU8" target="_blank" class="bg-white rounded-2xl p-6 text-center shadow-sm hover:shadow-lg hover:-translate-y-2 transition-all border border-orange-100 cursor-pointer block">
-        <div class="w-12 h-12 mx-auto mb-3 bg-blue-100 rounded-xl flex items-center justify-center">
-          <svg class="w-6 h-6 text-blue-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+      <a href="https://maps.app.goo.gl/t2udTsSFnkpcQ6PU8" target="_blank" class="bg-white rounded-2xl p-6 text-center shadow-sm hover:shadow-md hover:border-slate-300 hover:-translate-y-1 transition-all border border-slate-200/80 cursor-pointer block group">
+        <div class="w-12 h-12 mx-auto mb-3 bg-blue-50 text-[#1B2B6B] rounded-xl flex items-center justify-center group-hover:bg-[#1B2B6B] group-hover:text-white transition-all duration-200">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
         </div>
-        <div class="font-black text-blue-900">New Delhi</div>
-        <div class="text-xs text-gray-400 mt-1">Head Office · Dwarka</div>
-        <div class="text-xs text-orange-500 font-semibold mt-1 flex items-center justify-center gap-1">
+        <div class="font-bold text-slate-900 group-hover:text-[#1B2B6B] transition-colors">New Delhi</div>
+        <div class="text-xs text-slate-400 mt-1">Head Office · Dwarka</div>
+        <div class="text-xs text-[#1B2B6B] font-semibold mt-2 flex items-center justify-center gap-1 group-hover:underline">
           <svg width="10" height="10" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
           View on Maps
         </div>
       </a>
-      <a href="https://maps.app.goo.gl/V48kUJ9mvX2jh4QZ9" target="_blank" >
-      <div class="bg-white rounded-2xl p-6 text-center shadow-sm hover:shadow-lg hover:-translate-y-2 transition-all border border-orange-100 cursor-pointer">
-        <div class="w-12 h-12 mx-auto mb-3 bg-orange-100 rounded-xl flex items-center justify-center">
-          <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+      <a href="https://maps.app.goo.gl/V48kUJ9mvX2jh4QZ9" target="_blank" class="bg-white rounded-2xl p-6 text-center shadow-sm hover:shadow-md hover:border-slate-300 hover:-translate-y-1 transition-all border border-slate-200/80 cursor-pointer block group">
+        <div class="w-12 h-12 mx-auto mb-3 bg-blue-50 text-[#1B2B6B] rounded-xl flex items-center justify-center group-hover:bg-[#1B2B6B] group-hover:text-white transition-all duration-200">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
         </div>
-        <div class="font-black text-blue-900">Gurugram</div>
-        <div class="text-xs text-gray-400 mt-1">Haryana</div>
-        <div class="text-xs text-orange-500 font-semibold mt-1 flex items-center justify-center gap-1">
+        <div class="font-bold text-slate-900 group-hover:text-[#1B2B6B] transition-colors">Gurugram</div>
+        <div class="text-xs text-slate-400 mt-1">Haryana</div>
+        <div class="text-xs text-[#1B2B6B] font-semibold mt-2 flex items-center justify-center gap-1 group-hover:underline">
           <svg width="10" height="10" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
           View on Maps
         </div>
-      </div>
       </a>
-      <a href="https://maps.app.goo.gl/33yVzi5Fb8Vqm2Qy8" target="_blank" >
-      <div class="bg-white rounded-2xl p-6 text-center shadow-sm hover:shadow-lg hover:-translate-y-2 transition-all border border-orange-100 cursor-pointer">
-        <div class="w-12 h-12 mx-auto mb-3 bg-green-100 rounded-xl flex items-center justify-center">
-          <svg class="w-6 h-6 text-green-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+      <a href="https://maps.app.goo.gl/33yVzi5Fb8Vqm2Qy8" target="_blank" class="bg-white rounded-2xl p-6 text-center shadow-sm hover:shadow-md hover:border-slate-300 hover:-translate-y-1 transition-all border border-slate-200/80 cursor-pointer block group">
+        <div class="w-12 h-12 mx-auto mb-3 bg-blue-50 text-[#1B2B6B] rounded-xl flex items-center justify-center group-hover:bg-[#1B2B6B] group-hover:text-white transition-all duration-200">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
         </div>
-        <div class="font-black text-blue-900">Noida</div>
-        <div class="text-xs text-gray-400 mt-1">Uttar Pradesh</div>
-        <div class="text-xs text-orange-500 font-semibold mt-1 flex items-center justify-center gap-1">
+        <div class="font-bold text-slate-900 group-hover:text-[#1B2B6B] transition-colors">Noida</div>
+        <div class="text-xs text-slate-400 mt-1">Uttar Pradesh</div>
+        <div class="text-xs text-[#1B2B6B] font-semibold mt-2 flex items-center justify-center gap-1 group-hover:underline">
           <svg width="10" height="10" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
           View on Maps
         </div>
-      </div>
-    </a>
-    <a href="https://maps.app.goo.gl/rZefgLVSzdJtjRpF9" target="_blank" >
-      <div class="bg-white rounded-2xl p-6 text-center shadow-sm hover:shadow-lg hover:-translate-y-2 transition-all border border-orange-100 cursor-pointer">
-        <div class="w-12 h-12 mx-auto mb-3 bg-purple-100 rounded-xl flex items-center justify-center">
-          <svg class="w-6 h-6 text-purple-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+      </a>
+      <a href="https://maps.app.goo.gl/rZefgLVSzdJtjRpF9" target="_blank" class="bg-white rounded-2xl p-6 text-center shadow-sm hover:shadow-md hover:border-slate-300 hover:-translate-y-1 transition-all border border-slate-200/80 cursor-pointer block group">
+        <div class="w-12 h-12 mx-auto mb-3 bg-blue-50 text-[#1B2B6B] rounded-xl flex items-center justify-center group-hover:bg-[#1B2B6B] group-hover:text-white transition-all duration-200">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
         </div>
-        <div class="font-black text-blue-900">Bangalore</div>
-        <div class="text-xs text-gray-400 mt-1">Karnataka</div>
-        <div class="text-xs text-orange-500 font-semibold mt-1 flex items-center justify-center gap-1">
+        <div class="font-bold text-slate-900 group-hover:text-[#1B2B6B] transition-colors">Bangalore</div>
+        <div class="text-xs text-slate-400 mt-1">Karnataka</div>
+        <div class="text-xs text-[#1B2B6B] font-semibold mt-2 flex items-center justify-center gap-1 group-hover:underline">
           <svg width="10" height="10" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
           View on Maps
         </div>
-      </div></a>
-      <a href="https://maps.app.goo.gl/7HrUBdVw4BtgjZ9f9" target="_blank" >
-      <div class="bg-white rounded-2xl p-6 text-center shadow-sm hover:shadow-lg hover:-translate-y-2 transition-all border border-orange-100 cursor-pointer">
-        <div class="w-12 h-12 mx-auto mb-3 bg-cyan-100 rounded-xl flex items-center justify-center">
-          <svg class="w-6 h-6 text-cyan-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      </a>
+      <a href="https://maps.app.goo.gl/7HrUBdVw4BtgjZ9f9" target="_blank" class="bg-white rounded-2xl p-6 text-center shadow-sm hover:shadow-md hover:border-slate-300 hover:-translate-y-1 transition-all border border-slate-200/80 cursor-pointer block group">
+        <div class="w-12 h-12 mx-auto mb-3 bg-blue-50 text-[#1B2B6B] rounded-xl flex items-center justify-center group-hover:bg-[#1B2B6B] group-hover:text-white transition-all duration-200">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
         </div>
-        <div class="font-black text-blue-900">Andheri, Mumbai</div>
-        <div class="text-xs text-gray-400 mt-1">Maharashtra</div>
-         <div class="text-xs text-orange-500 font-semibold mt-1 flex items-center justify-center gap-1">
+        <div class="font-bold text-slate-900 group-hover:text-[#1B2B6B] transition-colors">Andheri, Mumbai</div>
+        <div class="text-xs text-slate-400 mt-1">Maharashtra</div>
+        <div class="text-xs text-[#1B2B6B] font-semibold mt-2 flex items-center justify-center gap-1 group-hover:underline">
           <svg width="10" height="10" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
           View on Maps
         </div>
-      </div></a>
-       <a href="https://maps.app.goo.gl/7HrUBdVw4BtgjZ9f9" target="_blank" >
-      <div class="bg-white rounded-2xl p-6 text-center shadow-sm hover:shadow-lg hover:-translate-y-2 transition-all border border-orange-100 cursor-pointer">
-        <div class="w-12 h-12 mx-auto mb-3 bg-indigo-100 rounded-xl flex items-center justify-center">
-          <svg class="w-6 h-6 text-indigo-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      </a>
+      <a href="https://maps.app.goo.gl/7HrUBdVw4BtgjZ9f9" target="_blank" class="bg-white rounded-2xl p-6 text-center shadow-sm hover:shadow-md hover:border-slate-300 hover:-translate-y-1 transition-all border border-slate-200/80 cursor-pointer block group">
+        <div class="w-12 h-12 mx-auto mb-3 bg-blue-50 text-[#1B2B6B] rounded-xl flex items-center justify-center group-hover:bg-[#1B2B6B] group-hover:text-white transition-all duration-200">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
         </div>
-        <div class="font-black text-blue-900">Thane, Mumbai</div>
-        <div class="text-xs text-gray-400 mt-1">Maharashtra</div>
-         <div class="text-xs text-orange-500 font-semibold mt-1 flex items-center justify-center gap-1">
+        <div class="font-bold text-slate-900 group-hover:text-[#1B2B6B] transition-colors">Thane, Mumbai</div>
+        <div class="text-xs text-slate-400 mt-1">Maharashtra</div>
+        <div class="text-xs text-[#1B2B6B] font-semibold mt-2 flex items-center justify-center gap-1 group-hover:underline">
           <svg width="10" height="10" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
           View on Maps
         </div>
-      </div></a>
+      </a>
     </div>
   </div>
 </section>
@@ -1945,28 +1940,31 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 
 <!-- STICKY BOTTOM URGENCY ACTION BAR -->
-<div class="fixed bottom-0 left-0 right-0 z-50 bg-gradient-to-r from-gray-900 via-blue-950 to-gray-900 border-t-2 border-orange-500 py-2.5 px-3 sm:px-4 shadow-2xl backdrop-blur-lg flex items-center justify-between gap-2 sticky-bottom-bar">
+<div class="fixed bottom-0 left-0 right-0 z-50 py-2.5 px-3 sm:px-5 shadow-2xl backdrop-blur-md flex items-center justify-between gap-3 sticky-bottom-bar" style="background: rgba(15, 26, 66, 0.95); border-top: 1px solid rgba(255, 255, 255, 0.12);">
   <div class="hidden sm:flex items-center gap-3">
-    <span class="w-3 h-3 rounded-full bg-red-500 animate-ping"></span>
+    <span class="relative flex h-2.5 w-2.5">
+      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+      <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+    </span>
     <div>
-      <div class="text-white text-xs font-bold flex items-center gap-1">
-        🔥 Pune Offline &amp; Online Batch Starts Soon!
-        <span class="text-yellow-400 font-extrabold ml-1">Only 4 Seats Left</span>
+      <div class="text-white text-xs font-semibold flex items-center gap-1.5">
+        Pune Upcoming Batches Open
+        <span class="bg-blue-500/20 text-blue-200 border border-blue-400/30 text-[10px] font-bold px-2 py-0.5 rounded-full ml-1">4 Seats Remaining</span>
       </div>
-      <div class="text-gray-300 text-[11px]">Enquire now to lock 30% discount &amp; free demo class</div>
+      <div class="text-slate-300 text-[11px]">Enquire now to lock 30% scholarship &amp; free demo class</div>
     </div>
   </div>
   <div class="flex items-center justify-between sm:justify-end gap-2 w-full sm:w-auto">
-    <a href="tel:+917428703467" class="flex-1 sm:flex-initial bg-orange-600 hover:bg-orange-500 text-white px-3.5 py-2 rounded-xl text-xs md:text-sm font-bold flex items-center justify-center gap-1.5 shadow-md transition-all">
+    <a href="tel:+917428703467" class="flex-1 sm:flex-initial bg-white/10 hover:bg-white/20 border border-white/15 text-white px-3.5 py-2.5 rounded-xl text-xs md:text-sm font-semibold flex items-center justify-center gap-1.5 shadow-sm transition-all">
       <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-      <span>Call Now</span>
+      <span>Call</span>
     </a>
-    <a href="https://wa.me/917428703467?text=Hi%2C%20I%20am%20interested%20in%20Data%20Analytics%20%26%20Data%20Science%20course%20at%20the%20Pune%20branch.%20Please%20send%20details." target="_blank" class="flex-1 sm:flex-initial bg-green-500 hover:bg-green-600 text-white px-3.5 py-2 rounded-xl text-xs md:text-sm font-bold flex items-center justify-center gap-1.5 shadow-md transition-all">
+    <a href="https://wa.me/917428703467?text=Hi%2C%20I%20am%20interested%20in%20Data%20Analytics%20%26%20Data%20Science%20course%20at%20the%20Pune%20branch.%20Please%20send%20details." target="_blank" class="flex-1 sm:flex-initial bg-[#25D366] hover:bg-[#20ba59] text-white px-3.5 py-2.5 rounded-xl text-xs md:text-sm font-semibold flex items-center justify-center gap-1.5 shadow-sm transition-all">
       <svg width="14" height="14" fill="white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
       <span>WhatsApp</span>
     </a>
-    <button onclick="openEnquiryPopup()" class="flex-1 sm:flex-initial bg-yellow-400 hover:bg-yellow-300 text-blue-950 px-3.5 py-2 rounded-xl text-xs md:text-sm font-black flex items-center justify-center gap-1 shadow-md transition-all">
-      ⚡ Demo Class
+    <button onclick="openEnquiryPopup()" class="flex-1 sm:flex-initial bg-[#E8470A] hover:bg-[#D43F07] text-white px-4 py-2.5 rounded-xl text-xs md:text-sm font-bold flex items-center justify-center gap-1.5 shadow-md transition-all">
+      Book Free Demo →
     </button>
   </div>
 </div>
