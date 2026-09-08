@@ -56,7 +56,7 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 }
 
 // ─── Send data to Google Sheets ───────────────────────────────────────────────
-$googleScriptUrl = "https://script.google.com/macros/s/AKfycbzL16YOftt4cROcXEXOmhJ3RjuYkzS4drv5GHPjUG5uH3X-iq0jpg9PckMswEOZrbcW0Q/exec";
+$googleScriptUrl = "https://script.google.com/macros/s/AKfycbwtxqoBt_ocK4LGFW_wwtmVZAF23mqMyNh1LdRYinLKEItA2QtSaaSuFZkgVJaPyqn78w/exec";
 
 $payload = json_encode([
     "name"         => $name,
