@@ -2530,35 +2530,37 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       source: 'Pune Landing Page'
     };
 
-    // 1. Send directly to Google Sheets Webhook (client-side guarantee)
-    try {
-      fetch(GOOGLE_SCRIPT_WEBHOOK, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(leadPayload)
-      }).catch(function() {});
-    } catch(err) {}
+    const jsonPayload = JSON.stringify(leadPayload);
 
-    // 2. Send to send_mail.php (sends notification to masteranalytics.india@gmail.com and server-side sheet sync)
-    fetch('send_mail.php', {
+    // 1. Send directly to Google Sheets Webhook (with keepalive to prevent browser cancel on navigation)
+    const gSheetPromise = fetch(GOOGLE_SCRIPT_WEBHOOK, {
       method: 'POST',
-      body: formData
-    })
-    .then(function() {
+      mode: 'no-cors',
+      keepalive: true,
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: jsonPayload
+    }).catch(function(err) {
+      console.warn('GSheet fetch notice:', err);
+    });
+
+    // 2. Send to send_mail.php if on web server (Hostinger / Apache / LiteSpeed)
+    const mailPromise = (window.location.protocol.startsWith('http')) 
+      ? fetch('send_mail.php', { method: 'POST', body: formData }).catch(function(e) { console.warn('Mail fetch notice:', e); })
+      : Promise.resolve();
+
+    // 3. Wait for submission to complete before redirecting
+    Promise.all([gSheetPromise, mailPromise]).then(function() {
       if (formEl) formEl.style.display = 'none';
       if (successEl) successEl.classList.remove('hidden');
       setTimeout(function() {
         window.location.href = 'thankyou.html';
-      }, 1800);
-    })
-    .catch(function() {
-      // Fallback: still show success and redirect
+      }, 1500);
+    }).catch(function() {
       if (formEl) formEl.style.display = 'none';
       if (successEl) successEl.classList.remove('hidden');
       setTimeout(function() {
         window.location.href = 'thankyou.html';
-      }, 1800);
+      }, 1500);
     });
   }
 
