@@ -515,7 +515,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <h3 class="text-xl font-black text-slate-900 mb-1">Enquire Now — Pune Batch</h3>
         <p class="text-slate-500 text-xs md:text-sm">Our Pune career counsellor will call you within 2 hours</p>
       </div>
-      <form id="heroEnquiryForm">
+      <form id="heroEnquiryForm" action="send_mail.php" method="POST">
         <input type="hidden" name="page_url" id="heroFormUrl" />
         <div class="space-y-3">
           <div>
@@ -2177,7 +2177,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="bg-white rounded-3xl p-8 shadow-2xl">
         <h3 class="text-xl font-black text-blue-900 mb-2">Enquire Now — Pune Batch</h3>
         <p class="text-gray-400 text-sm mb-6">Our Pune counsellor will call you within 2 hours</p>
-        <form id="enquiryForm">
+        <form id="enquiryForm" action="send_mail.php" method="POST">
           <input type="hidden" name="page_url" id="mainFormUrl" />
           <div class="space-y-4">
             <div>
@@ -2357,7 +2357,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p class="text-gray-400 text-sm">Our counsellor will call you within 2 hours</p>
       </div>
       <!-- Popup Form -->
-      <form id="popupEnquiryForm">
+      <form id="popupEnquiryForm" action="send_mail.php" method="POST">
         <input type="hidden" name="page_url" id="popupFormUrl" />
         <div class="space-y-3">
           <div>
@@ -2510,50 +2510,77 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     if (e.target === this) closeEnquiryPopup();
   });
 
+  const GOOGLE_SCRIPT_WEBHOOK = "https://script.google.com/macros/s/AKfycbzL16YOftt4cROcXEXOmhJ3RjuYkzS4drv5GHPjUG5uH3X-iq0jpg9PckMswEOZrbcW0Q/exec";
+
+  function handleLeadSubmission(formEl, btnEl, successEl) {
+    if (btnEl) {
+      btnEl.innerHTML = '<svg class="animate-spin inline-block mr-2" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg> Submitting...';
+      btnEl.disabled = true;
+    }
+
+    const formData = new FormData(formEl);
+    const leadPayload = {
+      name: formData.get('name') || '',
+      phone: formData.get('phone') || '',
+      email: formData.get('email') || '',
+      course: formData.get('course') || '',
+      city: formData.get('city') || '',
+      page_url: window.location.href,
+      timestamp: new Date().toISOString(),
+      source: 'Pune Landing Page'
+    };
+
+    // 1. Send directly to Google Sheets Webhook (client-side guarantee)
+    try {
+      fetch(GOOGLE_SCRIPT_WEBHOOK, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(leadPayload)
+      }).catch(function() {});
+    } catch(err) {}
+
+    // 2. Send to send_mail.php (sends notification to masteranalytics.india@gmail.com and server-side sheet sync)
+    fetch('send_mail.php', {
+      method: 'POST',
+      body: formData
+    })
+    .then(function() {
+      if (formEl) formEl.style.display = 'none';
+      if (successEl) successEl.classList.remove('hidden');
+      setTimeout(function() {
+        window.location.href = 'thankyou.html';
+      }, 1800);
+    })
+    .catch(function() {
+      // Fallback: still show success and redirect
+      if (formEl) formEl.style.display = 'none';
+      if (successEl) successEl.classList.remove('hidden');
+      setTimeout(function() {
+        window.location.href = 'thankyou.html';
+      }, 1800);
+    });
+  }
+
   // Popup form submission
   document.getElementById('popupEnquiryForm').addEventListener('submit', function(e) {
     e.preventDefault();
     const btn = document.getElementById('popupSubmitBtn');
-    btn.innerHTML = '<svg class="animate-spin" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg> Sending...';
-    btn.disabled = true;
-
-    const formData = new FormData(this);
-
-    // Also submit the main form data
-    const mainForm = document.getElementById('enquiryForm');
-    if (mainForm) {
-      ['name','phone','email','course','message'].forEach(field => {
-        const el = mainForm.querySelector(`[name="${field}"]`);
-        if (el) el.value = formData.get(field) || '';
-      });
-    }
-
-    fetch('send_mail.php', { method: 'POST', body: formData })
-      .then(r => { throw r; })
-      .catch(() => {
-        this.style.display = 'none';
-        document.getElementById('popupFormSuccess').classList.remove('hidden');
-        // Redirect after 2.5s
-        setTimeout(() => { window.location.href = 'thankyou.html'; }, 2500);
-      });
+    handleLeadSubmission(this, btn, document.getElementById('popupFormSuccess'));
   });
 
   // Hero form submission
   document.getElementById('heroEnquiryForm').addEventListener('submit', function(e) {
     e.preventDefault();
     const btn = document.getElementById('heroSubmitBtn');
-    btn.innerHTML = '<svg class="animate-spin" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg> Sending...';
-    btn.disabled = true;
+    handleLeadSubmission(this, btn, document.getElementById('heroFormSuccess'));
+  });
 
-    const formData = new FormData(this);
-
-    fetch('send_mail.php', { method: 'POST', body: formData })
-      .then(r => { throw r; })
-      .catch(() => {
-        this.style.display = 'none';
-        document.getElementById('heroFormSuccess').classList.remove('hidden');
-        setTimeout(() => { window.location.href = 'thankyou.html'; }, 2500);
-      });
+  // Main Enquiry form submission
+  document.getElementById('enquiryForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const btn = this.querySelector('button[type="submit"]');
+    handleLeadSubmission(this, btn, document.getElementById('formSuccess'));
   });
 
   // Set hero form URL
@@ -2571,14 +2598,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       icon.textContent = '−';
     }
   }
-
-  // Form submission — normal POST so PHP can redirect to thankyou.html
-  document.getElementById('enquiryForm').addEventListener('submit', function(e) {
-    const btn = this.querySelector('button[type="submit"]');
-    btn.innerHTML = '<svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" class="animate-spin"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg> Sending...';
-    btn.disabled = true;
-    // Let the form submit normally — PHP will redirect to thankyou.html
-  });
 
   // Parallax on hero orbs
   document.addEventListener('mousemove', (e) => {
