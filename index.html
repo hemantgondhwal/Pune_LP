@@ -1150,104 +1150,110 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <!-- Slider Wrapper -->
     <div class="reveal" style="position:relative;">
-      <!-- Prev Button -->
-      <button id="studentSliderPrev" aria-label="Previous" style="position:absolute;left:-20px;top:50%;transform:translateY(-50%);z-index:10;width:44px;height:44px;border-radius:50%;background:white;border:2px solid #e8470a;color:#e8470a;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 15px rgba(0,0,0,0.12);transition:all 0.3s;" onmouseover="this.style.background='#e8470a';this.style.color='white';" onmouseout="this.style.background='white';this.style.color='#e8470a';">
+      <!-- Prev Button (Slides Left to Right) -->
+      <button id="studentSliderPrev" aria-label="Slide Left to Right" style="position:absolute;left:-20px;top:50%;transform:translateY(-50%);z-index:10;width:44px;height:44px;border-radius:50%;background:white;border:2px solid #e8470a;color:#e8470a;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 15px rgba(0,0,0,0.12);transition:all 0.3s;" onmouseover="this.style.background='#e8470a';this.style.color='white';" onmouseout="this.style.background='white';this.style.color='#e8470a';">
         <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
       </button>
 
       <!-- Slides Container -->
-      <div id="studentSliderTrack" style="overflow:hidden;border-radius:20px;">
-        <div id="studentSliderInner" style="display:flex;transition:transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94);will-change:transform;">
+      <div id="studentSliderTrack" style="overflow:hidden;border-radius:20px;padding:8px 0;">
+        <div id="studentSliderInner" style="display:flex;will-change:transform;">
 
-          <!-- Slide 1 -->
-          <div class="student-slide" style="min-width:25%;padding:0 8px;box-sizing:border-box;">
-            <div style="overflow:hidden;">
-              <img src="https://thexlacademy.com/wp-content/uploads/2025/12/Shipra-Kumari.jpg" alt="Shipra Kumari" style="width:100%;height:auto;display:block;" loading="lazy" />
+          <!-- Slide 1: Amit Ranjan -->
+          <div class="student-slide" data-student="0" style="min-width:25%;padding:0 8px;box-sizing:border-box;">
+            <div class="bg-white rounded-2xl p-2.5 shadow-md hover:shadow-xl border border-orange-100/70 transition-all duration-300 hover:scale-[1.03] group">
+              <div class="overflow-hidden rounded-xl aspect-square bg-white flex items-center justify-center">
+                <img src="images/student_amit_ranjan.jpg" alt="Amit Ranjan - Selected as Data Analyst at Ernst & Young" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+              </div>
             </div>
           </div>
 
-          <!-- Slide 2 -->
-          <div class="student-slide" style="min-width:25%;padding:0 8px;box-sizing:border-box;">
-            <div style="overflow:hidden;">
-              <img src="https://thexlacademy.com/wp-content/uploads/2025/12/ankita-shrivastav-846557-1650182496.jpg" alt="Ankita Shrivastav" style="width:100%;height:auto;display:block;" loading="lazy" />
+          <!-- Slide 2: Anjan Bhagat -->
+          <div class="student-slide" data-student="1" style="min-width:25%;padding:0 8px;box-sizing:border-box;">
+            <div class="bg-white rounded-2xl p-2.5 shadow-md hover:shadow-xl border border-orange-100/70 transition-all duration-300 hover:scale-[1.03] group">
+              <div class="overflow-hidden rounded-xl aspect-square bg-white flex items-center justify-center">
+                <img src="images/student_anjan_bhagat.jpg" alt="Anjan Bhagat - Selected as Business Analyst at Accenture" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+              </div>
             </div>
           </div>
 
-          <!-- Slide 3 -->
-          <div class="student-slide" style="min-width:25%;padding:0 8px;box-sizing:border-box;">
-            <div style="overflow:hidden;">
-              <img src="https://thexlacademy.com/wp-content/uploads/2025/12/divya-532335-1650182459.jpg" alt="Divya" style="width:100%;height:auto;display:block;" loading="lazy" />
+          <!-- Slide 3: Ankita Shrivastav -->
+          <div class="student-slide" data-student="2" style="min-width:25%;padding:0 8px;box-sizing:border-box;">
+            <div class="bg-white rounded-2xl p-2.5 shadow-md hover:shadow-xl border border-orange-100/70 transition-all duration-300 hover:scale-[1.03] group">
+              <div class="overflow-hidden rounded-xl aspect-square bg-white flex items-center justify-center">
+                <img src="images/student_ankita_shrivastav.jpg" alt="Ankita Shrivastav - Selected as Business Analyst at Wipro" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+              </div>
             </div>
           </div>
 
-          <!-- Slide 4 -->
-          <div class="student-slide" style="min-width:25%;padding:0 8px;box-sizing:border-box;">
-            <div style="overflow:hidden;">
-              <img src="https://thexlacademy.com/wp-content/uploads/2025/12/himanshu-khurana-127894-1650182428.jpg" alt="Himanshu Khurana" style="width:100%;height:auto;display:block;" loading="lazy" />
+          <!-- Slide 4: Heron Deori -->
+          <div class="student-slide" data-student="3" style="min-width:25%;padding:0 8px;box-sizing:border-box;">
+            <div class="bg-white rounded-2xl p-2.5 shadow-md hover:shadow-xl border border-orange-100/70 transition-all duration-300 hover:scale-[1.03] group">
+              <div class="overflow-hidden rounded-xl aspect-square bg-white flex items-center justify-center">
+                <img src="images/student_heron_deori.jpg" alt="Heron Deori - Selected as Business Analyst at Ernst & Young" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+              </div>
             </div>
           </div>
 
-          <!-- Slide 5 -->
-          <div class="student-slide" style="min-width:25%;padding:0 8px;box-sizing:border-box;">
-            <div style="overflow:hidden;">
-              <img src="https://thexlacademy.com/wp-content/uploads/2025/12/sandeep-roy-871113-1650434112.jpg" alt="Sandeep Roy" style="width:100%;height:auto;display:block;" loading="lazy" />
+          <!-- Slide 5: Bittoo Kumar Jha -->
+          <div class="student-slide" data-student="4" style="min-width:25%;padding:0 8px;box-sizing:border-box;">
+            <div class="bg-white rounded-2xl p-2.5 shadow-md hover:shadow-xl border border-orange-100/70 transition-all duration-300 hover:scale-[1.03] group">
+              <div class="overflow-hidden rounded-xl aspect-square bg-white flex items-center justify-center">
+                <img src="images/student_bittoo_kumar_jha.jpg" alt="Bittoo Kumar Jha - Selected as Senior Business Analyst at WNS Global Services" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+              </div>
             </div>
           </div>
 
-          <!-- Slide 6 -->
-          <div class="student-slide" style="min-width:25%;padding:0 8px;box-sizing:border-box;">
-            <div style="overflow:hidden;">
-              <img src="https://thexlacademy.com/wp-content/uploads/2025/12/renu-tiwari-157774-1650182278.jpg" alt="Renu Tiwari" style="width:100%;height:auto;display:block;" loading="lazy" />
+          <!-- Slide 6 (Duplicate Loop): Amit Ranjan -->
+          <div class="student-slide" data-student="0" style="min-width:25%;padding:0 8px;box-sizing:border-box;">
+            <div class="bg-white rounded-2xl p-2.5 shadow-md hover:shadow-xl border border-orange-100/70 transition-all duration-300 hover:scale-[1.03] group">
+              <div class="overflow-hidden rounded-xl aspect-square bg-white flex items-center justify-center">
+                <img src="images/student_amit_ranjan.jpg" alt="Amit Ranjan - Selected as Data Analyst at Ernst & Young" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+              </div>
             </div>
           </div>
 
-          <!-- Slide 7 -->
-          <div class="student-slide" style="min-width:25%;padding:0 8px;box-sizing:border-box;">
-            <div style="overflow:hidden;">
-              <img src="https://thexlacademy.com/wp-content/uploads/2025/12/heron-deori-673674-1650182037.jpg" alt="Heron Deori" style="width:100%;height:auto;display:block;" loading="lazy" />
+          <!-- Slide 7 (Duplicate Loop): Anjan Bhagat -->
+          <div class="student-slide" data-student="1" style="min-width:25%;padding:0 8px;box-sizing:border-box;">
+            <div class="bg-white rounded-2xl p-2.5 shadow-md hover:shadow-xl border border-orange-100/70 transition-all duration-300 hover:scale-[1.03] group">
+              <div class="overflow-hidden rounded-xl aspect-square bg-white flex items-center justify-center">
+                <img src="images/student_anjan_bhagat.jpg" alt="Anjan Bhagat - Selected as Business Analyst at Accenture" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+              </div>
             </div>
           </div>
 
-          <!-- Slide 8 -->
-          <div class="student-slide" style="min-width:25%;padding:0 8px;box-sizing:border-box;">
-            <div style="overflow:hidden;">
-              <img src="https://thexlacademy.com/wp-content/uploads/2025/12/nivedita-318862-1650185364.jpg" alt="Nivedita" style="width:100%;height:auto;display:block;" loading="lazy" />
+          <!-- Slide 8 (Duplicate Loop): Ankita Shrivastav -->
+          <div class="student-slide" data-student="2" style="min-width:25%;padding:0 8px;box-sizing:border-box;">
+            <div class="bg-white rounded-2xl p-2.5 shadow-md hover:shadow-xl border border-orange-100/70 transition-all duration-300 hover:scale-[1.03] group">
+              <div class="overflow-hidden rounded-xl aspect-square bg-white flex items-center justify-center">
+                <img src="images/student_ankita_shrivastav.jpg" alt="Ankita Shrivastav - Selected as Business Analyst at Wipro" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+              </div>
             </div>
           </div>
 
-          <!-- Slide 9 -->
-          <div class="student-slide" style="min-width:25%;padding:0 8px;box-sizing:border-box;">
-            <div style="overflow:hidden;">
-              <img src="https://thexlacademy.com/wp-content/uploads/2025/12/deepanshu-gupta-379940-1651227758.jpg" alt="Deepanshu Gupta" style="width:100%;height:auto;display:block;" loading="lazy" />
+          <!-- Slide 9 (Duplicate Loop): Heron Deori -->
+          <div class="student-slide" data-student="3" style="min-width:25%;padding:0 8px;box-sizing:border-box;">
+            <div class="bg-white rounded-2xl p-2.5 shadow-md hover:shadow-xl border border-orange-100/70 transition-all duration-300 hover:scale-[1.03] group">
+              <div class="overflow-hidden rounded-xl aspect-square bg-white flex items-center justify-center">
+                <img src="images/student_heron_deori.jpg" alt="Heron Deori - Selected as Business Analyst at Ernst & Young" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+              </div>
             </div>
           </div>
 
-          <!-- Slide 10 -->
-          <div class="student-slide" style="min-width:25%;padding:0 8px;box-sizing:border-box;">
-            <div style="overflow:hidden;">
-              <img src="https://thexlacademy.com/wp-content/uploads/2025/12/mohan-labh-144452-1657968263.jpg" alt="Mohan Labh" style="width:100%;height:auto;display:block;" loading="lazy" />
-            </div>
-          </div>
-
-          <!-- Slide 11 -->
-          <div class="student-slide" style="min-width:25%;padding:0 8px;box-sizing:border-box;">
-            <div style="overflow:hidden;">
-              <img src="https://thexlacademy.com/wp-content/uploads/2025/12/shomesh-958761-1671097102.jpg" alt="Shomesh" style="width:100%;height:auto;display:block;" loading="lazy" />
-            </div>
-          </div>
-
-          <!-- Slide 12 -->
-          <div class="student-slide" style="min-width:25%;padding:0 8px;box-sizing:border-box;">
-            <div style="overflow:hidden;">
-              <img src="https://thexlacademy.com/wp-content/uploads/2025/12/manan-juneja-762988-1691478795.jpg" alt="Manan Juneja" style="width:100%;height:auto;display:block;" loading="lazy" />
+          <!-- Slide 10 (Duplicate Loop): Bittoo Kumar Jha -->
+          <div class="student-slide" data-student="4" style="min-width:25%;padding:0 8px;box-sizing:border-box;">
+            <div class="bg-white rounded-2xl p-2.5 shadow-md hover:shadow-xl border border-orange-100/70 transition-all duration-300 hover:scale-[1.03] group">
+              <div class="overflow-hidden rounded-xl aspect-square bg-white flex items-center justify-center">
+                <img src="images/student_bittoo_kumar_jha.jpg" alt="Bittoo Kumar Jha - Selected as Senior Business Analyst at WNS Global Services" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+              </div>
             </div>
           </div>
 
         </div><!-- /inner -->
       </div><!-- /track -->
 
-      <!-- Next Button -->
-      <button id="studentSliderNext" aria-label="Next" style="position:absolute;right:-20px;top:50%;transform:translateY(-50%);z-index:10;width:44px;height:44px;border-radius:50%;background:white;border:2px solid #e8470a;color:#e8470a;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 15px rgba(0,0,0,0.12);transition:all 0.3s;" onmouseover="this.style.background='#e8470a';this.style.color='white';" onmouseout="this.style.background='white';this.style.color='#e8470a';">
+      <!-- Next Button (Slides Right to Left) -->
+      <button id="studentSliderNext" aria-label="Slide Right to Left" style="position:absolute;right:-20px;top:50%;transform:translateY(-50%);z-index:10;width:44px;height:44px;border-radius:50%;background:white;border:2px solid #e8470a;color:#e8470a;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 15px rgba(0,0,0,0.12);transition:all 0.3s;" onmouseover="this.style.background='#e8470a';this.style.color='white';" onmouseout="this.style.background='white';this.style.color='#e8470a';">
         <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
       </button>
 
@@ -1259,100 +1265,180 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <script>
 (function() {
-  var inner   = document.getElementById('studentSliderInner');
+  var track    = document.getElementById('studentSliderTrack');
+  var inner    = document.getElementById('studentSliderInner');
   var dotsWrap = document.getElementById('studentSliderDots');
-  var slides  = inner ? inner.querySelectorAll('.student-slide') : [];
-  var total   = slides.length;          // 12
-  var visible = 4;                      // show 4 at a time
-  var current = 0;
-  var autoTimer;
+  var isAnimating = false;
+  var autoTimer   = null;
+  var activeDot   = 0;
+  var TOTAL_UNIQUE = 5;
 
   function getVisible() {
     return window.innerWidth < 640 ? 1 : window.innerWidth < 1024 ? 2 : 4;
   }
 
   function updateSlideWidth() {
-    visible = getVisible();
-    slides.forEach(function(s) { s.style.minWidth = (100 / visible) + '%'; });
+    var visible = getVisible();
+    var slides = inner ? inner.querySelectorAll('.student-slide') : [];
+    slides.forEach(function(s) {
+      s.style.minWidth = (100 / visible) + '%';
+    });
   }
 
-  function maxIndex() { return total - getVisible(); }
-
-  function goTo(idx) {
-    visible = getVisible();
-    var max = maxIndex();
-    current = Math.max(0, Math.min(idx, max));
-    inner.style.transform = 'translateX(-' + (current * (100 / visible)) + '%)';
-    // update dots
+  function updateDots() {
+    if (!dotsWrap) return;
     var dots = dotsWrap.querySelectorAll('button');
     dots.forEach(function(d, i) {
-      d.style.background = i === current ? '#e8470a' : '#d1d5db';
-      d.style.width = i === current ? '24px' : '8px';
+      d.style.background = (i === activeDot) ? '#e8470a' : '#d1d5db';
+      d.style.width = (i === activeDot) ? '24px' : '8px';
     });
   }
 
   function buildDots() {
+    if (!dotsWrap) return;
     dotsWrap.innerHTML = '';
-    var max = maxIndex() + 1;
-    for (var i = 0; i < max; i++) {
+    for (var i = 0; i < TOTAL_UNIQUE; i++) {
       var btn = document.createElement('button');
       btn.style.cssText = 'height:8px;border-radius:100px;border:none;cursor:pointer;transition:all 0.3s;background:#d1d5db;width:8px;padding:0;';
-      btn.setAttribute('aria-label', 'Go to slide ' + (i + 1));
-      (function(idx) { btn.addEventListener('click', function() { goTo(idx); resetAuto(); }); })(i);
+      btn.setAttribute('aria-label', 'Student ' + (i + 1));
+      (function(idx) {
+        btn.addEventListener('click', function() {
+          if (idx !== activeDot) {
+            slideLeftToRight();
+            resetAuto();
+          }
+        });
+      })(i);
       dotsWrap.appendChild(btn);
     }
+    updateDots();
+  }
+
+  // Moves images seamlessly from LEFT to RIGHT with 0.5s speed
+  function slideLeftToRight() {
+    if (isAnimating || !inner || !inner.children.length) return;
+    isAnimating = true;
+
+    var visible = getVisible();
+    var stepPercent = 100 / visible;
+
+    // 1. Prepend last card to front at negative offset without transition
+    var lastItem = inner.lastElementChild;
+    inner.insertBefore(lastItem, inner.firstElementChild);
+    inner.style.transition = 'none';
+    inner.style.transform = 'translateX(-' + stepPercent + '%)';
+
+    // 2. Force DOM reflow
+    inner.offsetWidth;
+
+    // 3. Smoothly animate from left to right with 0.5s duration
+    inner.style.transition = 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+    inner.style.transform = 'translateX(0)';
+
+    activeDot = (activeDot - 1 + TOTAL_UNIQUE) % TOTAL_UNIQUE;
+    updateDots();
+
+    setTimeout(function() {
+      inner.style.transition = 'none';
+      isAnimating = false;
+    }, 520);
+  }
+
+  // Moves images from RIGHT to LEFT with 0.5s speed (when next button is clicked)
+  function slideRightToLeft() {
+    if (isAnimating || !inner || !inner.children.length) return;
+    isAnimating = true;
+
+    var visible = getVisible();
+    var stepPercent = 100 / visible;
+
+    // 1. Animate forward by stepPercent with 0.5s duration
+    inner.style.transition = 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+    inner.style.transform = 'translateX(-' + stepPercent + '%)';
+
+    activeDot = (activeDot + 1) % TOTAL_UNIQUE;
+    updateDots();
+
+    setTimeout(function() {
+      // 2. Move first card to the end and reset transform without flicker
+      inner.style.transition = 'none';
+      inner.appendChild(inner.firstElementChild);
+      inner.style.transform = 'translateX(0)';
+      isAnimating = false;
+    }, 520);
+  }
+
+  function startAuto() {
+    clearInterval(autoTimer);
+    autoTimer = setInterval(function() {
+      slideLeftToRight();
+    }, 2800);
   }
 
   function resetAuto() {
-    clearInterval(autoTimer);
-    autoTimer = setInterval(function() {
-      goTo(current >= maxIndex() ? 0 : current + 1);
-    }, 3000);
+    startAuto();
   }
 
-  document.getElementById('studentSliderPrev').addEventListener('click', function() {
-    goTo(current <= 0 ? maxIndex() : current - 1);
-    resetAuto();
-  });
-  document.getElementById('studentSliderNext').addEventListener('click', function() {
-    goTo(current >= maxIndex() ? 0 : current + 1);
-    resetAuto();
-  });
+  // Button Listeners
+  var prevBtn = document.getElementById('studentSliderPrev');
+  var nextBtn = document.getElementById('studentSliderNext');
 
-  // Touch swipe gesture support for mobile devices
-  var track = document.getElementById('studentSliderTrack');
+  if (prevBtn) {
+    prevBtn.addEventListener('click', function() {
+      slideLeftToRight();
+      resetAuto();
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener('click', function() {
+      slideRightToLeft();
+      resetAuto();
+    });
+  }
+
+  // Pause on hover
+  if (track) {
+    track.addEventListener('mouseenter', function() {
+      clearInterval(autoTimer);
+    });
+    track.addEventListener('mouseleave', function() {
+      startAuto();
+    });
+  }
+
+  // Touch swipe support for mobile
   var touchStartX = 0;
   var touchEndX = 0;
 
   if (track) {
     track.addEventListener('touchstart', function(e) {
       touchStartX = e.changedTouches[0].screenX;
+      clearInterval(autoTimer);
     }, { passive: true });
 
     track.addEventListener('touchend', function(e) {
       touchEndX = e.changedTouches[0].screenX;
       var swipeDist = touchEndX - touchStartX;
-      if (Math.abs(swipeDist) > 40) {
-        if (swipeDist < 0) {
-          goTo(current >= maxIndex() ? 0 : current + 1);
+      if (Math.abs(swipeDist) > 35) {
+        if (swipeDist > 0) {
+          slideLeftToRight(); // Swipe right -> move left-to-right
         } else {
-          goTo(current <= 0 ? maxIndex() : current - 1);
+          slideRightToLeft(); // Swipe left -> move right-to-left
         }
-        resetAuto();
       }
+      startAuto();
     }, { passive: true });
   }
 
   window.addEventListener('resize', function() {
     updateSlideWidth();
-    buildDots();
-    goTo(0);
   });
 
+  // Initialization
   updateSlideWidth();
   buildDots();
-  goTo(0);
-  resetAuto();
+  startAuto();
 })();
 </script>
 
