@@ -236,7 +236,7 @@ $autoBody = "
       </div>
 
       <p>Need instant guidance? Call or WhatsApp our Pune counselling desk:</p>
-      <a href='tel:+917428703467' class='btn'>📞 Call: +91 74287 03467</a>
+      <a href='tel:+917011062944' class='btn'>📞 Call: +91 70110 62944</a>
 
       <p style='color:#888; font-size:13px;'>Monday – Saturday · 9:00 AM to 7:00 PM IST</p>
     </div>
