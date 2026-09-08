@@ -55,65 +55,8 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     exit;
 }
 
-// ─── Send data to Google Sheets ───────────────────────────────────────────────
-$googleScriptUrl = "https://script.google.com/macros/s/AKfycbz1DeHDKaLpRzOvJixB4EXnv2-PfcU0wV31yguO9kZoTELxFEFyDal6o_Q6QFOwn8eSYA/exec";
-
-$payload = json_encode([
-    "name"         => $name,
-    "phone"        => $phone,
-    "email"        => $email,
-    "course"       => $course,
-    "city"         => $city,
-    "page_url"     => $page_url,
-    "timestamp"    => $submitted_at,
-    "source"       => "Pune Landing Page"
-]);
-
-$sheetSuccess = false;
-
-// 1. Try via cURL with redirect following
-if (function_exists('curl_init')) {
-    $ch = curl_init($googleScriptUrl);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_POST, true);
-    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-    curl_setopt($ch, CURLOPT_TIMEOUT, 8);
-    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-    curl_setopt($ch, CURLOPT_HTTPHEADER, [
-        'Content-Type: application/json',
-        'Accept: application/json'
-    ]);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
-    $sheetResponse = curl_exec($ch);
-    $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-    curl_close($ch);
-    if ($httpCode >= 200 && $httpCode < 400) {
-        $sheetSuccess = true;
-    }
-}
-
-// 2. Fallback via file_get_contents stream if cURL is unavailable
-if (!$sheetSuccess) {
-    $options = [
-        'http' => [
-            'method'          => 'POST',
-            'header'          => "Content-Type: application/json\r\nAccept: application/json\r\n",
-            'content'         => $payload,
-            'timeout'         => 8,
-            'follow_location' => 1,
-            'ignore_errors'   => true
-        ],
-        'ssl' => [
-            'verify_peer'      => false,
-            'verify_peer_name' => false
-        ]
-    ];
-    $context = stream_context_create($options);
-    $streamResp = @file_get_contents($googleScriptUrl, false, $context);
-    if ($streamResp !== false) {
-        $sheetSuccess = true;
-    }
-}
+// ─── Google Sheets Sync is handled directly by index.html to prevent duplicate rows ───
+$sheetSuccess = true;
 
 // ─── Build Notification Email to Administrator ────────────────────────────────
 $subject = "🔥 New Pune LP Lead: {$name} (" . (!empty($course) ? $course : 'Data Science & Analytics') . ")";
