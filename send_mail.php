@@ -197,8 +197,15 @@ $headers = implode("\r\n", [
     'X-Mailer: PHP/' . phpversion(),
 ]);
 
-// Send email to admin
-$sent = @mail($to, $subject, $body, $headers);
+// Failsafe local backup log on server
+$logEntry = "[" . date('Y-m-d H:i:s') . "] Name: {$name} | Phone: {$phone} | Email: {$email} | Course: {$course} | City: {$city}\n";
+@file_put_contents(__DIR__ . '/leads_backup.log', $logEntry, FILE_APPEND | LOCK_EX);
+
+// Send email to admin with envelope sender (Hostinger/cPanel standard)
+$sent = @mail($to, $subject, $body, $headers, '-f no-reply@thexlacademy.com');
+if (!$sent) {
+    $sent = @mail($to, $subject, $body, $headers);
+}
 
 // ─── Auto-reply to the enquirer ───────────────────────────────────────────────
 $autoSubject = "Thank you for your enquiry — " . SITE_NAME;
