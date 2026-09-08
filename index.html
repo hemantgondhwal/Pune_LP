@@ -2513,6 +2513,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   const GOOGLE_SCRIPT_WEBHOOK = "https://script.google.com/macros/s/AKfycbz1DeHDKaLpRzOvJixB4EXnv2-PfcU0wV31yguO9kZoTELxFEFyDal6o_Q6QFOwn8eSYA/exec";
 
   function handleLeadSubmission(formEl, btnEl, successEl) {
+    // Prevent duplicate submissions if user clicks multiple times
+    if (formEl.dataset.submitting === 'true') {
+      return;
+    }
+    formEl.dataset.submitting = 'true';
+
     if (btnEl) {
       btnEl.innerHTML = '<svg class="animate-spin inline-block mr-2" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg> Submitting...';
       btnEl.disabled = true;
