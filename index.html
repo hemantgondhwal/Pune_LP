@@ -377,9 +377,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- Notification Bar -->
 <div class="notif-bar text-white text-center py-2 px-3 text-[11px] sm:text-xs md:text-sm font-medium tracking-wide flex flex-wrap items-center justify-center gap-2">
-  <span class="bg-orange-600 text-white text-[10px] sm:text-xs font-bold uppercase px-2.5 py-0.5 rounded-full tracking-wider">⚡ Pune Batch</span>
-  <span class="text-slate-200">Upcoming Pune Offline &amp; Online Data Science &amp; Data Analytics Batch &middot; Only <strong class="text-white font-bold underline decoration-orange-400">4 Seats Remaining</strong></span>
-  <a href="javascript:void(0)" onclick="openEnquiryPopup()" class="bg-white/15 hover:bg-white/25 text-white border border-white/25 px-3 py-0.5 rounded-full text-[11px] sm:text-xs font-bold transition-all ml-1 whitespace-nowrap">Claim Seat Now →</a>
+  <span class="bg-orange-600 text-white text-[10px] sm:text-xs font-bold uppercase px-2.5 py-0.5 rounded-full tracking-wider">⚡ Pune Batches</span>
+  <span class="text-slate-200">Classroom &amp; Live Interactive Hybrid Batches Starting in Pune &middot; Limited to 15 Students/Batch</span>
+  <a href="javascript:void(0)" onclick="openSyllabusModal()" class="bg-white/15 hover:bg-white/25 text-white border border-white/25 px-3 py-0.5 rounded-full text-[11px] sm:text-xs font-bold transition-all ml-1 whitespace-nowrap">Download Syllabus (PDF) →</a>
 </div>
 
 <!-- NAVBAR -->
@@ -392,9 +392,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     
     <!-- Desktop Nav Links -->
-    <div class="hidden md:flex items-center gap-7 text-sm font-semibold text-slate-700">
+    <div class="hidden md:flex items-center gap-6 text-sm font-semibold text-slate-700">
+      <a href="#batches" class="hover:text-blue-900 transition-colors">Upcoming Batches</a>
       <a href="#courses" class="hover:text-blue-900 transition-colors">Courses</a>
-      <a href="#why" class="hover:text-blue-900 transition-colors">Why Us</a>
+      <a href="#mentors" class="hover:text-blue-900 transition-colors">Trainers</a>
       <a href="#placements" class="hover:text-blue-900 transition-colors">Placements</a>
       <a href="#branches" class="hover:text-blue-900 transition-colors">Pune Campus</a>
       <a href="#faq" class="hover:text-blue-900 transition-colors">FAQ</a>
@@ -419,17 +420,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- Mobile Dropdown Menu -->
   <div id="mobileNavDrawer" class="hidden md:hidden border-t border-slate-100 bg-white/98 backdrop-blur-lg px-4 py-4 mt-2 rounded-2xl shadow-xl">
     <div class="flex flex-col gap-2.5 text-sm font-semibold text-slate-700">
+      <a href="#batches" onclick="toggleMobileNav()" class="px-3 py-2 rounded-xl hover:bg-slate-50 hover:text-blue-900 transition-colors flex items-center gap-2">
+        <span>📅</span> Upcoming Pune Batches
+      </a>
       <a href="#courses" onclick="toggleMobileNav()" class="px-3 py-2 rounded-xl hover:bg-slate-50 hover:text-blue-900 transition-colors flex items-center gap-2">
         <span>📚</span> Courses &amp; Programs
       </a>
-      <a href="#why" onclick="toggleMobileNav()" class="px-3 py-2 rounded-xl hover:bg-slate-50 hover:text-blue-900 transition-colors flex items-center gap-2">
-        <span>⭐</span> Why XL Academy
+      <a href="#mentors" onclick="toggleMobileNav()" class="px-3 py-2 rounded-xl hover:bg-slate-50 hover:text-blue-900 transition-colors flex items-center gap-2">
+        <span>👨‍🏫</span> Industry Trainers
       </a>
       <a href="#placements" onclick="toggleMobileNav()" class="px-3 py-2 rounded-xl hover:bg-slate-50 hover:text-blue-900 transition-colors flex items-center gap-2">
-        <span>💼</span> 100% Placement Support
+        <span>💼</span> Pune IT Placements
       </a>
       <a href="#branches" onclick="toggleMobileNav()" class="px-3 py-2 rounded-xl hover:bg-slate-50 hover:text-blue-900 transition-colors flex items-center gap-2">
-        <span>📍</span> Pune Campus &amp; Centers
+        <span>📍</span> Pune Campus &amp; Map
       </a>
       <a href="#faq" onclick="toggleMobileNav()" class="px-3 py-2 rounded-xl hover:bg-slate-50 hover:text-blue-900 transition-colors flex items-center gap-2">
         <span>❓</span> Frequently Asked Questions
@@ -461,25 +465,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
 
       <h1 class="hero-title text-3xl sm:text-4xl md:text-5xl font-black text-white leading-tight mb-4 animate-fade-up animate-delay-1">
-        Launch Your<br><span class="shimmer-text">Data Science &amp; Data Analytics Career</span><br>in Pune Today!
+        Master Data Science &amp; Analytics in Pune &mdash;<br><span class="shimmer-text">Classroom &amp; Live Online</span>
       </h1>
 
-      <!-- Urgency Countdown Timer Widget -->
-      <div class="bg-white/10 backdrop-blur-md border border-white/15 rounded-xl p-3 sm:p-3.5 mb-6 animate-fade-up animate-delay-2 flex flex-col sm:flex-row items-center justify-between gap-3">
-        <div class="flex items-center gap-2 text-slate-200 text-xs md:text-sm font-semibold">
-          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" class="text-amber-400" viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm1 10.59l3.3 3.3-1.42 1.42L11 13V7h2v5.59z"/></svg>
-          <span>Batch Starting Soon &middot; Seats Closing In:</span>
+      <!-- Verified Upcoming Batch Pill (Replaces Artificial Countdown) -->
+      <div class="bg-white/10 backdrop-blur-md border border-white/15 rounded-xl p-3 sm:p-3.5 mb-6 animate-fade-up animate-delay-2 flex flex-col sm:flex-row items-center justify-between gap-3 shadow-sm">
+        <div class="flex items-center gap-2.5 text-slate-100 text-xs md:text-sm font-semibold">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" class="text-amber-400 flex-shrink-0" viewBox="0 0 24 24"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          <span>Next Offline Classroom Batch: <strong class="text-white font-bold">Starting 22nd Sep</strong></span>
         </div>
-        <div class="flex items-center gap-1.5 text-white font-mono font-bold text-xs sm:text-sm" id="heroCountdown">
-          <span class="bg-white/15 px-2.5 py-1 rounded-lg border border-white/20 shadow-sm" id="cdDays">01d</span> :
-          <span class="bg-white/15 px-2.5 py-1 rounded-lg border border-white/20 shadow-sm" id="cdHours">14h</span> :
-          <span class="bg-white/15 px-2.5 py-1 rounded-lg border border-white/20 shadow-sm" id="cdMins">32m</span> :
-          <span class="bg-white/15 px-2.5 py-1 rounded-lg border border-white/20 shadow-sm" id="cdSecs">45s</span>
+        <div class="flex items-center gap-2">
+          <span class="bg-emerald-500/20 text-emerald-300 border border-emerald-400/30 text-[11px] font-bold px-2.5 py-0.5 rounded-full flex items-center gap-1">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Weekend &amp; Weekday
+          </span>
         </div>
       </div>
 
       <p class="text-slate-300 text-sm sm:text-base md:text-lg mb-6 leading-relaxed animate-fade-up animate-delay-2">
-        Industry-experienced trainers &middot; Real-world projects &middot; 100% placement assistance in Pune IT Hubs (Hinjewadi, Kharadi, Baner &amp; Magarpatta)
+        100% Practical Project-Based Learning &middot; Mentorship by Ex-MNC Senior Data Consultants &middot; 100% Placement Assistance in Pune IT Hubs (Hinjewadi, Kharadi, Baner &amp; Magarpatta)
       </p>
 
       <div class="flex flex-col sm:flex-row flex-wrap gap-3 mb-8 animate-fade-up animate-delay-3">
@@ -487,58 +490,61 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           Book Free Demo in Pune
           <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
+        <a href="javascript:void(0)" onclick="openSyllabusModal()" class="bg-white/15 hover:bg-white/25 text-white border border-white/25 px-6 py-3.5 rounded-full text-sm md:text-base font-bold inline-flex items-center justify-center gap-2 w-full sm:w-auto text-center transition-all shadow-md">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          Download Syllabus (PDF)
+        </a>
         <a href="tel:+917011062944" class="btn-outline px-6 py-3.5 rounded-full text-sm md:text-base font-bold inline-flex items-center justify-center gap-2 w-full sm:w-auto text-center">
           <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-          Call Now
+          Call Center
         </a>
-        <a href="https://wa.me/917011062944?text=Hi%2C%20I%20am%20interested%20in%20Data%20Analytics%20%26%20Data%20Science%20course%20at%20the%20Pune%20branch.%20Please%20send%20details." target="_blank" class="bg-emerald-600 hover:bg-emerald-500 text-white px-6 py-3.5 rounded-full text-sm md:text-base font-bold inline-flex items-center justify-center gap-2 transition-all shadow-md w-full sm:w-auto text-center">
+        <a href="https://wa.me/917011062944?text=Hi%2C%20I%20want%20details%20about%20the%20upcoming%20Pune%20Data%20Analytics%20batch." target="_blank" class="bg-emerald-600 hover:bg-emerald-500 text-white px-6 py-3.5 rounded-full text-sm md:text-base font-bold inline-flex items-center justify-center gap-2 transition-all shadow-md w-full sm:w-auto text-center">
           <svg width="18" height="18" fill="white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          WhatsApp
+          WhatsApp Us
         </a>
       </div>
       <!-- Hero trust signals -->
       <div class="flex flex-wrap gap-3 sm:gap-5 text-slate-300 text-[11px] sm:text-xs md:text-sm animate-fade-up animate-delay-3">
-        <span class="flex items-center gap-1.5"><svg width="15" height="15" fill="#10B981" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> No Coding Needed</span>
-        <span class="flex items-center gap-1.5"><svg width="15" height="15" fill="#10B981" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> Easy EMI Available</span>
-        <span class="flex items-center gap-1.5"><svg width="15" height="15" fill="#10B981" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> IBM + Microsoft Cert</span>
+        <span class="flex items-center gap-1.5"><svg width="15" height="15" fill="#10B981" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> Google 4.9★ (1,200+ Reviews)</span>
+        <span class="flex items-center gap-1.5"><svg width="15" height="15" fill="#10B981" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> 350+ Hiring Partners</span>
+        <span class="flex items-center gap-1.5"><svg width="15" height="15" fill="#10B981" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> 0% Interest EMI</span>
+        <span class="flex items-center gap-1.5"><svg width="15" height="15" fill="#10B981" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> IBM &amp; Microsoft Aligned</span>
       </div>
     </div>
 
-    <!-- Hero Enquiry Form -->
+    <!-- Hero Enquiry Form (Streamlined: Removed redundant City field) -->
     <div class="animate-slide-left animate-delay-2 bg-white rounded-2xl p-5 sm:p-7 md:p-8 shadow-2xl relative overflow-hidden border border-slate-200">
       <div class="absolute top-0 left-0 right-0 h-1.5 bg-[#1B2B6B]"></div>
       <div class="text-center mb-5">
-        <div class="inline-flex items-center gap-2 bg-slate-100 text-slate-800 text-xs font-semibold px-3 py-1 rounded-full mb-3 border border-slate-200">
-          <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
-          Only 4 Seats Remaining for Pune Batch
+        <div class="inline-flex items-center gap-2 bg-emerald-50 text-emerald-800 text-xs font-semibold px-3 py-1 rounded-full mb-3 border border-emerald-200">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          Pune Campus — Admissions Open
         </div>
-        <h3 class="text-xl font-black text-slate-900 mb-1">Enquire Now — Pune Batch</h3>
-        <p class="text-slate-500 text-xs md:text-sm">Our Pune career counsellor will call you within 2 hours</p>
+        <h3 class="text-xl font-black text-slate-900 mb-1">Book Your Pune Free Demo</h3>
+        <p class="text-slate-500 text-xs md:text-sm">Speak with our Senior Pune Career Mentor within 2 hours</p>
       </div>
       <form id="heroEnquiryForm" action="send_mail.php" method="POST">
         <input type="hidden" name="page_url" id="heroFormUrl" />
+        <input type="hidden" name="city" value="Pune" />
         <div class="space-y-3">
           <div>
             <input type="text" name="name" required placeholder="Full Name *" class="form-input" />
           </div>
           <div>
-            <input type="tel" name="phone" required placeholder="Mobile Number *" class="form-input" pattern="[0-9+\s\-()]{10,15}" />
+            <input type="tel" name="phone" required placeholder="Mobile / WhatsApp Number *" class="form-input" pattern="[0-9+\s\-()]{10,15}" />
           </div>
           <div>
             <input type="email" name="email" required placeholder="Email Address *" class="form-input" />
           </div>
           <div>
-            <select name="course" class="form-input">
-              <option value="">Select a Course</option>
+            <select name="course" class="form-input" required>
+              <option value="">Select Course Interested In *</option>
               <option>Data Analytics with Python (6 Months)</option>
               <option>Data Science with Machine Learning (8 Months)</option>
               <option>Data Analytics (4 Months)</option>
               <option>MIS &amp; Reporting (4 Months)</option>
-              <option>Others</option>
+              <option>Generative AI &amp; Business Analytics</option>
             </select>
-          </div>
-          <div>
-            <input type="text" name="city" required value="Pune" placeholder="City / Area * (e.g. Pune, Wakad, Hinjewadi, Kharadi)" class="form-input" />
           </div>
           <button type="submit" id="heroSubmitBtn" class="btn-primary w-full py-3.5 rounded-xl font-bold text-base flex items-center justify-center gap-2 shadow-lg">
             <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -547,7 +553,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
         <p class="text-xs text-slate-400 text-center mt-3 flex items-center justify-center gap-1">
           <svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>
-          Your information is 100% safe &amp; will not be shared.
+          100% Confidential. No Spam Guarantee.
         </p>
       </form>
       <!-- Hero Form Success State -->
@@ -555,14 +561,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="w-16 h-16 mx-auto mb-4 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center">
           <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
         </div>
-        <h3 class="text-xl font-black text-slate-900 mb-2">Thank You!</h3>
-        <p class="text-slate-600 text-sm">Our Pune counsellor will call you within 2 hours.<br>You can also call us directly at <a href="tel:+917011062944" class="text-blue-900 font-bold">+91 70110 62944</a></p>
+        <h3 class="text-xl font-black text-slate-900 mb-2">Registration Received!</h3>
+        <p class="text-slate-600 text-sm">Our Pune career mentor will call you within 2 hours.<br>For immediate assistance, call <a href="tel:+917011062944" class="text-blue-900 font-bold">+91 70110 62944</a></p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- STATS / NUMBERS SECTION (Below Hero) -->
+<!-- STATS / NUMBERS SECTION<!-- STATS / NUMBERS SECTION (Below Hero) -->
 <section class="py-6 sm:py-8 px-4" style="background: #0B1528; border-bottom: 1px solid rgba(255,255,255,0.06);">
   <div class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-5 gap-4">
     <div class="stat-card p-6 text-center">
@@ -777,6 +783,150 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
+<!-- UPCOMING PUNE BATCHES SECTION -->
+<section id="batches" class="py-12 sm:py-14 md:py-16 px-4 bg-slate-50 border-t border-b border-slate-200/80">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-10 reveal">
+      <span class="section-badge">Upcoming Batches</span>
+      <h2 class="text-3xl md:text-4xl font-black mt-4 mb-4 gradient-heading">Pune Classroom &amp; Hybrid Batch Schedules</h2>
+      <p class="text-slate-600 max-w-2xl mx-auto text-sm sm:text-base">
+        Select a batch schedule tailored for college students or working professionals. Small batches limited to 15 students for hands-on, individualized mentorship.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6 reveal">
+      <!-- Batch 1: Weekend Classroom Batch -->
+      <div class="bg-white rounded-2xl p-6 sm:p-7 shadow-md border border-slate-200/90 hover:border-blue-500 hover:shadow-xl transition-all duration-300 flex flex-col justify-between relative">
+        <div class="absolute -top-3.5 left-6 bg-[#1B2B6B] text-white text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-sm">
+          ⭐ For Working Professionals
+        </div>
+        <div>
+          <div class="flex items-center justify-between mt-2 mb-4">
+            <h3 class="text-xl font-black text-slate-900">Weekend Batch</h3>
+            <span class="bg-emerald-50 text-emerald-700 text-xs font-bold px-2.5 py-1 rounded-full border border-emerald-200">Offline + Live</span>
+          </div>
+          <div class="space-y-3 text-sm text-slate-600 mb-6">
+            <div class="flex items-start gap-2.5">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" class="text-blue-900 flex-shrink-0 mt-0.5" viewBox="0 0 24 24"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+              <div><strong class="text-slate-800">Days:</strong> Saturdays &amp; Sundays</div>
+            </div>
+            <div class="flex items-start gap-2.5">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" class="text-blue-900 flex-shrink-0 mt-0.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              <div><strong class="text-slate-800">Timings:</strong> 10:00 AM &ndash; 2:00 PM (4 Hrs/day)</div>
+            </div>
+            <div class="flex items-start gap-2.5">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" class="text-blue-900 flex-shrink-0 mt-0.5" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+              <div><strong class="text-slate-800">Location:</strong> Pune Center + Online Backup</div>
+            </div>
+            <div class="flex items-start gap-2.5">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" class="text-blue-900 flex-shrink-0 mt-0.5" viewBox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <div><strong class="text-slate-800">Next Start Date:</strong> <span class="text-blue-900 font-bold">27th September 2026</span></div>
+            </div>
+          </div>
+          <div class="bg-slate-50 rounded-xl p-3 text-xs text-slate-500 border border-slate-200/70 mb-6">
+            Includes weekend lab practice hours, project mentoring, and 1-on-1 doubt resolution.
+          </div>
+        </div>
+        <div class="space-y-2">
+          <button onclick="openEnquiryPopup()" class="btn-primary w-full py-3 rounded-xl font-bold text-sm flex items-center justify-center gap-2">
+            Reserve Weekend Seat
+          </button>
+          <button onclick="openSyllabusModal('Weekend Batch')" class="w-full py-2.5 text-xs font-bold text-slate-700 hover:text-blue-900 border border-slate-200 hover:border-slate-300 rounded-xl transition-all flex items-center justify-center gap-1.5">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+            Download Weekend Schedule
+          </button>
+        </div>
+      </div>
+
+      <!-- Batch 2: Weekday Regular Fast-Track -->
+      <div class="bg-white rounded-2xl p-6 sm:p-7 shadow-md border-2 border-[#1B2B6B] hover:shadow-xl transition-all duration-300 flex flex-col justify-between relative">
+        <div class="absolute -top-3.5 left-6 bg-orange-600 text-white text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-sm">
+          🔥 Fast-Track Career Transition
+        </div>
+        <div>
+          <div class="flex items-center justify-between mt-2 mb-4">
+            <h3 class="text-xl font-black text-slate-900">Weekday Batch</h3>
+            <span class="bg-blue-50 text-[#1B2B6B] text-xs font-bold px-2.5 py-1 rounded-full border border-blue-200">Classroom Lab</span>
+          </div>
+          <div class="space-y-3 text-sm text-slate-600 mb-6">
+            <div class="flex items-start gap-2.5">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" class="text-blue-900 flex-shrink-0 mt-0.5" viewBox="0 0 24 24"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+              <div><strong class="text-slate-800">Days:</strong> Monday to Thursday</div>
+            </div>
+            <div class="flex items-start gap-2.5">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" class="text-blue-900 flex-shrink-0 mt-0.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              <div><strong class="text-slate-800">Timings:</strong> Morning 10 AM &amp; Eve 6:30 PM</div>
+            </div>
+            <div class="flex items-start gap-2.5">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" class="text-blue-900 flex-shrink-0 mt-0.5" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+              <div><strong class="text-slate-800">Location:</strong> Pune Center (Offline Labs)</div>
+            </div>
+            <div class="flex items-start gap-2.5">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" class="text-blue-900 flex-shrink-0 mt-0.5" viewBox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <div><strong class="text-slate-800">Next Start Date:</strong> <span class="text-orange-600 font-bold">22nd September 2026</span></div>
+            </div>
+          </div>
+          <div class="bg-slate-50 rounded-xl p-3 text-xs text-slate-500 border border-slate-200/70 mb-6">
+            Ideal for immediate career switchers with daily coding labs and weekly portfolio reviews.
+          </div>
+        </div>
+        <div class="space-y-2">
+          <button onclick="openEnquiryPopup()" class="btn-primary w-full py-3 rounded-xl font-bold text-sm flex items-center justify-center gap-2">
+            Reserve Weekday Seat
+          </button>
+          <button onclick="openSyllabusModal('Weekday Batch')" class="w-full py-2.5 text-xs font-bold text-slate-700 hover:text-blue-900 border border-slate-200 hover:border-slate-300 rounded-xl transition-all flex items-center justify-center gap-1.5">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+            Download Weekday Schedule
+          </button>
+        </div>
+      </div>
+
+      <!-- Batch 3: Hybrid & 1-on-1 Mentorship Track -->
+      <div class="bg-white rounded-2xl p-6 sm:p-7 shadow-md border border-slate-200/90 hover:border-blue-500 hover:shadow-xl transition-all duration-300 flex flex-col justify-between relative">
+        <div class="absolute -top-3.5 left-6 bg-slate-700 text-white text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-sm">
+          ⚡ Flexible Pace
+        </div>
+        <div>
+          <div class="flex items-center justify-between mt-2 mb-4">
+            <h3 class="text-xl font-black text-slate-900">Hybrid &amp; Mentorship</h3>
+            <span class="bg-purple-50 text-purple-700 text-xs font-bold px-2.5 py-1 rounded-full border border-purple-200">1-on-1 Support</span>
+          </div>
+          <div class="space-y-3 text-sm text-slate-600 mb-6">
+            <div class="flex items-start gap-2.5">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" class="text-blue-900 flex-shrink-0 mt-0.5" viewBox="0 0 24 24"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+              <div><strong class="text-slate-800">Days:</strong> Self-Paced + Weekly 1-on-1s</div>
+            </div>
+            <div class="flex items-start gap-2.5">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" class="text-blue-900 flex-shrink-0 mt-0.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              <div><strong class="text-slate-800">Timings:</strong> Customized Flexible Hours</div>
+            </div>
+            <div class="flex items-start gap-2.5">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" class="text-blue-900 flex-shrink-0 mt-0.5" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+              <div><strong class="text-slate-800">Location:</strong> Online + Pune Lab Visits</div>
+            </div>
+            <div class="flex items-start gap-2.5">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" class="text-blue-900 flex-shrink-0 mt-0.5" viewBox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <div><strong class="text-slate-800">Next Start Date:</strong> <span class="text-purple-700 font-bold">Immediate Admissions</span></div>
+            </div>
+          </div>
+          <div class="bg-slate-50 rounded-xl p-3 text-xs text-slate-500 border border-slate-200/70 mb-6">
+            Includes recorded class library, weekly code reviews with corporate mentors, and job support.
+          </div>
+        </div>
+        <div class="space-y-2">
+          <button onclick="openEnquiryPopup()" class="btn-primary w-full py-3 rounded-xl font-bold text-sm flex items-center justify-center gap-2">
+            Enquire for Hybrid Track
+          </button>
+          <button onclick="openSyllabusModal('Hybrid Mentorship')" class="w-full py-2.5 text-xs font-bold text-slate-700 hover:text-blue-900 border border-slate-200 hover:border-slate-300 rounded-xl transition-all flex items-center justify-center gap-1.5">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+            Download Hybrid Brochure
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- COURSES SECTION -->
 <section id="courses" class="py-10 sm:py-12 md:py-14 px-4 bg-white">
   <div class="max-w-6xl mx-auto">
@@ -941,6 +1091,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
 
 
+  <!-- SYLLABUS LEAD MAGNET BANNER -->
+    <div class="mt-10 reveal bg-gradient-to-r from-[#0F1A42] to-[#1B2B6B] rounded-2xl p-6 sm:p-8 text-white flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl border border-blue-400/20">
+      <div class="space-y-2 text-center md:text-left">
+        <div class="inline-flex items-center gap-2 bg-amber-400/20 text-amber-300 text-xs font-bold px-3 py-1 rounded-full border border-amber-400/30">
+          <span>📄</span> Free Curriculum &amp; Projects Guide
+        </div>
+        <h3 class="text-2xl font-black text-white">Want to Inspect the Complete 120+ Hours Pune Syllabus?</h3>
+        <p class="text-slate-300 text-sm max-w-xl">
+          Get the module-by-module breakdown, 20+ capstone project briefs, tools matrix (Python, SQL, Power BI, Tableau, GenAI), and transparent fee schedule sent directly to your WhatsApp.
+        </p>
+      </div>
+      <div class="flex-shrink-0 flex flex-col sm:flex-row gap-3 w-full md:w-auto">
+        <button onclick="openSyllabusModal()" class="btn-primary py-3.5 px-6 rounded-xl font-bold text-sm flex items-center justify-center gap-2 shadow-lg whitespace-nowrap">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          Download Pune Syllabus PDF
+        </button>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1025,6 +1193,114 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
         <h3 class="text-white font-black text-lg mb-2">Placement Dedicated Room</h3>
         <p class="text-blue-200 text-sm leading-relaxed">Dedicated mock interview space with career counsellors and industry connects for your job journey.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRAINERS & INDUSTRY MENTORS SECTION -->
+<section id="mentors" class="py-12 sm:py-14 md:py-16 px-4 bg-slate-50 border-t border-b border-slate-200/80">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-10 reveal">
+      <span class="section-badge">Industry Mentors</span>
+      <h2 class="text-3xl md:text-4xl font-black mt-4 mb-4 gradient-heading">Learn from Ex-MNC Senior Data Consultants</h2>
+      <p class="text-slate-600 max-w-2xl mx-auto text-sm sm:text-base">
+        Our mentors don't just teach theory &mdash; they are senior practitioners with 8 to 12+ years of hands-on data science experience in top MNCs and IT giants.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6 reveal">
+      <!-- Mentor 1 -->
+      <div class="bg-white rounded-2xl p-6 shadow-md border border-slate-200/80 hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center gap-4 mb-4">
+            <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-blue-900 to-indigo-600 text-white flex items-center justify-center font-black text-xl shadow-md flex-shrink-0">
+              DS
+            </div>
+            <div>
+              <h3 class="font-bold text-lg text-slate-900">Senior Data Scientist &amp; AI Lead</h3>
+              <p class="text-xs text-blue-900 font-semibold">Ex-TCS Senior Analytics Consultant</p>
+              <div class="flex items-center gap-1 mt-1 text-amber-500 text-xs">
+                <span>★ 10+ Years Corporate Exp</span>
+              </div>
+            </div>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
+            Specializes in Python for Data Science, Machine Learning models, predictive analytics, and Advanced SQL pipelines. Has guided 1,500+ students and working professionals into leading Pune analytics roles.
+          </p>
+          <div class="flex flex-wrap gap-1.5 mb-6">
+            <span class="bg-slate-100 text-slate-700 text-[11px] font-semibold px-2.5 py-0.5 rounded-md">Python</span>
+            <span class="bg-slate-100 text-slate-700 text-[11px] font-semibold px-2.5 py-0.5 rounded-md">Machine Learning</span>
+            <span class="bg-slate-100 text-slate-700 text-[11px] font-semibold px-2.5 py-0.5 rounded-md">SQL</span>
+            <span class="bg-slate-100 text-slate-700 text-[11px] font-semibold px-2.5 py-0.5 rounded-md">GenAI</span>
+          </div>
+        </div>
+        <div class="pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500 font-medium">
+          <span>👥 1-on-1 Code Reviews</span>
+          <span>📍 Pune Center Mentor</span>
+        </div>
+      </div>
+
+      <!-- Mentor 2 -->
+      <div class="bg-white rounded-2xl p-6 shadow-md border border-slate-200/80 hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center gap-4 mb-4">
+            <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-amber-600 to-orange-500 text-white flex items-center justify-center font-black text-xl shadow-md flex-shrink-0">
+              BI
+            </div>
+            <div>
+              <h3 class="font-bold text-lg text-slate-900">Lead BI Architect &amp; Visualizer</h3>
+              <p class="text-xs text-orange-600 font-semibold">Ex-Infosys / Cognizant BI Specialist</p>
+              <div class="flex items-center gap-1 mt-1 text-amber-500 text-xs">
+                <span>★ 8+ Years Corporate Exp</span>
+              </div>
+            </div>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
+            Expert in enterprise Power BI deployment, DAX modeling, Tableau dashboard architecture, and automated reporting. Specializes in building resume-worthy client portfolios.
+          </p>
+          <div class="flex flex-wrap gap-1.5 mb-6">
+            <span class="bg-slate-100 text-slate-700 text-[11px] font-semibold px-2.5 py-0.5 rounded-md">Power BI</span>
+            <span class="bg-slate-100 text-slate-700 text-[11px] font-semibold px-2.5 py-0.5 rounded-md">Tableau</span>
+            <span class="bg-slate-100 text-slate-700 text-[11px] font-semibold px-2.5 py-0.5 rounded-md">DAX</span>
+            <span class="bg-slate-100 text-slate-700 text-[11px] font-semibold px-2.5 py-0.5 rounded-md">Data Modeling</span>
+          </div>
+        </div>
+        <div class="pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500 font-medium">
+          <span>📊 Dashboard Portfolio Prep</span>
+          <span>📍 Pune Center Mentor</span>
+        </div>
+      </div>
+
+      <!-- Mentor 3 -->
+      <div class="bg-white rounded-2xl p-6 shadow-md border border-slate-200/80 hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center gap-4 mb-4">
+            <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-emerald-600 to-teal-600 text-white flex items-center justify-center font-black text-xl shadow-md flex-shrink-0">
+              CC
+            </div>
+            <div>
+              <h3 class="font-bold text-lg text-slate-900">Analytics Coach &amp; MIS Lead</h3>
+              <p class="text-xs text-emerald-700 font-semibold">Ex-WNS / Accenture Analytics Manager</p>
+              <div class="flex items-center gap-1 mt-1 text-amber-500 text-xs">
+                <span>★ 12+ Years Corporate Exp</span>
+              </div>
+            </div>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
+            Focuses on Advanced Excel modeling, corporate business problem structuring, resume optimization, and mock technical interviews aligned with Pune MNC hiring criteria.
+          </p>
+          <div class="flex flex-wrap gap-1.5 mb-6">
+            <span class="bg-slate-100 text-slate-700 text-[11px] font-semibold px-2.5 py-0.5 rounded-md">Advanced Excel</span>
+            <span class="bg-slate-100 text-slate-700 text-[11px] font-semibold px-2.5 py-0.5 rounded-md">VBA/Macros</span>
+            <span class="bg-slate-100 text-slate-700 text-[11px] font-semibold px-2.5 py-0.5 rounded-md">Mock Interviews</span>
+            <span class="bg-slate-100 text-slate-700 text-[11px] font-semibold px-2.5 py-0.5 rounded-md">Hiring Connects</span>
+          </div>
+        </div>
+        <div class="pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500 font-medium">
+          <span>🎯 Pune Placement Lead</span>
+          <span>📍 Pune Center Mentor</span>
+        </div>
       </div>
     </div>
   </div>
@@ -1966,100 +2242,142 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 })();
 </script>
 
-<!-- BRANCHES -->
-<section id="branches" class="py-10 sm:py-12 md:py-14 px-4 bg-slate-50 border-t border-b border-slate-200/70">
+<!-- BRANCHES & PUNE CAMPUS SECTION -->
+<section id="branches" class="py-12 sm:py-14 md:py-16 px-4 bg-slate-50 border-t border-b border-slate-200/70">
   <div class="max-w-6xl mx-auto">
-    <div class="text-center mb-8 sm:mb-10 reveal">
-      <span class="section-badge">Training Centers</span>
-      <h2 class="text-3xl md:text-4xl font-black mt-4 mb-4 gradient-heading">Our Pune Campus &amp; Pan-India Presence</h2>
-      <p class="text-slate-500 max-w-xl mx-auto">Visit our Pune training lab or choose online classes with live mentorship.</p>
+    <div class="text-center mb-10 reveal">
+      <span class="section-badge">Pune Training Campus</span>
+      <h2 class="text-3xl md:text-4xl font-black mt-4 mb-4 gradient-heading">Visit Our Pune Center &amp; High-Tech Labs</h2>
+      <p class="text-slate-500 max-w-2xl mx-auto text-sm sm:text-base">
+        Experience hands-on learning with pre-configured dual-monitor workstations, high-speed Wi-Fi, and personalized 1-on-1 mentor desks.
+      </p>
     </div>
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 reveal">
-      <!-- Pune Primary Featured Branch -->
-      <a href="https://maps.app.goo.gl/g58gozpDRuzkD23G8" target="_blank" class="rounded-2xl p-6 text-center shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all cursor-pointer block border border-blue-400/30 relative overflow-hidden col-span-2 md:col-span-1" style="background: linear-gradient(135deg, #0F1A42 0%, #1B2B6B 100%);">
-        <span class="absolute top-2.5 right-2.5 bg-amber-400 text-[#0F1A42] text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider shadow-sm">Flagship Campus</span>
-        <div class="w-12 h-12 mx-auto mb-3 bg-white/15 rounded-xl flex items-center justify-center text-white">
-          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+
+    <!-- Pune Center Highlight & Google Map Grid -->
+    <div class="grid lg:grid-cols-12 gap-8 items-stretch mb-12 reveal">
+      <!-- Center Address & Features Card (7 cols) -->
+      <div class="lg:col-span-7 bg-white rounded-3xl p-6 sm:p-8 shadow-lg border border-slate-200 flex flex-col justify-between">
+        <div>
+          <div class="flex flex-wrap items-center justify-between gap-3 mb-6">
+            <div class="flex items-center gap-3">
+              <div class="w-12 h-12 bg-blue-50 text-[#1B2B6B] rounded-2xl flex items-center justify-center font-bold">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+              </div>
+              <div>
+                <span class="bg-amber-400 text-[#0F1A42] text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider">Pune Flagship Center</span>
+                <h3 class="text-2xl font-black text-slate-900 mt-1">The XL Academy &mdash; Pune Campus</h3>
+              </div>
+            </div>
+            <a href="https://maps.app.goo.gl/g58gozpDRuzkD23G8" target="_blank" class="text-xs font-bold text-blue-900 hover:text-orange-600 inline-flex items-center gap-1.5 transition-colors">
+              <span>Open in Google Maps</span>
+              <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+            </a>
+          </div>
+
+          <div class="grid sm:grid-cols-2 gap-4 mb-6">
+            <div class="p-4 rounded-xl bg-slate-50 border border-slate-100">
+              <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Center Location</div>
+              <div class="text-sm font-bold text-slate-800">Prime Pune IT Corridor</div>
+              <div class="text-xs text-slate-500 mt-1">Convenient transit from Hinjewadi, Wakad, Baner, Kothrud &amp; Shivaji Nagar. Near Main Transit Hub.</div>
+            </div>
+            <div class="p-4 rounded-xl bg-slate-50 border border-slate-100">
+              <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Center Timings</div>
+              <div class="text-sm font-bold text-slate-800">Monday &ndash; Sunday: 9 AM &ndash; 8 PM</div>
+              <div class="text-xs text-slate-500 mt-1">Open 7 days a week for lab practice, offline batches &amp; in-person mentor counseling.</div>
+            </div>
+          </div>
+
+          <!-- Infrastructure Checklist -->
+          <div class="space-y-2.5 text-xs sm:text-sm text-slate-600 mb-6">
+            <div class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-emerald-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+              <span><strong>High-Performance Lab:</strong> Workstations installed with Python, SQL Server, Power BI &amp; Tableau.</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-emerald-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+              <span><strong>1-on-1 Doubt Desk:</strong> Face-to-face debugging with instructors outside regular batch hours.</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-emerald-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+              <span><strong>AC Smart Classrooms:</strong> Dual projection, high-speed Wi-Fi, and hybrid lecture recording setup.</span>
+            </div>
+          </div>
         </div>
-        <div class="font-black text-xl text-white">Pune Campus</div>
-        <div class="text-xs text-blue-100/80 mt-1">Maharashtra · Near IT Hubs</div>
-        <div class="text-xs text-amber-300 font-bold mt-2.5 flex items-center justify-center gap-1 hover:underline">
-          <svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-          Get Directions →
+
+        <div class="pt-4 border-t border-slate-100 flex flex-wrap gap-3">
+          <a href="tel:+917011062944" class="btn-primary flex-1 py-3 rounded-xl font-bold text-sm flex items-center justify-center gap-2">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+            Call Pune Center
+          </a>
+          <a href="https://wa.me/917011062944?text=Hi%2C%20I%20want%20to%20visit%20The%20XL%20Academy%20Pune%20center%20for%20a%20demo%20and%20counselling." target="_blank" class="flex-1 py-3 rounded-xl font-bold text-sm bg-emerald-600 hover:bg-emerald-500 text-white transition-all flex items-center justify-center gap-2 shadow-sm">
+            <svg width="16" height="16" fill="white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Schedule Campus Visit
+          </a>
         </div>
-      </a>
-      <a href="https://maps.app.goo.gl/t2udTsSFnkpcQ6PU8" target="_blank" class="bg-white rounded-2xl p-6 text-center shadow-sm hover:shadow-md hover:border-slate-300 hover:-translate-y-1 transition-all border border-slate-200/80 cursor-pointer block group">
-        <div class="w-12 h-12 mx-auto mb-3 bg-blue-50 text-[#1B2B6B] rounded-xl flex items-center justify-center group-hover:bg-[#1B2B6B] group-hover:text-white transition-all duration-200">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+      </div>
+
+      <!-- Interactive Embedded Google Maps Widget (5 cols) -->
+      <div class="lg:col-span-5 bg-white rounded-3xl p-4 shadow-lg border border-slate-200 flex flex-col">
+        <div class="flex items-center justify-between px-3 py-2 mb-2">
+          <div class="text-xs font-bold text-slate-700 flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+            Pune Training Location Map
+          </div>
+          <span class="text-[11px] text-slate-400">Live Directions Available</span>
         </div>
-        <div class="font-bold text-slate-900 group-hover:text-[#1B2B6B] transition-colors">New Delhi</div>
-        <div class="text-xs text-slate-400 mt-1">Head Office · Dwarka</div>
-        <div class="text-xs text-[#1B2B6B] font-semibold mt-2 flex items-center justify-center gap-1 group-hover:underline">
-          <svg width="10" height="10" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-          View on Maps
+        <div class="relative w-full flex-1 rounded-2xl overflow-hidden min-h-[300px] border border-slate-100 shadow-inner">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d121059.04360341774!2d73.79292679808388!3d18.524598599507914!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bf2e67461101%3A0x828d43bf9d3d3432!2sPune%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
+            width="100%" 
+            height="100%" 
+            style="border:0; position:absolute; top:0; left:0; width:100%; height:100%;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
         </div>
-      </a>
-      <a href="https://maps.app.goo.gl/V48kUJ9mvX2jh4QZ9" target="_blank" class="bg-white rounded-2xl p-6 text-center shadow-sm hover:shadow-md hover:border-slate-300 hover:-translate-y-1 transition-all border border-slate-200/80 cursor-pointer block group">
-        <div class="w-12 h-12 mx-auto mb-3 bg-blue-50 text-[#1B2B6B] rounded-xl flex items-center justify-center group-hover:bg-[#1B2B6B] group-hover:text-white transition-all duration-200">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        <div class="pt-3 px-2 text-center text-xs text-slate-400">
+          Click map to navigate or plan transit via Pune Metro &amp; Bus Routes
         </div>
-        <div class="font-bold text-slate-900 group-hover:text-[#1B2B6B] transition-colors">Gurugram</div>
-        <div class="text-xs text-slate-400 mt-1">Haryana</div>
-        <div class="text-xs text-[#1B2B6B] font-semibold mt-2 flex items-center justify-center gap-1 group-hover:underline">
-          <svg width="10" height="10" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-          View on Maps
-        </div>
-      </a>
-      <a href="https://maps.app.goo.gl/33yVzi5Fb8Vqm2Qy8" target="_blank" class="bg-white rounded-2xl p-6 text-center shadow-sm hover:shadow-md hover:border-slate-300 hover:-translate-y-1 transition-all border border-slate-200/80 cursor-pointer block group">
-        <div class="w-12 h-12 mx-auto mb-3 bg-blue-50 text-[#1B2B6B] rounded-xl flex items-center justify-center group-hover:bg-[#1B2B6B] group-hover:text-white transition-all duration-200">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-        </div>
-        <div class="font-bold text-slate-900 group-hover:text-[#1B2B6B] transition-colors">Noida</div>
-        <div class="text-xs text-slate-400 mt-1">Uttar Pradesh</div>
-        <div class="text-xs text-[#1B2B6B] font-semibold mt-2 flex items-center justify-center gap-1 group-hover:underline">
-          <svg width="10" height="10" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-          View on Maps
-        </div>
-      </a>
-      <a href="https://maps.app.goo.gl/rZefgLVSzdJtjRpF9" target="_blank" class="bg-white rounded-2xl p-6 text-center shadow-sm hover:shadow-md hover:border-slate-300 hover:-translate-y-1 transition-all border border-slate-200/80 cursor-pointer block group">
-        <div class="w-12 h-12 mx-auto mb-3 bg-blue-50 text-[#1B2B6B] rounded-xl flex items-center justify-center group-hover:bg-[#1B2B6B] group-hover:text-white transition-all duration-200">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-        </div>
-        <div class="font-bold text-slate-900 group-hover:text-[#1B2B6B] transition-colors">Bangalore</div>
-        <div class="text-xs text-slate-400 mt-1">Karnataka</div>
-        <div class="text-xs text-[#1B2B6B] font-semibold mt-2 flex items-center justify-center gap-1 group-hover:underline">
-          <svg width="10" height="10" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-          View on Maps
-        </div>
-      </a>
-      <a href="https://maps.app.goo.gl/7HrUBdVw4BtgjZ9f9" target="_blank" class="bg-white rounded-2xl p-6 text-center shadow-sm hover:shadow-md hover:border-slate-300 hover:-translate-y-1 transition-all border border-slate-200/80 cursor-pointer block group">
-        <div class="w-12 h-12 mx-auto mb-3 bg-blue-50 text-[#1B2B6B] rounded-xl flex items-center justify-center group-hover:bg-[#1B2B6B] group-hover:text-white transition-all duration-200">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        </div>
-        <div class="font-bold text-slate-900 group-hover:text-[#1B2B6B] transition-colors">Andheri, Mumbai</div>
-        <div class="text-xs text-slate-400 mt-1">Maharashtra</div>
-        <div class="text-xs text-[#1B2B6B] font-semibold mt-2 flex items-center justify-center gap-1 group-hover:underline">
-          <svg width="10" height="10" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-          View on Maps
-        </div>
-      </a>
-      <a href="https://maps.app.goo.gl/7HrUBdVw4BtgjZ9f9" target="_blank" class="bg-white rounded-2xl p-6 text-center shadow-sm hover:shadow-md hover:border-slate-300 hover:-translate-y-1 transition-all border border-slate-200/80 cursor-pointer block group">
-        <div class="w-12 h-12 mx-auto mb-3 bg-blue-50 text-[#1B2B6B] rounded-xl flex items-center justify-center group-hover:bg-[#1B2B6B] group-hover:text-white transition-all duration-200">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        </div>
-        <div class="font-bold text-slate-900 group-hover:text-[#1B2B6B] transition-colors">Thane, Mumbai</div>
-        <div class="text-xs text-slate-400 mt-1">Maharashtra</div>
-        <div class="text-xs text-[#1B2B6B] font-semibold mt-2 flex items-center justify-center gap-1 group-hover:underline">
-          <svg width="10" height="10" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-          View on Maps
-        </div>
-      </a>
+      </div>
+    </div>
+
+    <!-- Pan-India Branch Presence (Clean secondary list) -->
+    <div class="reveal">
+      <div class="text-center mb-5">
+        <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest">Other Learning Centers Across India</h4>
+      </div>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3">
+        <a href="https://maps.app.goo.gl/t2udTsSFnkpcQ6PU8" target="_blank" class="bg-white rounded-xl p-3 text-center shadow-sm hover:shadow hover:border-blue-400 transition-all border border-slate-200/80 block group">
+          <div class="font-bold text-xs text-slate-800 group-hover:text-blue-900">New Delhi</div>
+          <div class="text-[10px] text-slate-400">Dwarka Head Office</div>
+        </a>
+        <a href="https://maps.app.goo.gl/V48kUJ9mvX2jh4QZ9" target="_blank" class="bg-white rounded-xl p-3 text-center shadow-sm hover:shadow hover:border-blue-400 transition-all border border-slate-200/80 block group">
+          <div class="font-bold text-xs text-slate-800 group-hover:text-blue-900">Gurugram</div>
+          <div class="text-[10px] text-slate-400">Haryana Center</div>
+        </a>
+        <a href="https://maps.app.goo.gl/33yVzi5Fb8Vqm2Qy8" target="_blank" class="bg-white rounded-xl p-3 text-center shadow-sm hover:shadow hover:border-blue-400 transition-all border border-slate-200/80 block group">
+          <div class="font-bold text-xs text-slate-800 group-hover:text-blue-900">Noida</div>
+          <div class="text-[10px] text-slate-400">Sector 62</div>
+        </a>
+        <a href="https://maps.app.goo.gl/rZefgLVSzdJtjRpF9" target="_blank" class="bg-white rounded-xl p-3 text-center shadow-sm hover:shadow hover:border-blue-400 transition-all border border-slate-200/80 block group">
+          <div class="font-bold text-xs text-slate-800 group-hover:text-blue-900">Bangalore</div>
+          <div class="text-[10px] text-slate-400">Karnataka Center</div>
+        </a>
+        <a href="https://maps.app.goo.gl/7HrUBdVw4BtgjZ9f9" target="_blank" class="bg-white rounded-xl p-3 text-center shadow-sm hover:shadow hover:border-blue-400 transition-all border border-slate-200/80 block group">
+          <div class="font-bold text-xs text-slate-800 group-hover:text-blue-900">Andheri</div>
+          <div class="text-[10px] text-slate-400">Mumbai Center</div>
+        </a>
+        <a href="https://maps.app.goo.gl/7HrUBdVw4BtgjZ9f9" target="_blank" class="bg-white rounded-xl p-3 text-center shadow-sm hover:shadow hover:border-blue-400 transition-all border border-slate-200/80 block group">
+          <div class="font-bold text-xs text-slate-800 group-hover:text-blue-900">Thane</div>
+          <div class="text-[10px] text-slate-400">Mumbai Center</div>
+        </a>
+      </div>
     </div>
   </div>
 </section>
 
-
-<!-- FAQ -->
+<!-- FAQ --><!-- FAQ -->
 <section id="faq" class="py-10 sm:py-12 md:py-14 px-4 bg-white">
   <div class="max-w-3xl mx-auto">
     <div class="text-center mb-8 sm:mb-10 reveal">
@@ -2200,10 +2518,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <option>Others</option>
               </select>
             </div>
-            <div>
-              <label class="block text-sm font-semibold text-gray-700 mb-1.5">City *</label>
-              <input type="text" name="city" required value="Pune" placeholder="City / Area * (e.g. Pune, Wakad, Hinjewadi)" class="form-input" />
-            </div>
+            <input type="hidden" name="city" value="Pune" />
             <button type="submit" class="btn-primary w-full py-4 rounded-xl font-bold text-base flex items-center justify-center gap-2 shadow-lg">
               <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               Submit Pune Enquiry
@@ -2308,54 +2623,91 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </footer>
 
-<!-- POPUP (5 second delay) -->
-<div id="popup" class="popup-overlay hidden">
-  <div class="popup-card">
-    <button onclick="closePopup()" class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 text-gray-600 z-10 transition-colors font-bold">
+<!-- SYLLABUS DOWNLOAD LEAD MAGNET MODAL -->
+<div id="syllabusModal" class="popup-overlay hidden" style="z-index: 10001;">
+  <div class="popup-card w-full" style="max-width: 480px; max-height: 90vh; overflow-y: auto;">
+    <button onclick="closeSyllabusModal()" class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 text-gray-600 z-10 transition-colors font-bold">
       <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
     </button>
-    <div class="p-8">
-      <div class="text-center mb-6">
-        <div class="inline-flex items-center gap-2 bg-red-100 text-red-600 text-xs font-bold px-3 py-1.5 rounded-full mb-3">
-          <svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/></svg>
-          ⚡ Pune Special Scholarship Offer
+    <div class="p-6 sm:p-8 pt-8">
+      <div class="text-center mb-5">
+        <div class="inline-flex items-center gap-2 bg-blue-100 text-blue-900 text-xs font-bold px-3 py-1.5 rounded-full mb-3">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          Instant Syllabus &amp; Fee Breakdown PDF
         </div>
-        <h3 class="text-2xl font-black text-blue-900 mb-2">Get a <span style="color: var(--xl-orange);">FREE</span> Demo Class in Pune!</h3>
-        <p class="text-gray-500 text-sm">Talk to our Pune expert counsellor &amp; discover the right data career path for you.</p>
+        <h3 class="text-2xl font-black text-slate-900 mb-1">Download Pune Curriculum</h3>
+        <p class="text-slate-500 text-xs sm:text-sm">Get the complete 120+ hours module list, projects &amp; fees delivered to your WhatsApp.</p>
       </div>
-      <div class="flex flex-col gap-3">
-        <a href="tel:+917011062944" class="btn-primary py-4 rounded-xl font-bold text-base flex items-center justify-center gap-2 text-white">
-          <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-          Call Now: +91 70110 62944
-        </a>
-        <a href="https://wa.me/917011062944?text=Hi%2C%20I%20want%20to%20know%20more%20about%20your%20Data%20Analytics%20%26%20Data%20Science%20courses%20at%20the%20Pune%20branch." target="_blank" class="bg-green-500 hover:bg-green-600 text-white py-4 rounded-xl font-bold text-base flex items-center justify-center gap-2 transition-all">
-          <svg width="18" height="18" fill="white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          WhatsApp Us
-        </a>
+
+      <form id="syllabusForm" action="send_mail.php" method="POST">
+        <input type="hidden" name="page_url" id="syllabusFormUrl" />
+        <input type="hidden" name="city" value="Pune" />
+        <input type="hidden" name="action_type" value="Syllabus Download" />
+        <div class="space-y-3">
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Full Name *</label>
+            <input type="text" name="name" required placeholder="e.g. Rohit Patil" class="form-input text-sm" />
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">WhatsApp Number *</label>
+            <input type="tel" name="phone" required placeholder="e.g. 98765 43210 (For PDF delivery)" class="form-input text-sm" pattern="[0-9+\s\-()]{10,15}" />
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Email Address *</label>
+            <input type="email" name="email" required placeholder="your@email.com" class="form-input text-sm" />
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Select Program *</label>
+            <select name="course" id="syllabusCourseSelect" class="form-input text-sm" required>
+              <option value="Data Analytics with Python (6 Months)">Data Analytics with Python (6 Months)</option>
+              <option value="Data Science with Machine Learning (8 Months)">Data Science with Machine Learning (8 Months)</option>
+              <option value="Data Analytics (4 Months)">Data Analytics (4 Months)</option>
+              <option value="MIS &amp; Reporting (4 Months)">MIS &amp; Reporting (4 Months)</option>
+              <option value="Generative AI &amp; Business Analytics">Generative AI &amp; Business Analytics</option>
+            </select>
+          </div>
+          <button type="submit" id="syllabusSubmitBtn" class="btn-primary w-full py-3.5 rounded-xl font-bold text-base flex items-center justify-center gap-2 shadow-lg">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+            Send Syllabus &amp; Fees (PDF)
+          </button>
+        </div>
+        <p class="text-[11px] text-slate-400 text-center mt-3">
+          🔒 We will send the PDF syllabus directly to your WhatsApp. Zero spam guarantee.
+        </p>
+      </form>
+
+      <!-- Syllabus Success State -->
+      <div id="syllabusSuccess" class="hidden text-center py-6">
+        <div class="w-16 h-16 mx-auto mb-4 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </div>
+        <h3 class="text-xl font-black text-slate-900 mb-2">Syllabus PDF Request Received!</h3>
+        <p class="text-slate-600 text-sm">Our Pune team is sharing the complete curriculum &amp; fee structure on your WhatsApp.<br>You can also call us directly at <a href="tel:+917011062944" class="text-blue-900 font-bold">+91 70110 62944</a></p>
+        <button onclick="closeSyllabusModal()" class="mt-4 btn-primary px-6 py-2.5 rounded-full text-xs font-bold">Close</button>
       </div>
-      <p class="text-center text-xs text-gray-400 mt-4">No spam. We'll only contact you about your Pune enquiry.</p>
     </div>
   </div>
 </div>
 
-<!-- ENQUIRY FORM POPUP -->
+<!-- ENQUIRY FORM POPUP (On-Click Triggered Only) -->
 <div id="enquiryPopup" class="popup-overlay hidden" style="z-index: 10000;">
   <div class="popup-card w-full" style="max-width: 480px; max-height: 90vh; overflow-y: auto;">
     <button onclick="closeEnquiryPopup()" class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 text-gray-600 z-10 transition-colors font-bold">
       <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
     </button>
-    <div class="p-7 pt-8">
+    <div class="p-6 sm:p-8 pt-8">
       <div class="text-center mb-5">
-        <div class="inline-flex items-center gap-2 bg-red-100 text-red-600 text-xs font-bold px-3 py-1.5 rounded-full mb-3">
-          <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
-          ⚡ Pune Batch — Free Demo Class
+        <div class="inline-flex items-center gap-2 bg-emerald-100 text-emerald-800 text-xs font-bold px-3 py-1.5 rounded-full mb-3">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          Pune Campus &mdash; Free Demo Session
         </div>
         <h3 class="text-xl font-black text-blue-900 mb-1">Book Pune Free Demo</h3>
-        <p class="text-gray-400 text-sm">Our counsellor will call you within 2 hours</p>
+        <p class="text-gray-400 text-sm">Our career counsellor will call you within 2 hours</p>
       </div>
       <!-- Popup Form -->
       <form id="popupEnquiryForm" action="send_mail.php" method="POST">
         <input type="hidden" name="page_url" id="popupFormUrl" />
+        <input type="hidden" name="city" value="Pune" />
         <div class="space-y-3">
           <div>
             <label class="block text-sm font-semibold text-gray-700 mb-1.5">Full Name *</label>
@@ -2377,14 +2729,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <option>Data Science with Machine Learning (8 Months)</option>
               <option>Data Analytics (4 Months)</option>
               <option>MIS &amp; Reporting (4 Months)</option>
-              <option>Others</option>
+              <option>Generative AI &amp; Business Analytics</option>
             </select>
           </div>
-          <div>
-            <label class="block text-sm font-semibold text-gray-700 mb-1.5">City *</label>
-            <input type="text" name="city" required value="Pune" placeholder="City / Area * (e.g. Pune, Hinjewadi, Wakad)" class="form-input" />
-          </div>
-          <button type="submit" id="popupSubmitBtn" class="btn-primary w-full py-4 rounded-xl font-bold text-base flex items-center justify-center gap-2 shadow-lg">
+          <button type="submit" id="popupSubmitBtn" class="btn-primary w-full py-3.5 rounded-xl font-bold text-base flex items-center justify-center gap-2 shadow-lg">
             <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             Book Free Demo Class
           </button>
@@ -2407,8 +2755,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </div>
 
-<!-- STICKY BOTTOM URGENCY ACTION BAR -->
-<div class="fixed bottom-0 left-0 right-0 z-50 py-2.5 px-3 sm:px-5 shadow-2xl backdrop-blur-md flex items-center justify-between gap-3 sticky-bottom-bar" style="background: rgba(15, 26, 66, 0.95); border-top: 1px solid rgba(255, 255, 255, 0.12);">
+<!-- STICKY BOTTOM ACTION BAR (Clean Mobile UX without disruptive timers) -->
+<div class="fixed bottom-0 left-0 right-0 z-50 py-2.5 px-3 sm:px-5 shadow-2xl backdrop-blur-md flex items-center justify-between gap-3 sticky-bottom-bar" style="background: rgba(15, 26, 66, 0.96); border-top: 1px solid rgba(255, 255, 255, 0.12);">
   <div class="hidden sm:flex items-center gap-3">
     <span class="relative flex h-2.5 w-2.5">
       <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
@@ -2416,23 +2764,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </span>
     <div>
       <div class="text-white text-xs font-semibold flex items-center gap-1.5">
-        Pune Upcoming Batches Open
-        <span class="bg-blue-500/20 text-blue-200 border border-blue-400/30 text-[10px] font-bold px-2 py-0.5 rounded-full ml-1">4 Seats Remaining</span>
+        Pune Upcoming Batches &mdash; Offline &amp; Hybrid
+        <span class="bg-blue-500/20 text-blue-200 border border-blue-400/30 text-[10px] font-bold px-2 py-0.5 rounded-full ml-1">Limited 15 Seats/Batch</span>
       </div>
-      <div class="text-slate-300 text-[11px]">Enquire Now and get upto 30% off &amp; free demo class</div>
+      <div class="text-slate-300 text-[11px]">Classroom training at Pune Center + 100% Placement Assistance</div>
     </div>
   </div>
   <div class="flex items-center justify-between sm:justify-end gap-2 w-full sm:w-auto">
-    <a href="tel:+917011062944" class="flex-1 sm:flex-initial bg-white/10 hover:bg-white/20 border border-white/15 text-white px-3.5 py-2.5 rounded-xl text-xs md:text-sm font-semibold flex items-center justify-center gap-1.5 shadow-sm transition-all">
-      <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-      <span>Call</span>
+    <a href="javascript:void(0)" onclick="openSyllabusModal()" class="hidden md:inline-flex items-center gap-1 text-xs font-bold text-blue-200 hover:text-white px-3 py-2.5 rounded-xl bg-white/10 hover:bg-white/15 transition-all">
+      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+      <span>Syllabus</span>
     </a>
-    <a href="https://wa.me/917011062944?text=Hi%2C%20I%20am%20interested%20in%20Data%20Analytics%20%26%20Data%20Science%20course%20at%20the%20Pune%20branch.%20Please%20send%20details." target="_blank" class="flex-1 sm:flex-initial bg-[#25D366] hover:bg-[#20ba59] text-white px-3.5 py-2.5 rounded-xl text-xs md:text-sm font-semibold flex items-center justify-center gap-1.5 shadow-sm transition-all">
-      <svg width="14" height="14" fill="white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <a href="tel:+917011062944" class="flex-1 sm:flex-initial bg-white/10 hover:bg-white/20 border border-white/20 text-white px-3.5 py-2.5 rounded-xl text-xs md:text-sm font-bold flex items-center justify-center gap-1.5 shadow-sm transition-all">
+      <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+      <span>Call Center</span>
+    </a>
+    <a href="https://wa.me/917011062944?text=Hi%2C%20I%20want%20details%20about%20the%20upcoming%20Pune%20Data%20Analytics%20batch." target="_blank" class="flex-1 sm:flex-initial bg-[#25D366] hover:bg-[#20ba59] text-white px-3.5 py-2.5 rounded-xl text-xs md:text-sm font-bold flex items-center justify-center gap-1.5 shadow-md transition-all">
+      <svg width="15" height="15" fill="white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
       <span>WhatsApp</span>
     </a>
-    <button onclick="openEnquiryPopup()" class="flex-1 sm:flex-initial bg-[#E8470A] hover:bg-[#D43F07] text-white px-4 py-2.5 rounded-xl text-xs md:text-sm font-bold flex items-center justify-center gap-1.5 shadow-md transition-all">
-      Book Free Demo →
+    <button onclick="openEnquiryPopup()" class="btn-primary flex-1 sm:flex-initial px-4 py-2.5 rounded-xl text-xs md:text-sm font-bold flex items-center justify-center gap-1.5 shadow-md">
+      Free Demo →
     </button>
   </div>
 </div>
@@ -2468,52 +2820,80 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   }, { threshold: 0.1 });
   reveals.forEach(el => revealObs.observe(el));
 
-  // Popup after 5s
-  let popupShown = sessionStorage.getItem('popupShown');
-  if(!popupShown) {
-    setTimeout(() => {
-      document.getElementById('popup').classList.remove('hidden');
-      sessionStorage.setItem('popupShown', '1');
-    }, 5000);
-  }
-
-  function closePopup() {
-    document.getElementById('popup').classList.add('hidden');
-  }
-  document.getElementById('popup').addEventListener('click', function(e) {
-    if(e.target === this) closePopup();
-  });
-
-  // Set current page URL in both forms
+    // Set current page URL in all forms
   const currentUrl = window.location.href;
-  document.getElementById('mainFormUrl').value = currentUrl;
-  document.getElementById('popupFormUrl').value = currentUrl;
+  if (document.getElementById('mainFormUrl')) document.getElementById('mainFormUrl').value = currentUrl;
+  if (document.getElementById('popupFormUrl')) document.getElementById('popupFormUrl').value = currentUrl;
+  if (document.getElementById('heroFormUrl')) document.getElementById('heroFormUrl').value = currentUrl;
+  if (document.getElementById('syllabusFormUrl')) document.getElementById('syllabusFormUrl').value = currentUrl;
 
   // Enquiry Popup open/close
   function openEnquiryPopup() {
-    document.getElementById('enquiryPopup').classList.remove('hidden');
-    document.body.style.overflow = 'hidden';
+    const el = document.getElementById('enquiryPopup');
+    if (el) {
+      el.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
   }
   function closeEnquiryPopup() {
-    document.getElementById('enquiryPopup').classList.add('hidden');
-    document.body.style.overflow = '';
-    // Reset form
-    document.getElementById('popupEnquiryForm').reset();
-    document.getElementById('popupEnquiryForm').style.display = '';
-    document.getElementById('popupFormSuccess').classList.add('hidden');
+    const el = document.getElementById('enquiryPopup');
+    if (el) {
+      el.classList.add('hidden');
+      document.body.style.overflow = '';
+      const f = document.getElementById('popupEnquiryForm');
+      if (f) { f.reset(); f.style.display = ''; }
+      const s = document.getElementById('popupFormSuccess');
+      if (s) s.classList.add('hidden');
+    }
   }
-  // Close on backdrop click
-  document.getElementById('enquiryPopup').addEventListener('click', function(e) {
-    if (e.target === this) closeEnquiryPopup();
-  });
+  const eqEl = document.getElementById('enquiryPopup');
+  if (eqEl) {
+    eqEl.addEventListener('click', function(e) {
+      if (e.target === this) closeEnquiryPopup();
+    });
+  }
+
+  // Syllabus Modal open/close
+  function openSyllabusModal(courseName) {
+    const el = document.getElementById('syllabusModal');
+    if (el) {
+      if (courseName) {
+        const sel = document.getElementById('syllabusCourseSelect');
+        if (sel) {
+          for (let i = 0; i < sel.options.length; i++) {
+            if (sel.options[i].value.toLowerCase().includes(courseName.toLowerCase())) {
+              sel.selectedIndex = i;
+              break;
+            }
+          }
+        }
+      }
+      el.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+  function closeSyllabusModal() {
+    const el = document.getElementById('syllabusModal');
+    if (el) {
+      el.classList.add('hidden');
+      document.body.style.overflow = '';
+      const f = document.getElementById('syllabusForm');
+      if (f) { f.reset(); f.style.display = ''; }
+      const s = document.getElementById('syllabusSuccess');
+      if (s) s.classList.add('hidden');
+    }
+  }
+  const smEl = document.getElementById('syllabusModal');
+  if (smEl) {
+    smEl.addEventListener('click', function(e) {
+      if (e.target === this) closeSyllabusModal();
+    });
+  }
 
   const GOOGLE_SCRIPT_WEBHOOK = "https://script.google.com/macros/s/AKfycbz1DeHDKaLpRzOvJixB4EXnv2-PfcU0wV31yguO9kZoTELxFEFyDal6o_Q6QFOwn8eSYA/exec";
 
-  function handleLeadSubmission(formEl, btnEl, successEl) {
-    // Prevent duplicate submissions if user clicks multiple times
-    if (formEl.dataset.submitting === 'true') {
-      return;
-    }
+  function handleLeadSubmission(formEl, btnEl, successEl, isSyllabus = false) {
+    if (formEl.dataset.submitting === 'true') return;
     formEl.dataset.submitting = 'true';
 
     if (btnEl) {
@@ -2527,7 +2907,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       phone: formData.get('phone') || '',
       email: formData.get('email') || '',
       course: formData.get('course') || '',
-      city: formData.get('city') || '',
+      city: formData.get('city') || 'Pune',
+      action_type: formData.get('action_type') || (isSyllabus ? 'Syllabus Download' : 'Enquiry / Demo'),
       page_url: window.location.href,
       timestamp: new Date().toISOString(),
       source: 'Pune Landing Page'
@@ -2535,23 +2916,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     const jsonPayload = JSON.stringify(leadPayload);
 
-    // 1. Send directly to Google Sheets Webhook (with keepalive to prevent browser cancel on navigation)
+    // 1. Send directly to Google Sheets Webhook
     const gSheetPromise = fetch(GOOGLE_SCRIPT_WEBHOOK, {
       method: 'POST',
       mode: 'no-cors',
       keepalive: true,
       headers: { 'Content-Type': 'text/plain;charset=utf-8' },
       body: jsonPayload
-    }).catch(function(err) {
-      console.warn('GSheet fetch notice:', err);
-    });
+    }).catch(function(err) { console.warn('GSheet notice:', err); });
 
-    // 2. Send to send_mail.php if on web server (Hostinger / Apache / LiteSpeed)
-    const mailPromise = (window.location.protocol.startsWith('http')) 
-      ? fetch('send_mail.php', { method: 'POST', body: formData }).catch(function(e) { console.warn('Mail fetch notice:', e); })
+    // 2. Send to send_mail.php
+    const mailPromise = (window.location.protocol.startsWith('http'))
+      ? fetch('send_mail.php', { method: 'POST', body: formData }).catch(function(e) { console.warn('Mail notice:', e); })
       : Promise.resolve();
 
-    // 3. Wait for submission to complete before redirecting
     Promise.all([gSheetPromise, mailPromise]).then(function() {
       if (formEl) formEl.style.display = 'none';
       if (successEl) successEl.classList.remove('hidden');
@@ -2568,83 +2946,40 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   }
 
   // Popup form submission
-  document.getElementById('popupEnquiryForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const btn = document.getElementById('popupSubmitBtn');
-    handleLeadSubmission(this, btn, document.getElementById('popupFormSuccess'));
-  });
-
-  // Hero form submission
-  document.getElementById('heroEnquiryForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const btn = document.getElementById('heroSubmitBtn');
-    handleLeadSubmission(this, btn, document.getElementById('heroFormSuccess'));
-  });
-
-  // Main Enquiry form submission
-  document.getElementById('enquiryForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const btn = this.querySelector('button[type="submit"]');
-    handleLeadSubmission(this, btn, document.getElementById('formSuccess'));
-  });
-
-  // Set hero form URL
-  document.getElementById('heroFormUrl').value = window.location.href;
-
-  // FAQ toggle
-  function toggleFaq(btn) {
-    const answer = btn.nextElementSibling;
-    const icon = btn.querySelector('span');
-    const isOpen = answer.classList.contains('open');
-    document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
-    document.querySelectorAll('.faq-item button span').forEach(s => { s.textContent = '+'; s.style.transform = 'rotate(0deg)'; });
-    if(!isOpen) {
-      answer.classList.add('open');
-      icon.textContent = '−';
-    }
+  const pForm = document.getElementById('popupEnquiryForm');
+  if (pForm) {
+    pForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      handleLeadSubmission(this, document.getElementById('popupSubmitBtn'), document.getElementById('popupFormSuccess'));
+    });
   }
 
-  // Parallax on hero orbs
-  document.addEventListener('mousemove', (e) => {
-    const x = (e.clientX / window.innerWidth - 0.5) * 20;
-    const y = (e.clientY / window.innerHeight - 0.5) * 20;
-    document.querySelectorAll('.hero-orb').forEach((orb, i) => {
-      orb.style.transform = `translate(${x * (i+1) * 0.5}px, ${y * (i+1) * 0.5}px)`;
+  // Syllabus form submission
+  const sForm = document.getElementById('syllabusForm');
+  if (sForm) {
+    sForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      handleLeadSubmission(this, document.getElementById('syllabusSubmitBtn'), document.getElementById('syllabusSuccess'), true);
     });
-  });
+  }
 
-  // Urgency Countdown Timer
-  (function initCountdown() {
-    let targetTime = localStorage.getItem('puneBatchDeadline');
-    if (!targetTime || isNaN(targetTime)) {
-      targetTime = Date.now() + (1 * 24 * 60 * 60 * 1000) + (14 * 60 * 60 * 1000) + (35 * 60 * 1000);
-      localStorage.setItem('puneBatchDeadline', targetTime);
-    }
-    function updateTimer() {
-      const now = Date.now();
-      let diff = Math.max(0, targetTime - now);
-      if (diff === 0) {
-        targetTime = Date.now() + (24 * 60 * 60 * 1000);
-        localStorage.setItem('puneBatchDeadline', targetTime);
-        diff = 24 * 60 * 60 * 1000;
-      }
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-      const mins = Math.floor((diff / (1000 * 60)) % 60);
-      const secs = Math.floor((diff / 1000) % 60);
-      
-      const dEl = document.getElementById('cdDays');
-      const hEl = document.getElementById('cdHours');
-      const mEl = document.getElementById('cdMins');
-      const sEl = document.getElementById('cdSecs');
-      if (dEl) dEl.textContent = String(days).padStart(2, '0') + 'd';
-      if (hEl) hEl.textContent = String(hours).padStart(2, '0') + 'h';
-      if (mEl) mEl.textContent = String(mins).padStart(2, '0') + 'm';
-      if (sEl) sEl.textContent = String(secs).padStart(2, '0') + 's';
-    }
-    updateTimer();
-    setInterval(updateTimer, 1000);
-  })();
+  // Hero form submission
+  const hForm = document.getElementById('heroEnquiryForm');
+  if (hForm) {
+    hForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      handleLeadSubmission(this, document.getElementById('heroSubmitBtn'), document.getElementById('heroFormSuccess'));
+    });
+  }
+
+  // Main Enquiry form submission
+  const mForm = document.getElementById('enquiryForm');
+  if (mForm) {
+    mForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      handleLeadSubmission(this, this.querySelector('button[type="submit"]'), document.getElementById('formSuccess'));
+    });
+  }
 </script>
 </body>
 </html>
