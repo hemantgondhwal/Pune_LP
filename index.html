@@ -279,7 +279,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .faq-item { border: 1px solid var(--xl-line); border-radius: 16px; overflow: hidden; transition: all 0.3s ease; background: white; }
   .faq-item:hover { border-color: #94A3B8; }
   .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s ease; }
-  .faq-answer.open { max-height: 200px; }
+  .faq-answer.open { max-height: 400px; }
 
   /* Notification bar */
   .notif-bar {
@@ -2391,57 +2391,57 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <div class="space-y-4 reveal" id="faqContainer">
       <div class="faq-item">
-        <button class="w-full text-left p-5 flex items-center justify-between font-bold text-blue-900 text-sm" onclick="toggleFaq(this)">
-          Who can join these courses?
-          <span class="text-orange-500 text-xl transform transition-transform">+</span>
+        <button class="w-full text-left p-5 flex items-center justify-between font-bold text-blue-900 text-sm sm:text-base cursor-pointer" onclick="toggleFaq(this)">
+          <span>Who can join these courses?</span>
+          <span class="text-orange-500 text-xl font-bold transition-transform">−</span>
         </button>
-        <div class="faq-answer px-5 text-gray-500 text-sm leading-relaxed">
-          <p class="pb-4">Anyone from 12th pass, Graduation, MBA, IT &amp; Non-IT background can join our analytics programs. Whether you are a fresher, working professional, or career switcher — we have the right course for you.</p>
+        <div class="faq-answer open px-5 text-gray-600 text-sm leading-relaxed">
+          <p class="pb-4">Anyone with a 12th pass, Graduation (B.E/B.Tech, B.Com, B.Sc, BCA, BBA), MBA, or working background can join our analytics programs. Whether you are a fresh graduate, a working professional seeking career growth, or from a non-IT background wanting to transition into tech &mdash; our step-by-step curriculum is designed for you.</p>
         </div>
       </div>
       <div class="faq-item">
-        <button class="w-full text-left p-5 flex items-center justify-between font-bold text-blue-900 text-sm" onclick="toggleFaq(this)">
-          Do you offer Online &amp; Offline classes?
-          <span class="text-orange-500 text-xl transform transition-transform">+</span>
+        <button class="w-full text-left p-5 flex items-center justify-between font-bold text-blue-900 text-sm sm:text-base cursor-pointer" onclick="toggleFaq(this)">
+          <span>Do you offer Online &amp; Offline classes?</span>
+          <span class="text-orange-500 text-xl font-bold transition-transform">+</span>
         </button>
-        <div class="faq-answer px-5 text-gray-500 text-sm leading-relaxed">
-          <p class="pb-4">Yes! We provide both Online &amp; Offline training with the same quality curriculum and practical exposure. Offline centres are available in 8 cities across India.</p>
+        <div class="faq-answer px-5 text-gray-600 text-sm leading-relaxed">
+          <p class="pb-4">Yes! We offer both Offline Classroom training at our Pune Campus (equipped with modern high-performance labs) and Live Interactive Online classes with real-time screen sharing and mentor doubt solving. You also get access to recorded sessions for easy revision.</p>
         </div>
       </div>
       <div class="faq-item">
-        <button class="w-full text-left p-5 flex items-center justify-between font-bold text-blue-900 text-sm" onclick="toggleFaq(this)">
-          Are these courses beginner-friendly?
-          <span class="text-orange-500 text-xl transform transition-transform">+</span>
+        <button class="w-full text-left p-5 flex items-center justify-between font-bold text-blue-900 text-sm sm:text-base cursor-pointer" onclick="toggleFaq(this)">
+          <span>Are these courses beginner-friendly?</span>
+          <span class="text-orange-500 text-xl font-bold transition-transform">+</span>
         </button>
-        <div class="faq-answer px-5 text-gray-500 text-sm leading-relaxed">
-          <p class="pb-4">Absolutely! We start from basic level and take you to advanced professional level step-by-step. No prior coding or data knowledge is required.</p>
+        <div class="faq-answer px-5 text-gray-600 text-sm leading-relaxed">
+          <p class="pb-4">Absolutely! No prior coding or technical knowledge is required. We start from the absolute basics of Excel, logic, and mathematics, gradually advancing to Python, SQL, Power BI, Machine Learning, and Generative AI.</p>
         </div>
       </div>
       <div class="faq-item">
-        <button class="w-full text-left p-5 flex items-center justify-between font-bold text-blue-900 text-sm" onclick="toggleFaq(this)">
-          Is placement guaranteed?
-          <span class="text-orange-500 text-xl transform transition-transform">+</span>
+        <button class="w-full text-left p-5 flex items-center justify-between font-bold text-blue-900 text-sm sm:text-base cursor-pointer" onclick="toggleFaq(this)">
+          <span>Is placement guaranteed?</span>
+          <span class="text-orange-500 text-xl font-bold transition-transform">+</span>
         </button>
-        <div class="faq-answer px-5 text-gray-500 text-sm leading-relaxed">
-          <p class="pb-4">We provide 100% placement assistance including interview calls, company referrals &amp; job support. Final selection depends on student performance. Our placement track record speaks for itself — 95%+ students get placed.</p>
+        <div class="faq-answer px-5 text-gray-600 text-sm leading-relaxed">
+          <p class="pb-4">We provide 100% placement support including dedicated mock interviews, resume &amp; LinkedIn makeover, and direct interview referrals with our 350+ hiring partners across Pune IT hubs (Hinjewadi, Kharadi, Baner, Magarpatta) and pan-India.</p>
         </div>
       </div>
       <div class="faq-item">
-        <button class="w-full text-left p-5 flex items-center justify-between font-bold text-blue-900 text-sm" onclick="toggleFaq(this)">
-          What is the average salary after the course?
-          <span class="text-orange-500 text-xl transform transition-transform">+</span>
+        <button class="w-full text-left p-5 flex items-center justify-between font-bold text-blue-900 text-sm sm:text-base cursor-pointer" onclick="toggleFaq(this)">
+          <span>What is the average salary after the course?</span>
+          <span class="text-orange-500 text-xl font-bold transition-transform">+</span>
         </button>
-        <div class="faq-answer px-5 text-gray-500 text-sm leading-relaxed">
-          <p class="pb-4">Freshers can start from ₹4–6 LPA. With Data Science / ML skills, experienced professionals can earn ₹12–25 LPA depending on skills, location, and interview performance.</p>
+        <div class="faq-answer px-5 text-gray-600 text-sm leading-relaxed">
+          <p class="pb-4">Freshers typically start with packages between &#8377;4.5 LPA to &#8377;6.5 LPA. Working professionals transitioning into Data Analytics or Data Science achieve packages ranging from &#8377;8 LPA to &#8377;18+ LPA depending on prior experience and role.</p>
         </div>
       </div>
       <div class="faq-item">
-        <button class="w-full text-left p-5 flex items-center justify-between font-bold text-blue-900 text-sm" onclick="toggleFaq(this)">
-          Is EMI / Education Loan available?
-          <span class="text-orange-500 text-xl transform transition-transform">+</span>
+        <button class="w-full text-left p-5 flex items-center justify-between font-bold text-blue-900 text-sm sm:text-base cursor-pointer" onclick="toggleFaq(this)">
+          <span>Is EMI / Education Loan available?</span>
+          <span class="text-orange-500 text-xl font-bold transition-transform">+</span>
         </button>
-        <div class="faq-answer px-5 text-gray-500 text-sm leading-relaxed">
-          <p class="pb-4">Yes! We offer easy EMI options and education loan tie-ups to make quality education affordable for everyone. Contact us to learn more.</p>
+        <div class="faq-answer px-5 text-gray-600 text-sm leading-relaxed">
+          <p class="pb-4">Yes! We offer 0% interest EMI options and flexible installment plans through our financial partners, ensuring financial constraints never stop you from learning.</p>
         </div>
       </div>
     </div>
@@ -2984,6 +2984,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       e.preventDefault();
       handleLeadSubmission(this, this.querySelector('button[type="submit"]'), document.getElementById('formSuccess'));
     });
+  }
+
+  // FAQ Accordion Toggle
+  function toggleFaq(btn) {
+    const answer = btn.nextElementSibling;
+    const icon = btn.querySelector('span:last-child');
+    const isOpen = answer.classList.contains('open');
+
+    // Close all other answers
+    document.querySelectorAll('.faq-answer').forEach(function(a) {
+      a.classList.remove('open');
+    });
+    document.querySelectorAll('.faq-item button span:last-child').forEach(function(s) {
+      s.textContent = '+';
+    });
+
+    // Toggle clicked answer
+    if (!isOpen) {
+      answer.classList.add('open');
+      if (icon) icon.textContent = '−';
+    }
   }
 </script>
 </body>
